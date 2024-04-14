@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--==Title========================-->
+    <title>Recruitment and Employment Blog</title>
+    <!--==CSS==========================-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--==Poppins======================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--==Font-Awesome=================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .blog-heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .blog-box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .blog-box {
+            width: 30%;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .blog-box img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .blog-box-text {
+            margin-top: 10px;
+        }
+        #blog-table, #comments-table {
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        #blog-table form, #comments-table form {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        #blog-table h2, #comments-table h2 {
+            margin-bottom: 10px;
+        }
+        #blog-table input[type="text"], #comments-table input[type="text"], #comments-table textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #blog-table input[type="submit"], #comments-table input[type="submit"] {
+            width: 40%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #blog-table input[type="submit"]:hover, #comments-table input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!--==Blog================================-->
+    <section id="blog">
+
+        <div class="blog-heading">
+            <strong>Recent Posts</strong>
+            <h3>Recruitment and Employment Articles</h3>
+        </div>
+
+        <!--**container**************-->
+        <div class="blog-box-container">
+        
+            <!-- **box** -->
+            <div class="blog-box">
+                <!--img-->
+                <div class="blog-box-img">
+                    <img alt="blog" src="images/recruitment1.jpg">
+                    <a href="#" class="blog-img-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <!--text-->
+                <div class="blog-box-text">
+                    <strong>Top Skills for Modern Job Seekers</strong>
+                    <a href="#">Discover the Essential Skills Every Employer Looks For</a>
+                    <p>Learn about the key skills and qualities that can make you stand out in today's competitive job market.</p>
+                    <div class="blog-author">
+                        <div class="blog-author-img">
+                            <img alt="" src="images/author1.jpg" style="max-width: 50px;">
+                        </div>
+                        <div class="blog-author-text">
+                            <strong>John Doe</strong>
+                            <span>March 5, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!--box-end-->
+
+            <!-- **box** -->
+            <div class="blog-box">
+                <!--img-->
+                <div class="blog-box-img">
+                    <img alt="blog" src="images/recruitment2.jpg">
+                    <a href="#" class="blog-img-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <!--text-->
+                <div class="blog-box-text">
+                    <strong>Interview Preparation Tips</strong>
+                    <a href="#">Ace Your Next Job Interview with These Proven Strategies</a>
+                    <p>Get expert advice on how to prepare for job interviews, from researching the company to mastering common interview questions.</p>
+                    <div class="blog-author">
+                        <div class="blog-author-img">
+                            <img alt="" src="images/author2.png" style="max-width: 50px;">
+                        </div>
+                        <div class="blog-author-text">
+                            <strong>Jane Smith</strong>
+                            <span>March 12, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!--box-end-->
+
+
+            <!-- **box** -->
+            <div class="blog-box">
+                <!--img-->
+                <div class="blog-box-img">
+                    <img alt="blog" src="images/recruitment3.jpg">
+                    <a href="#" class="blog-img-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <!--text-->
+                <div class="blog-box-text">
+                    <strong>Remote Work Opportunities</strong>
+                    <a href="#">Explore the Benefits and Challenges of Remote Work</a>
+                    <p>Discover how remote work is changing the employment landscape and learn how to thrive in a remote work environment.</p>
+                    <div class="blog-author">
+                        <div class="blog-author-img">
+                            <img alt="" src="images/author3.jpg" style="max-width: 50px;">
+                        </div>
+                        <div class="blog-author-text">
+                            <strong>Emily Johnson</strong>
+                            <span>March 20, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!--box-end-->
+        
+        </div>
+
+    </section>
+
+    <!-- Blog Table Form -->
+    <div id="blog-table">
+        <h2>Blog Table Form</h2>
+        <form action="#">
+            <label for="blogName">Blog Name:</label><br>
+            <input type="text" id="blogName" name="blogName"><br>
+            <label for="subject">Subject:</label><br>
+            <input type="text" id="subject" name="subject"><br>
+            <label for="authorID">Author ID:</label><br>
+            <input type="text" id="authorID" name="authorID"><br>
+            <label for="content">Content:</label><br>
+            <textarea id="content" name="content"></textarea><br>
+            <label for="date">Date:</label><br>
+            <input type="text" id="date" name="date"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Comments Table Form -->
+    <div id="comments-table">
+        <h2>Comments Table Form</h2>
+        <form action="#">
+            <label for="blogID">Blog ID:</label><br>
+            <input type="text" id="blogID" name="blogID"><br>
+            <label for="commentText">Comment Text:</label><br>
+            <textarea id="commentText" name="commentText"></textarea><br>
+            <label for="commentAuthorID">Author ID:</label><br>
+            <input type="text" id="commentAuthorID" name="commentAuthorID"><br>
+            <label for="commentDate">Date:</label><br>
+            <input type="text" id="commentDate" name="commentDate"><br><br>
+            <label for="commentRating">Rating:</label><br>
+            <input type="text" id="commentRating" name="commentRating"><br>
+            <label for="commentStatus">Status:</label><br>
+            <input type="text" id="commentStatus" name="commentStatus"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>
