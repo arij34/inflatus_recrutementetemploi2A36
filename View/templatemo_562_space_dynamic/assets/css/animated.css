@@ -3150,3 +3150,25 @@
   -webkit-animation-name: slideOutUp;
           animation-name: slideOutUp;
 }
+.scroll-text {
+  position: relative;
+  width: 100%;
+  height: 100px; /* Ajustez la hauteur selon vos besoins */
+  overflow: hidden;
+}
+
+.scroll-text p {
+  margin: 0;
+  line-height: 30px; /* Ajustez selon la taille du texte */
+  animation: scroll 5s infinite linear;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+

@@ -28,8 +28,6 @@
 
 }( typeof window != 'undefined' ? window : this, function() {
 
-
-
 function EvEmitter() {}
 
 var proto = EvEmitter.prototype;

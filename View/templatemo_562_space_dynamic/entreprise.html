@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajouter entreprise</title>
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- STYLE -->
+    <link rel="stylesheet" href="assets\css\entreprise.css">
+    <link href="sweetalert\css\sweetalert.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="form-container">
+    <div class="col col-1">
+        <div class="image-layer">
+            <img src="assets\images\about-left-image.png" class="form-image-main">
+            <img src="assets/images/cloud.png" class="form-image cloud">
+            <img src="assets/images/stars.png" class="form-image stars">
+        </div>
+        <p class="featured-words">Bienvenue sur <span> Khademni</span></p>
+     </div>
+
+        <div class="login-form">
+            <div class="form-title">
+                <span>ajouter entreprise </span>
+            </div>
+            <form  method="POST" action="../addEntreprise.php">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Nom d'entreprise" name="nomEntreprise" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Adresse" name="adresse" required>
+                </div>
+                <div class="input-box">
+                    <input type="tel" class="input-field" placeholder="Téléphone 1" name="telephone1" required>
+                </div>
+                <div class="input-box">
+                    <input type="tel" class="input-field" placeholder="Téléphone 2" name="telephone2">
+                </div>
+                <div class="input-box">
+                    <input type="email" class="input-field" placeholder="Email" name="email" required>
+                </div>
+                <div class="input-box">
+                    <input type="date" class="input-field" placeholder="Date de création" name="dateCreation" required>
+                </div>
+                <div class="input-box">
+                    <select class="input-field" name="idCategorie" required>
+                        <option value="" disabled selected hidden> Catégorie</option>
+                        <option value="web">Développement Web</option>
+                        <option value="mobile">Développement Mobile</option>
+                        <option value="data">Science des Données</option>
+                        <option value="security">Sécurité Informatique</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="input-box">
+                    <input type="file" class="input-field" accept="image/*" name="cheminImage">
+                </div>
+                <div class="input-box">
+                    <button type="submit" name="envoyer" style="background-color: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">envoyer<i class="bx bx-right-arrow-alt"></i></button>
+                </div>
+               
+            </form>
+            
+        </div>
+    </div>
+  
+</div>
+<script src="assets/js/validation.js"></script>
+<script src="sweetalert\js\sweetalert.init.js"></script>
+<script src="sweetalert\js\sweetalert.min.js"></script>
+</body>
+</html>
