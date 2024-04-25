@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+?>
+<html>
 <html lang="en">
 
 <head>
@@ -51,7 +53,7 @@ https://templatemo.com/tm-562-space-dynamic
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="offreliste_web.html" class="logo">
+            <a href="offreliste_mobile.php" class="logo">
               <h4>
                 
                 Kha<span>Damni</span>
@@ -84,7 +86,7 @@ https://templatemo.com/tm-562-space-dynamic
 
 
 <div class="section-heading text-center wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
-    <h2><em>Pour ajouter vos offres </em> <a href="../templatemo_562_space_dynamic/formulaire.html"><span>ou vos demandes cliquer ici</span></a></h2>
+    <h2><em>Pour ajouter vos offres </em> <a href="../templatemo_562_space_dynamic/formulaire.php"><span>ou vos demandes cliquer ici</span></a></h2>
 </div>
 
 

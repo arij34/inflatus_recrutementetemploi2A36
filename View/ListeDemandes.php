@@ -1,7 +1,7 @@
 <?php
-include '../Controller/OffreC.php';
-$offreC = new OffreC();
-$liste = $offreC->ListeOffres();
+include '../Controller/DemandeC.php';
+$demandeC = new DemandeC();
+$liste = $demandeC->ListeDemandes();
 ?>
 <html>
 
@@ -18,58 +18,55 @@ $liste = $offreC->ListeOffres();
 
 <body>
   
-
-  
-
   <body style="padding-top: 100px;">
     <div class="row page-titles mx-0">
       <div class="col-lg-6">
-        <div class="card" style="width: 1400px;">
+        <div class="card" style="width: 1200px;">
           <div class="card-body">
-            <h4 class="card-title">Table Offres</h4>
+            <h4 class="card-title">Table Demandes</h4>
             <div class="table-responsive">
               <table class="table table-bordered verticle-middle">
                 <thead>
                   <tr>
+                    <th scope="col">id_d</th>
+                    <th scope="col">id_etudiant</th>
+                    <th scope="col">nom_d</th>
+                    <th scope="col">prenom_d</th>
+                    <th scope="col">email_d</th>
+                    <th scope="col">telephone_d</th>
+                    <th scope="col">cv_d</th>
+                    <th scope="col">lettre_motivation</th>
                     <th scope="col">id_o</th>
-                    <th scope="col">domaine_informatique</th>
-                    <th scope="col">titre</th>
-                    <th scope="col">description_o</th>
-                    <th scope="col">type</th>
-                    <th scope="col">entreprise</th>
-                    <th scope="col">lieu</th>
-                    <th scope="col">date_publication</th>
-                    <th scope="col">date_limite</th>
-                    <th scope="col">contact</th>
-                    <th scope="col">status_o</th>
+                    <th scope="col">date_d</th>
+                    <th scope="col">status_d</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  foreach ($liste as $offre) {
+                  foreach ($liste as $demande) {
                   ?>
                     <tr>
-                      <td><?php echo $offre['id_o']; ?></td>
-                      <td><?php echo $offre['domaine_informatique']; ?></td>
-                      <td><?php echo $offre['titre']; ?></td>
-                      <td><?php echo $offre['description_o']; ?></td>
-                      <td><?php echo $offre['type_o']; ?></td>
-                      <td><?php echo $offre['entreprise']; ?></td>
-                      <td><?php echo $offre['lieu']; ?></td>
-                      <td><?php echo $offre['date_publication']; ?></td>
-                      <td><?php echo $offre['date_limite']; ?></td>
-                      <td><?php echo $offre['contact']; ?></td>
-                      <td><?php echo $offre['status_o']; ?></td>
+                      <td><?php echo $demande['id_d']; ?></td>
+                      <td><?php echo $demande['id_etudiant']; ?></td>
+                      <td><?php echo $demande['nom_d']; ?></td>
+                      <td><?php echo $demande['prenom_d']; ?></td>
+                      <td><?php echo $demande['email_d']; ?></td>
+                      <td><?php echo $demande['telephone_d']; ?></td>
+                      <td><?php echo $demande['cv_d']; ?></td>
+                      <td><?php echo $demande['lettre_motivation']; ?></td>
+                      <td><?php echo $demande['id_o']; ?></td>
+                      <td><?php echo $demande['date_d']; ?></td>
+                      <td><?php echo $demande['status_d']; ?></td>
                       <td>
-                        <form method="POST" action="updateOffre.php">
-                          <input type="hidden" value="<?php echo $offre['id_o']; ?>" name="id_o">
+                        <form method="POST" action="updateDemande.php">
+                          <input type="hidden" value="<?php echo $demande['id_d']; ?>" name="id_d">
                           <button type="submit" class="btn btn-primary" name="update"><i class="fa fa-pencil"></i></button>
                         </form>
                       </td>
                       <td>
-                        <form method="POST" action="deleteOffre.php">
-                          <input type="hidden" value="<?php echo $offre['id_o']; ?>" name="id_o">
+                        <form method="POST" action="deleteDemande.php">
+                          <input type="hidden" value="<?php echo $demande['id_d']; ?>" name="id_d">
                           <button type="submit" class="btn btn-danger" name="delete"><i class="fa fa-trash"></i></button>
                         </form>
                       </td>
