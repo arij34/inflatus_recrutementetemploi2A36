@@ -43,10 +43,6 @@ $list = $reclamationC->listereclamation();
                                 <thead>
                                     <tr>
                                         <th scope="col">id_reclame</th>
-                                        <th scope="col">prenom</th>
-                                        <th scope="col">nom</th>
-                                        <th scope="col">email</th>
-                                        <th scope="col">tel</th>
                                         <th scope="col">date</th>
                                         <th scope="col">categorie_reclamation</th>
                                         <th scope="col">explication</th>
@@ -60,10 +56,6 @@ $list = $reclamationC->listereclamation();
                                 ?>
                                     <tr>
                                         <td><?php echo $reclamation['id_reclamation']; ?></td>
-                                        <td><?php echo $reclamation['prenom']; ?></td>
-                                        <td><?php echo $reclamation['nom']; ?></td>
-                                        <td><?php echo $reclamation['email']; ?></td>
-                                        <td><?php echo $reclamation['tel']; ?></td>
                                         <td><?php echo $reclamation['date']; ?></td>
                                         <td><?php echo $reclamation['categorie_reclamation']; ?></td>
                                         <td><?php echo $reclamation['explication']; ?></td>

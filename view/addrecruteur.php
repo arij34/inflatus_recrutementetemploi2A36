@@ -9,19 +9,12 @@ $reclamation = null;
 // create an instance of the controller
 $reclamationC = new reclamationC();
 if (
-    isset($_POST["prenom"]) &&
-    isset($_POST["nom"]) &&
-    isset($_POST["email"]) &&
-    isset($_POST["tel"]) &&
+   
     isset($_POST["date"]) &&
     isset($_POST["categorie_reclamation"]) &&
     isset($_POST["explication"])
 ) {
     if (
-        !empty($_POST["prenom"]) &&
-        !empty($_POST["nom"]) &&
-        !empty($_POST["email"]) &&
-        !empty($_POST["tel"]) &&
         !empty($_POST["date"]) &&
         !empty($_POST["categorie_reclamation"]) &&
         !empty($_POST["explication"])
@@ -29,10 +22,6 @@ if (
         // Note: Ne pas inclure le premier paramètre (NULL) pour l'ID de réclamation si votre base de données gère automatiquement l'ID
         $reclamation = new reclamation(
             NULL,
-            $_POST['prenom'],
-            $_POST['nom'],
-            $_POST['email'],
-            $_POST['tel'],
             new DateTime($_POST["date"]),
             $_POST['categorie_reclamation'],
             $_POST['explication']

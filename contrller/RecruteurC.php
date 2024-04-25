@@ -33,16 +33,12 @@ class reclamationC
 
     public function addreclamation($reclamation)
 {
-    $sql = "INSERT INTO reclamation (prenom, nom, email, tel, date, categorie_reclamation, explication) 
-            VALUES (:prenom, :nom, :email, :tel, :date, :categorie_reclamation, :explication)";
+    $sql = "INSERT INTO reclamation ( date, categorie_reclamation, explication) 
+            VALUES (:date, :categorie_reclamation, :explication)";
     $db = config::getConnexion();
     try {
         $query = $db->prepare($sql);
         $query->execute([
-            ':prenom' => $reclamation->getprenom(),
-            ':nom' => $reclamation->getnom(), 
-            ':email' => $reclamation->getemail(),
-            ':tel' => $reclamation->gettel(),
             ':date' => $reclamation->getdate()->format('Y-m-d'),
             ':categorie_reclamation' => $reclamation->getcategorie_reclamation(),
             ':explication' => $reclamation->getexplication(),
@@ -59,10 +55,6 @@ class reclamationC
         $db = config::getConnexion();
         $query = $db->prepare(
             'UPDATE reclamation SET 
-                prenom =:prenom, 
-                nom =:nom, 
-                email =:email, 
-                tel =:tel,
                 date =:date,
                 categorie_reclamation =:categorie_reclamation,
                 explication =:explication
@@ -70,10 +62,6 @@ class reclamationC
         );
         $query->execute([
             'id_reclamation' => $reclamation->getid_reclamation(),
-            'prenom' => $reclamation->getprenom(),
-            'nom' => $reclamation->getnom(),
-            'email' => $reclamation->getemail(),
-            'tel' => $reclamation->gettel(),
             'date' => $reclamation->getdate()->format('Y-m-d'),
             'categorie_reclamation' => $reclamation->getcategorie_reclamation(),
             'explication' => $reclamation->getexplication(),
@@ -84,21 +72,6 @@ class reclamationC
     }
 }
 
-
-   /* function showrecruteur($nom)
-    {
-        $sql = "SELECT * FROM reclamation  WHERE nom= $nom ";
-        $db = config::getConnexion();
-        try {
-            $query = $db->prepare($sql);
-            $query->execute();
-
-            $reclamation = $query->fetch();
-            return $reclamation;
-        } catch (Exception $r) {
-            die('Error: ' . $r->getMessage());
-        }
-    }*/
     function showrecruteur($id_reclamation)
     {
         $sql = "SELECT * FROM reclamation WHERE id_reclamation = :id_reclamation";
