@@ -1,8 +1,7 @@
 <?php
+require_once 'C:\xampp\htdocs\gestion entretien\front end\controler\testC.php';
 require_once 'C:\xampp\htdocs\gestion entretien\front end\controler\entretienC.php';
 $userC = new UserC();
-
-
 
 $error = "";
 
@@ -28,48 +27,76 @@ if (
 
         $userC->addUser($user);
 
-        header('Location: success.php');
+        echo '<script>alert("Utilisateur ajouter avec succés.");</script>';
         exit;
     } else {
         $error = "Tous les champs doivent être remplis";
     }
 }
 
-/*if (
+$userC2 = new UserC2();
+
+if (
+    isset($_POST["id_test"]) &&
     isset($_POST["email_test"]) &&
     isset($_POST["nom_entre"]) &&
     isset($_POST["prenom_entre"]) &&
-    isset($_POST["nom_entreprise_test"])&&
-    isset($_POST["date_entre"])&&
+    isset($_POST["nom_entreprise_test"]) &&
+    isset($_POST["date_entre"]) &&
     isset($_POST["type_entre"])
 ) {
     if (
+        !empty($_POST['id_test']) &&
         !empty($_POST['email_test']) &&
         !empty($_POST["nom_entre"]) &&
         !empty($_POST["prenom_entre"]) &&
-        !empty($_POST["nom_entreprise_test"])&&
-        !empty($_POST["date_entre"])&&
+        !empty($_POST["nom_entreprise_test"]) &&
+        !empty($_POST["date_entre"]) &&
         !empty($_POST["type_entre"])
     ) {
-        $user = new User(
-            null,
-            $_POST['email_test'],
-            $_POST['nom_entre'],
-            $_POST['prenom_entre'],
-            $_POST['nom_entreprise_test'],
-            $_POST['date_entre'],
-            $_POST['date_test']
+        // Check if the provided id_test exists in the test table
+        $id_test = $_POST['id_test'];
+        $pdo = new PDO(
+            'mysql:host=localhost;dbname=entretien',
+            'root',
+            '',
+            [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            ]
         );
+        $query = "SELECT id_test FROM test WHERE id_test = ?";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$id_test]);
+        $existing_id_test = $statement->fetchColumn();
 
-        $userC->addUser($user);
+        // If the provided id_test does not exist, display an alert message
+        if (!$existing_id_test) {
+            echo '<script>alert("Le id_test fourni n\'existe pas. Veuillez entrer un id_test valide.");</script>';
+        } else {
+            // Proceed with adding the user to the entretien table
+            $user2 = new User2(
+                null,
+                $_POST['id_test'],
+                $_POST['email_test'],
+                $_POST['nom_entre'],
+                $_POST['prenom_entre'],
+                $_POST['nom_entreprise_test'],
+                $_POST['date_entre'],
+                $_POST['type_entre']
+            );
 
-        header('Location: success.php');
-        exit;
+            $userC2->addUser2($user2);
+
+            echo '<script>alert("Utilisateur ajouter avec succés.");</script>';
+            exit;
+        }
     } else {
         $error = "Tous les champs doivent être remplis";
     }
-}*/
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,145 +165,86 @@ if (
     </form>
 </div>
 
-<style>
-    .error-message {
-        color: red;
-    }
-</style>
 
-        <script>
-    document.getElementById('test-form').addEventListener('submit', function(event) {
-        // Prevent form submission
-        event.preventDefault();
-        
-        // Reset error messages
-        document.querySelectorAll('.error-message').forEach(function(error) {
-            error.textContent = '';
-        });
-        
-        // Validate email
-        var email = document.getElementById('email').value;
-        if (!isValidEmail(email)) {
-            document.getElementById('email-error').textContent = 'enter une addresse email valide  ';
-            return;
-        }
-        
-        // Other validation logic for fields like entreprise, domaine, and date
-        
-        // If all validations pass, submit the form
-        this.submit();
-    });
-
-    function isValidEmail(email) {
-        // Regular expression to validate email format
-        var emailRegex = /\S+@\S+\.\S+/;
-        return emailRegex.test(email);
-    }
-</script>
-<form action="" method="POST" onsubmit="return validateForm()">
+<div class="login-form">
+    <form id="test-form" action="register.php" method="post">
         <div class="register-form">
             <div class="form-title">
-                <span>Entretien </span>
+                <span>Entretien</span>
             </div>
-            <form action="#" method="post">
             <div class="form-inputs">
-                        <div class="input-box">
-                        <div class="input-box">
-                            <input type="text" class="input-field" placeholder="Email" name="email_test" onkeypress="handleEmailInput(event)" required>
-                        </div>
-                        </div>
-                    <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Nom" name="nom_test" onkeypress="allowLettersOnly(event)" required>
-                        <input type="text" class="input-field" placeholder="Prénom" name="prenom_test" onkeypress="allowLettersOnly(event)" required>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Entreprise" name="nom_entreprise_test" onkeypress="allowLettersOnly(event)" required>
-                        
-                    </div>
-                    <div class="input-box">
-                        <input type="date" class="input-field" placeholder="Date d'entretien" name="date_entre" style="width: 100%;" required>
-                    </div>
-                    <div class="input-box">
-                        <select class="input-field" style="width: 100%;" name="type_entre" required>
-                            <option value="" disabled selected hidden> Type d'entretien</option>
-                            <option value="web">En ligne</option>
-                            <option value="mobile">Presentiel</option>
-                        </select>
-                    </div>
-                    <div class="input-box">
-                            <button type="submit" class="input-submit">
-                                <span>registrer</span>
-                                <i class="bx bx-right-arrow-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-    
-    <script>
-    function validateForm() {
-    var nomR = document.forms["myForm"]["nomR"].value;
-    var prenomR = document.forms["myForm"]["prenomR"].value;
-    var telephoneR = document.forms["myForm"]["telephoneR"].value;
-    var dateR = document.forms["myForm"]["dateR"].value;
-    var emailR = document.forms["myForm"]["emailR"].value;
-    var MDPR = document.forms["myForm"]["MDPR"].value;
-    
-    // Vérification du nom et prénom (lettres uniquement)
-    var letters = /^[A-Za-z]+$/;
-    if (!nomR.match(letters) || !prenomR.match(letters)) {
-        alert("Le nom et le prénom ne doivent contenir que des lettres");
-        return false;
-    }
-
-    // Vérification de la date de naissance (format YYYY-MM-DD)
-    if (!dateR.match(/^\d{4}-\d{2}-\d{2}$/)) {
-        alert("La date de naissance doit être au format YYYY-MM-DD");
-        return false;
-    }
-
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(emailR);
-
-
-
-    // Vérification du numéro de téléphone (8 chiffres exactement)
-    var phoneNumbers = /^\d{8}$/;
-    if (!phoneNumbers.test(telephoneR)) {
-        alert("Le numéro de téléphone doit contenir exactement 8 chiffres");
-        return false;
-    }
-
-    return true;
-    }
-
-    // Fonction pour intercepter les événements de frappe et empêcher la saisie de chiffres dans les champs nom et prénom
-    function allowNumbersOnly(event) {
-    var charCode = event.which || event.keyCode;
-    var inputValue = event.target.value;
-
-    // Check if the character is a digit from 0 to 9
-    if (charCode >= 48 && charCode <= 57) {
-        // Check if the total number of digits in the input is already 8
-        if (inputValue.length >= 8) {
-            event.preventDefault(); // Prevent further input
-        }
-    } else {
-        event.preventDefault(); // Prevent input if not a digit
-    }
-
-    }
-
-    function allowLettersOnly(event) {
-    var charCode = event.which || event.keyCode;
-    if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
-        event.preventDefault();
-    }
-}
-
-</script>
-    </div>
+            <div class="input-box">
+                    <input type="text" class="input-field" placeholder="id de test" name="id_test"value="<?= isset($existing_id_test['id_test']) ? $existing_id_test['id_test'] : '' ?>">
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Email" name="email_test">
+                    <td><span id="erreurEmail" style='color:red'></span></td>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Nom" name="nom_entre">
+                    <td><span id="erreurNom" style='color:red'></span></td>
+                    <input type="text" class="input-field" placeholder="Prenom" name="prenom_entre">
+                    <td><p id="errorPrenom" style='color:red'></p></td>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Nom Entreprise" name="nom_entreprise_test">
+                    <td><p id="errorEntre" style='color:red'></p></td>
+                </div>
+                <div class="input-box">
+                    <input type="date" class="input-field" placeholder="Date d'entretien'" name="date_entre">
+                    <td><span id="errorDate_naissance" style='color:red'></span></td>
+                </div>
+                <div class="input-box">
+                    <select class="input-field" name="type_entre" style="width: 100%;">
+                        <option value="" disabled selected hidden> Type d'entretien</option>
+                        <option value="en ligne">En ligne</option>
+                        <option value="presentiel">Presentiel</option>
+                    </select>
+                    <button type="submit" class="input-submit">
+                        <span>register</span>
+                        <i class="bx bx-right-arrow-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+</div>
+
+<script>
+    function validateIdTest() {
+        var id_test = document.getElementById("id_test").value;
+        // Perform AJAX request to check if the id_test exists in the database
+        // You can use XMLHttpRequest or fetch API for this purpose
+        // For demonstration, I'll assume a function called checkIdTestExists is used
+        checkIdTestExists(id_test);
+        return false; // Prevent form submission until AJAX request completes
+    }
+
+    function checkIdTestExists(id_test) {
+        // Make an AJAX request to your PHP script to check if the id_test exists
+        // Here, you would send the id_test to your PHP script and handle the response
+        // For demonstration, I'll assume a simple example using fetch API
+        fetch('check_id_test.php?id_test=' + id_test)
+            .then(response => response.json())
+            .then(data => {
+                if (data.exists) {
+                    // If id_test exists, allow form submission
+                    document.getElementById("id_test_error").innerText = "";
+                    document.getElementById("entretien-form").submit();
+                } else {
+                    // If id_test does not exist, display an error message
+                    document.getElementById("id_test_error").innerText = "ID de test incorrect";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+
 <script src="assets/js/main.js"></script>
+<script src="front end/contr_saisie.js"></script>
 </body>
 </html>
 

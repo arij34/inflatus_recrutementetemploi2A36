@@ -1,19 +1,37 @@
 <?php
-class User
+class User2
 {
+    private $id_entre = null;
     private $id_test = null;
     private $email_test = null;
+    private $nom_entre = null;
+    private $prenom_entre = null;
     private $nom_entreprise_test = null;
-    private $domaine_informatique_test = null;
-    private $date_test = null;
+    private $date_entre = null;
+    private $type_entre = null;
 
-    public function __construct($id_test, $email_test, $nom_entreprise_test, $domaine_informatique_test, $date_test)
+    public function __construct($id_entre, $id_test, $email_test, $nom_entre, $prenom_entre, $nom_entreprise_test, $date_entre, $type_entre)
     {
+        $this->id_entre = $id_entre;
         $this->id_test = $id_test;
         $this->email_test = $email_test;
+        $this->nom_entre = $nom_entre;
+        $this->prenom_entre = $prenom_entre;
         $this->nom_entreprise_test = $nom_entreprise_test;
-        $this->domaine_informatique_test = $domaine_informatique_test;
-        $this->date_test = $date_test;
+        $this->date_entre = $date_entre;
+        $this->type_entre = $type_entre;
+    }
+
+    
+
+    public function getIdEntre()
+    {
+        return $this->id_entre;
+    }
+
+    public function setIdEntre($id_entre)
+    {
+        $this->id_entre = $id_entre;
     }
 
     public function getIdTest()
@@ -36,6 +54,26 @@ class User
         $this->email_test = $email_test;
     }
 
+    public function getNomEntre()
+    {
+        return $this->nom_entre;
+    }
+
+    public function setNomEntre($nom_entre)
+    {
+        $this->nom_entre = $nom_entre;
+    }
+
+    public function getPrenomEntre()
+    {
+        return $this->prenom_entre;
+    }
+
+    public function setPrenomEntre($prenom_entre)
+    {
+        $this->prenom_entre = $prenom_entre;
+    }
+
     public function getNomEntrepriseTest()
     {
         return $this->nom_entreprise_test;
@@ -46,25 +84,26 @@ class User
         $this->nom_entreprise_test = $nom_entreprise_test;
     }
 
-    public function getDomaineInformatiqueTest()
+    public function getDateEntre()
     {
-        return $this->domaine_informatique_test;
+        return $this->date_entre;
     }
 
-    public function setDomaineInformatiqueTest($domaine_informatique_test)
+    public function setDateEntre($date_entre)
     {
-        $this->domaine_informatique_test = $domaine_informatique_test;
+        $this->date_entre = $date_entre;
     }
 
-    public function getDateTest()
+    public function getTypeEntre()
     {
-        return $this->date_test;
+        return $this->type_entre;
     }
 
-    public function setDateTest($date_test)
+    public function setTypeEntre($type_entre)
     {
-        $this->date_test = $date_test;
+        $this->type_entre = $type_entre;
     }
 }
+
 
 ?>

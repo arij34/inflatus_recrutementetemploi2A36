@@ -1,5 +1,5 @@
 <?php
-include '../controler/entretienC.php';
+include '../controler/testC.php';
 
 $userC = new UserC();
 

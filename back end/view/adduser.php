@@ -1,5 +1,6 @@
 <?php
-include '../controler/entretienC.php'; 
+include '../controler/testC.php';
+
 $userC = new UserC();
 
 $error = "";
@@ -31,6 +32,9 @@ if (
     } else {
         $error = "Tous les champs doivent être remplis";
     }
+
+
+    
 }
 
 
