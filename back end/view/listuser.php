@@ -340,6 +340,7 @@ if ($users || $users2)  {
 
                 </div>
 
+<<<<<<< HEAD
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -421,6 +422,131 @@ if ($users || $users2)  {
                         </div>                        
                     </div>
                 </div>
+=======
+                <div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h4>Table de Test</h4>
+                <!-- Bouton "Ajouter" 
+                <a href="../view/adduser.php" class="btn btn-primary btn-md btn-icon float-right">
+                    Ajouter
+                    <i class="now-ui-icons ui-1_simple-add"></i>
+                </a>-->
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>Entreprise</th>
+                            <th>Domaine Informatique</th>
+                            <th>Date De Test</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($users as $user) : ?>
+    <tr>
+        <td class="text-center"><?= isset($user['id_test']) ? $user['id_test'] : ''; ?></td>
+        <td><?= isset($user['email_test']) ? $user['email_test'] : ''; ?></td>
+        <td><?= isset($user['nom_entreprise_test']) ? $user['nom_entreprise_test'] : ''; ?></td>
+        <td><?= isset($user['domaine_informatique_test']) ? $user['domaine_informatique_test'] : ''; ?></td>
+        <td><?= isset($user['date_test']) ? $user['date_test'] : ''; ?></td>
+        <td class="td-actions text-right">
+            <!-- Bouton "Modifier" -->
+            <form id="update_form" method="POST" action="../view/updateuser.php">
+    <input type="hidden" name="id_test" value="<?= isset($user['id_test']) ? $user['id_test'] : ''; ?>">
+    <button type="submit" name="modifier" class="btn btn-success btn-md btn-icon">
+        Modifier
+        <i class="now-ui-icons ui-2_settings-90"></i>
+    </button>
+</form>
+
+
+            <!-- Bouton "Supprimer" -->
+            <a href="../view/deleteuser.php?id_test=<?= isset($user['id_test']) ? $user['id_test'] : ''; ?>" class="btn btn-danger btn-md btn-icon">
+                Supprimer
+                <i class="now-ui-icons ui-1_simple-remove"></i>
+            </a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h4>Table d'entretien</h4>
+                <!-- Bouton "Ajouter" -->
+                <!-- Bouton "Ajouter" 
+                <a href="../view/addentretien.php" class="btn btn-primary btn-md btn-icon float-right">
+                    Ajouter
+                    <i class="now-ui-icons ui-1_simple-add"></i>
+                </a>-->
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Id test</th>
+                            <th>Email</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Entreprise</th>
+                            <th>Date D'entretien</th>
+                            <th>Type D'entretien</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($users2 as $user2) : ?>
+    <tr>
+        <td class="text-center"><?= isset($user2['id_entre']) ? $user2['id_entre'] : ''; ?></td>
+        <td><?= isset($user2['id_test']) ? $user2['id_test'] : ''; ?></td>
+        <td><?= isset($user2['email_test']) ? $user2['email_test'] : ''; ?></td>
+        <td><?= isset($user2['nom_entre']) ? $user2['nom_entre'] : ''; ?></td>
+        <td><?= isset($user2['prenom_entre']) ? $user2['prenom_entre'] : ''; ?></td>
+        <td><?= isset($user2['nom_entreprise_test']) ? $user2['nom_entreprise_test'] : ''; ?></td>
+        <td><?= isset($user2['date_entre']) ? $user2['date_entre'] : ''; ?></td>
+        <td><?= isset($user2['type_entre']) ? $user2['type_entre'] : ''; ?></td>
+        <td class="td-actions text-right">
+            <!-- Bouton "Modifier" -->
+            <form id="update_form" method="POST" action="../view/updateentretien.php">
+    <input type="hidden" name="id_entre" value="<?= isset($user2['id_entre']) ? $user2['id_entre'] : ''; ?>">
+    <button type="submit" name="modifier" class="btn btn-success btn-md btn-icon">
+        Modifier
+        <i class="now-ui-icons ui-2_settings-90"></i>
+    </button>
+</form>
+
+
+            <!-- Bouton "Supprimer" -->
+            <a href="../view/deleteentretien.php?id_test=<?= isset($user2['id_entre']) ? $user2['id_entre'] : ''; ?>" class="btn btn-danger btn-md btn-icon">
+                Supprimer
+                <i class="now-ui-icons ui-1_simple-remove"></i>
+            </a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90
 
                 <div class="row">
                         <div class="col-lg-3 col-sm-6">

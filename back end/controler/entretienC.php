@@ -22,7 +22,11 @@ class UserC2
     {
         try{
             $pdo=connexion::getConnexion();
+<<<<<<< HEAD
             $query=$pdo->prepare("SELECT * FROM entretien WHERE id_test =:id_test");
+=======
+            $query=$pdo->prepare("SELECT * FROM entretien WHERE test =:id_test");
+>>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90
             $query->execute(['id_test'=> $id_test]);
             return $query->fetchAll();
         }catch(PDOExecption $e){
@@ -32,11 +36,19 @@ class UserC2
     }
 
 
+<<<<<<< HEAD
     public function listUsers($id_test)
     {
         try{
         $pdo=connexion::getConnexion();
         $query=$pdo->prepare("SELECT* FROM test WHERE id_test =:id_test");
+=======
+    public function listUsers($test)
+    {
+        try{
+        $pdo=connexion::getConnexion();
+        $query=$pdo->prepare("SELECT* FROM test WHERE test =:id_test");
+>>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90
         $query->execute(['id_test' =>$id_test ]);
         return $query->fetchAll();
         } catch(PDOException $e){

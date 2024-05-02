@@ -10,6 +10,10 @@ const option_list = document.querySelector(".option_list");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
+<<<<<<< HEAD
+=======
+const suivantBtn = document.querySelector(".result_box .buttons .suivant");
+>>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90
 
 // if startQuiz button clicked
 start_btn.onclick = ()=>{
@@ -213,6 +217,7 @@ function queCounter(index){
 }
 
 
+<<<<<<< HEAD
 
 const suivantBtn = document.querySelector(".result_box .buttons .suivant");
 suivantBtn.addEventListener("click", function() {
@@ -245,3 +250,44 @@ suivantBtn.addEventListener("click", function() {
     }
 });
 
+=======
+/*const suivantBtn = document.querySelector(".result_box .buttons .suivant");
+
+// Adding event listener to the "Suivant" button
+suivantBtn.addEventListener("click", function() {
+    console.log("Suivant button clicked");
+});
+
+
+// Adding event listener to the "Suivant" button
+suivantBtn.addEventListener("click", function() {
+    // Check if the user score is greater than 3
+    if (userScore > 3) {
+        // If score > 3, redirect to the specified URL
+        window.location.href = "http://localhost/gestion%20entretien/front%20end/view/register2.php";
+    } else {
+        // If score <= 3, display a message or perform any other action
+        alert("Your score is not high enough to proceed to register2.php");
+    }
+});*/
+suivantBtn.addEventListener("click", function() {
+    // Get the user's score
+    const score = userScore;
+    // Prompt the user for the test ID
+    const idTest = prompt("Please enter your test ID (ID Test):");
+    
+    if (idTest) { // If the user entered an ID
+        // Check if the score is above 4
+        if (score > 3) {
+            // If score > 3, redirect to register2.php with test ID and verification flag
+            window.location.href = `http://localhost/gestion%20entretien/front%20end/view/register2.php?id_test=${idTest}&verif=1`;
+        } else {
+            // If score <= 3, redirect to the same page with test ID and verification flag
+            window.location.href = `http://localhost/gestion%20entretien/front%20end/view/register2.php?id_test=${idTest}&verif=0`;
+        }
+    } else {
+        // If the user didn't enter an ID, show an alert
+        alert("You didn't enter your test ID.");
+    }
+});
+>>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90

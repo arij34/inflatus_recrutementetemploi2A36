@@ -42,7 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Check if update successful
             if ($result) {
                 $success_message = "Modifications enregistrées avec succès.";
+<<<<<<< HEAD
                 header('Location: table-basic.php');
+=======
+>>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90
             } else {
                 $error = "Erreur lors de la mise à jour de l'utilisateur.";
             }
