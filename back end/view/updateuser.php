@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 echo "Form submitted"; // Add this line
-include '../controler/entretienC.php';
+include '../controler/testC.php';
 
 $userC = new UserC();
 
@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Check if update successful
             if ($result) {
                 $success_message = "Modifications enregistrées avec succès.";
+                header('Location: table-basic.php');
             } else {
                 $error = "Erreur lors de la mise à jour de l'utilisateur.";
             }

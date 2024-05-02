@@ -1,10 +1,16 @@
 <?php
+include '../controler/testC.php';
 include '../controler/entretienC.php';
-$userC = new UserC();
 
+$userC = new UserC();
 $users = $userC->listUsers();
 
-if ($users)  {
+$userC2 = new UserC2();
+$users2 = $userC2->listUsers2();
+
+if ($users || $users2)  {
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -191,17 +197,25 @@ if ($users)  {
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../view/dashboard/index.html">acceuil</a></li>
+                            <li><a href="listuser.php">Acceuil</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
                     <li class="nav-label">Gestions</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Utilisateurs</span>
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Tables </span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../view/dashboard/table-basic.html" aria-expanded="false">Gestion Entretien</a></li>
+                            <li><a href="table-basic.php" aria-expanded="false">Gestion Entretien</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Statistique</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./chart-morris.php">Gestion Entretien</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -326,124 +340,87 @@ if ($users)  {
 
                 </div>
 
-                <div class="col-lg-6">
-    <div class="card">
-        <div class="card-body">
-            <div class="card-title">
-                <h4>Table de Test</h4>
-                <!-- Bouton "Ajouter" -->
-                <a href="../view/adduser.php" class="btn btn-primary btn-md btn-icon float-right">
-                    Ajouter
-                    <i class="now-ui-icons ui-1_simple-add"></i>
-                </a>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Email</th>
-                            <th>Entreprise</th>
-                            <th>Domaine Informatique</th>
-                            <th>Date De Test</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($users as $user) : ?>
-    <tr>
-        <td class="text-center"><?= isset($user['id_test']) ? $user['id_test'] : ''; ?></td>
-        <td><?= isset($user['email_test']) ? $user['email_test'] : ''; ?></td>
-        <td><?= isset($user['nom_entreprise_test']) ? $user['nom_entreprise_test'] : ''; ?></td>
-        <td><?= isset($user['domaine_informatique_test']) ? $user['domaine_informatique_test'] : ''; ?></td>
-        <td><?= isset($user['date_test']) ? $user['date_test'] : ''; ?></td>
-        <td class="td-actions text-right">
-            <!-- Bouton "Modifier" -->
-            <form id="update_form" method="POST" action="../view/updateuser.php">
-    <input type="hidden" name="id_test" value="<?= isset($user['id_test']) ? $user['id_test'] : ''; ?>">
-    <button type="submit" name="modifier" class="btn btn-success btn-md btn-icon">
-        Modifier
-        <i class="now-ui-icons ui-2_settings-90"></i>
-    </button>
-</form>
-
-
-            <!-- Bouton "Supprimer" -->
-            <a href="../view/deleteuser.php?id_test=<?= isset($user['id_test']) ? $user['id_test'] : ''; ?>" class="btn btn-danger btn-md btn-icon">
-                Supprimer
-                <i class="now-ui-icons ui-1_simple-remove"></i>
-            </a>
-        </td>
-    </tr>
-<?php endforeach; ?>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-                    <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-title">
-                                    <h4>Table d'Entretien</h4>
-                                     <!-- Bouton "Ajouter" -->
-                                        <a href="../view/adduser.php" class="btn btn-primary btn-md btn-icon float-right">
-                                            Ajouter
-                                            <i class="now-ui-icons ui-1_simple-add"></i>
-                                        </a>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
+                                <div class="active-member">
+                                    <div class="table-responsive">
+                                        <table class="table table-xs mb-0">
+                                            <thead>
+                                                <th>id</th>
+                                                <th>Nom-utilisateur</th>
+                                                <th>téléphone</th>
+                                                <th>Date de naissance</th>
                                                 <th>Email</th>
-                                                <th>Nom</th>
-                                                <th>Prenom</th>
-                                                <th>Entreprise</th>
-                                                <th>Date d'entretien</th>
-                                                <th>type entretien</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <!--<?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td class="text-center"><?= isset($user['id_test']) ? $user['id_test'] : ''; ?></td>
-                                <td><?= isset($user['email_test']) ? $user['email_test'] : ''; ?></td>
-                                <td><?= isset($user['nom_entre']) ? $user['nom_entre'] : ''; ?></td>
-                                <td><?= isset($user['prenom_entre']) ? $user['prenom_entre'] : ''; ?></td>
-                                <td><?= isset($user['nom_entreprise_test']) ? $user['nom_entreprise_test'] : ''; ?></td>
-                                <td><?= isset($user['date_entre']) ? $user['date_entre'] : ''; ?></td>
-                                <td><?= isset($user['type_entre']) ? $user['type_entre'] : ''; ?></td>
-                                <td class="td-actions text-right">
-                                    <!-- Bouton "Modifier" 
-                                    <form method="POST" action="../view/updateuser.php">
-                                        <button class="btn btn-success btn-md btn-icon" type="submit" name="modifier">
-                                            Modifier
-                                            <i class="now-ui-icons ui-2_settings-90"></i>
-                                        </button>
-                                        <input type="hidden" value="<?= isset($user['id_test']) ? $user['id_test'] : ''; ?>" name="id_test">
-                                    </form>
-
-                                    <!-- Bouton "Supprimer" 
-                                    <a href="../view/deleteuser.php?id_test=<?= isset($user['id_test']) ? $user['id_test'] : ''; ?>" class="btn btn-danger btn-md btn-icon">
-                                        Supprimer
-                                        <i class="now-ui-icons ui-1_simple-remove"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>-->
-                                            
-                                        </tbody>
-                                    </table>
+                                                <th>Mot De Passe</th>
+                                                <th>Role</th>
+                                                <th>Departement</th>
+                                                <th>Telephone Professionnel</th>
+                                                
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>AmeniIssaoui</td>
+                                                    <td>28236733</td>
+                                                    <td>02/01/2024</td>
+                                                    <td>ameniissaoui@esprit.tn</td>
+                                                    <td>2331</td>
+                                                    <td>CEO</td>
+                                                    <td>Gestion User</td>
+                                                    <td>713578540</td>
+                                                    <td><span class="badge badge-success px-2">Passable</span></td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>yomnabouallegue</td>
+                                                    <td>28236733</td>
+                                                    <td>02/01/2004</td>
+                                                    <td>yomnabouallegue@esprit.tn</td>
+                                                    <td>2331</td>
+                                                    <td>CEO</td>
+                                                    <td>Gestion Entretien</td>
+                                                    <td>713578540</td>
+                                                    <td><span class="badge badge-success px-2">Passable</span></td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>WiemRhouma</td>
+                                                    <td>28236733</td>
+                                                    <td>02/01/2003</td>
+                                                    <td>WiemRhouma@esprit.tn</td>
+                                                    <td>2331</td>
+                                                    <td>CEO</td>
+                                                    <td>Gestion Entreprise</td>
+                                                    <td>713578540</td>
+                                                    <td><span class="badge badge-success px-2">Passable</span></td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>MolkaDh'</td>
+                                                    <td>28236733</td>
+                                                    <td>27/03/2003</td>
+                                                    <td>Malika@esprit.tn</td>
+                                                    <td>2331</td>
+                                                    <td>CEO</td>
+                                                    <td>touskiyeeinformatic</td>
+                                                    <td>713578540</td>
+                                                    <td><span class="badge badge-success px-2">Passable</span></td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                                
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
+                    </div>
+                </div>
 
                 <div class="row">
                         <div class="col-lg-3 col-sm-6">
@@ -516,7 +493,7 @@ if ($users)  {
         </div>
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by KHADEMNI</a> 2024</p>
+                <p>Copyright &copy; Designed & Developed by KHADAMNI</a> 2024</p>
             </div>
         </div>
     </div>

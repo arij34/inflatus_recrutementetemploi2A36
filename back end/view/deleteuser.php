@@ -1,5 +1,5 @@
 <?php
-include '../controler/entretienC.php';
+include '../controler/testC.php';
 
 $userC = new UserC();
 
@@ -7,5 +7,5 @@ if (isset($_GET["id_test"])) {
     $userC->deleteUser($_GET["id_test"]);
 }
 
-header('Location: ../view/listuser.php');
+header('Location: ../view/table-basic.php');
 ?>

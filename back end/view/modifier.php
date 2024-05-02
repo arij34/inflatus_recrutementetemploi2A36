@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include '../controler/entretienC.php';
+include '../controler/testC.php';
 
 $userC = new UserC();
 
