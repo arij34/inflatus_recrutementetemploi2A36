@@ -2,23 +2,21 @@
 include '../Controller/DemandeC.php';
 $demandeC = new DemandeC();
 $liste = $demandeC->ListeDemandes();
+
 ?>
+<!-- Afficher la liste des demandes dans un tableau -->
 <html>
-
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- 
-
+  <meta name="viewport" content="width=device-width, initial-scale=1 ,shrink-to-fit=no">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
   <link href="quixlab-master/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
-  
-  <body style="padding-top: 100px;">
+<div class="content">
+  <tbody style="padding-top: 100px;">
     <div class="row page-titles mx-0">
       <div class="col-lg-6">
         <div class="card" style="width: 1200px;">
@@ -82,21 +80,22 @@ $liste = $demandeC->ListeDemandes();
       </div>
     </div>
 
-   
-
-    <script src="../templatemo_562_space_dynamic/assets/js/isotope.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/owl-carousel.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/animation.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/imagesloaded.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/templatemo-custom.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/main.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/tabs.js"></script>
+  </tbody>
+  
+  </div>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/imagesloaded.js"></script>
+    <script src="assets/js/templatemo-custom.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tabs.js"></script>
 
     
-    <script src="../templatemo_562_space_dynamic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../templatemo_562_space_dynamic/vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
-    <script src="../templatemo_562_space_dynamic/vendor/bootstrap/js/bootstrap.min.js"></script>
-  
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  </div>
   </body>
 
 </html>

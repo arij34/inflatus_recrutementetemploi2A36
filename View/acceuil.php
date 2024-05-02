@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+
+?>
+
 <html lang="en">
 
   <head>
@@ -40,7 +43,7 @@ https://templatemo.com/tm-562-space-dynamic
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="acceuil.html" class="logo">
+            <a href="acceuil.php" class="logo">
               <h4>
                 <div class="corner-container">
                   <img src="assets/images/logo.png" >
@@ -178,18 +181,23 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </div>
 
+
+
+  
+
+
+
   <div id="services" class="our-services section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading text-center wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
-          <center><h2><em>Voici les différents</em> <span>domaines de nos offres</span></h2></center>
-        </div>
-        
-        <center><div class="main-blue-button">
-          <a href="domaine.php">Ajouter un domaine </a>
-        </div></center>
-        
+              <center><div class="main-blue-button">
+                 <a href="domaine.php">Ajouter un domaine </a>
+              </div></center>
+              <div class="section-heading text-center wow bounceIn" data-wow-duration="1s" data-wow-delay="0.1s">
+               <h2><span style="color: #03a4ed;"> Voici les différents </span> domaines <span style="color:#fe3f40;">de nos offres!!!</span> </h2>
+                &nbsp;&nbsp;
+              </div>
         </div>
       </div>
       <div class="row">
@@ -206,7 +214,7 @@ https://templatemo.com/tm-562-space-dynamic
               </style>
               
               <div class="showed-content text-center">
-                  <a href="offreliste_mobile.php"><img src="assets/images/développement mobile.png" alt="Description de l'image"></a>
+                  <img src="assets/images/développement mobile.png" alt="Description de l'image">
               </div>
           </div>
           
@@ -220,7 +228,7 @@ https://templatemo.com/tm-562-space-dynamic
               </div>
               
               <div class="showed-content">
-                  <a href="offreliste_web.php"><img src="assets/images/développement web.png" alt="Description de l'image"></a>
+                  <img src="assets/images/développement web.png" alt="Description de l'image">
               </div>
           </div>
           
@@ -240,7 +248,7 @@ https://templatemo.com/tm-562-space-dynamic
               </div>
           
               <div class="showed-content text-center">
-                  <a href="offreliste_secu.php"><img src="assets/images/securité de l'informatique.png" alt="Description de l'image"></a>
+                  <img src="assets/images/securité de l'informatique.png" alt="Description de l'image">
               </div>
           </div>
           
@@ -253,26 +261,83 @@ https://templatemo.com/tm-562-space-dynamic
                   <h4>Science de l'informatique</h4>
               </div>
               <div class="showed-content">
-                  <a href="offreliste_data.php"><img src="assets/images/science de l'informatique.png" alt="Description de l'image"></a>
+                  <img src="assets/images/science de l'informatique.png" alt="Description de l'image">
               </div>
           </div>
           
           </a>
         </div>
 
+        <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+              <h2> <em> <span style="color: #03a4ed;"> Voila </span></em>nos <span style="color:#fe3f40;">offres!!!</span> </h2>
+              &nbsp;&nbsp;
+                <p>Découvrez nos offres d'emploi et de stage et bonne chance dans vos recherches !</p>
+                <form id="search" action="#" method="GET">
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <fieldset>
+                  <div style="display: flex; justify-content: center;">
+                    <div class="main-blue-button" style="margin-right: 10px;">
+                      <a href="ListeOffres_front.php">Voir tous les Offres</a>
+                    </div>
+                    <div class="main-blue-button">
+                       <a href="addOffre.php">Ajouter une offre</a>
+                   </div>
+                 </div>
+                </fieldset>
+
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="assets/images/Job hunt-cuate.png" alt="team meeting">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
         
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading text-center wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <center></center><h2><em>Voici les différents</em> <span>demandes</span></h2></center>
-           </div>
-           <style>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+          <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="assets/images/Online Review-pana.png" alt="team meeting">
+              </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <h2> <em> <span style="color: #03a4ed;"> Voila </span></em>nos <span style="color:#fe3f40;">demandes!!!</span> </h2>
+                &nbsp;&nbsp;
+                <p>Pour ajouter votre demande et consulter la liste des offres pour plus d'informations, n'hésitez pas à ajouter votre demande dès maintenant.</p>
+                <form id="search" action="#" method="GET">
+                  
+                <fieldset>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+  <div style="display: flex; justify-content: center;">
+    <div class="main-orange-button" style="margin-right: 20px;">
+      <a href="ListeDemandes_front.php">Voir tous les demandes</a>
+    </div>
+    <div class="main-orange-button">
+      <a href="ajoutDemande.php">Ajouter une demande</a>
+    </div>
+  </div>
+</fieldset>
+
+                <style>
            .main-orange-button {
             background-color: #fe3f40;
             color: white; /* Couleur du texte en blanc */
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 25px;
             display: inline-block;
             text-decoration: none;
             font-weight: bold;
@@ -282,73 +347,18 @@ https://templatemo.com/tm-562-space-dynamic
             color: white; /* Couleur du texte en blanc pour les liens */
         }
       </style>
-        
-           <center>
-            <div class="main-orange-button">
-                <a href="demande.php " >Ajouter votre demande </a>
+                </form>
+              </div>
             </div>
-        </center>
-        
-        
+            
+          </div>
         </div>
       </div>
-  
-      
-    <div class="row">
-      <div class="col-lg-6">
-          <div class="col-lg-20 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-              <div class="left-image">
-                  <div class="col-lg-10 col-sm-6">
-                      <center>
-                          <div class="info">
-                              <div class="inner-content">
-                                  <ul>
-                                      <li><i class="fa fa-calendar"></i> 24 Mar 2024</li>
-                                      <li><i class="fa fa-users"></i> farah chebane</li>
-                                      <li><i class="fa fa-folder"></i> CV</li>
-                                  </ul>
-                                  <a href="#"><h4>DEMANDE DE STAGE  &amp; développement web </h4></a>
-                                  <p>Postuler dans l'entrprise actia ,ariana soghra </p>
-                                  <div class="main-blue-button">
-                                      <a href="#">Voir plus </a>
-                                  </div>
-                              </div>
-                          </div>
-                      </center>
-                  </div>
-              </div>
-          </div>
+        
       </div>
-      <div class="col-lg-6">
-          <div class="col-lg-20 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-              <div class="left-image">
-                  <div class="col-lg-10 col-sm-6">
-                      <center>
-                          <div class="info">
-                              <div class="inner-content">
-                                  <ul>
-                                      <li><i class="fa fa-calendar"></i> 25 Avr 2024</li>
-                                      <li><i class="fa fa-users"></i> cheker hassen</li>
-                                      <li><i class="fa fa-folder"></i> CV</li>
-                                  </ul>
-                                  <a href="#"><h4>DEMANDE D'EMPLOIS  &amp;securité </h4></a>
-                                  <p>Postuler dans l'entrprise HP ,ariana soghra </p>
-                                  <div class="main-blue-button">
-                                      <a href="#">Voir plus </a>
-                                  </div>
-                              </div>
-                          </div>
-                      </center>
-                  </div>
-              </div>
-          </div>
-      </div>
+
   </div>
   
-    
-     
-
-
   </div>
     
 </div>

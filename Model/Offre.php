@@ -2,34 +2,30 @@
 class Offre
 {
     private ?int $id_o = null;
-    private ?string $domaine_informatique = null;
+    private ?int $id_dom = null;
     private ?string $titre = null;
     private ?string $description_o = null;
-    private ?string $type_o  = null;
+    private ?string $type_o = null;
     private ?string $entreprise = null;
     private ?string $lieu = null;
     private ?DateTime $date_publication = null;
     private ?DateTime $date_limite = null;
     private ?int $contact = null;
-    private ?string $status_o  = null;
+    private ?string $status_o = null;
 
-
-
-
-    public function __construct($id_o= null, $di, $ti, $de, $ty ,$en ,$l ,$dp ,$dl ,$c ,$s)
+    public function __construct($id_o, $id_dom, $titre, $description_o, $type_o, $entreprise, $lieu, $date_publication, $date_limite, $contact, $status_o)
     {
-        $this->id_o= $id_o;
-        $this->domaine_informatique = $di;
-        $this->titre = $ti;
-        $this->description_o = $de;
-        $this->type_o = $ty;
-        $this->entreprise = $en;
-        $this->lieu = $l;
-        $this->date_publication = $dp;
-        $this->date_limite = $dl;
-        $this->contact = $c;
-        $this->status_o = $s;
-
+        $this->id_o = $id_o;
+        $this->id_dom = $id_dom;
+        $this->titre = $titre;
+        $this->description_o = $description_o;
+        $this->type_o = $type_o;
+        $this->entreprise = $entreprise;
+        $this->lieu = $lieu;
+        $this->date_publication = $date_publication;
+        $this->date_limite = $date_limite;
+        $this->contact = $contact;
+        $this->status_o = $status_o;
     }
 
     /**
@@ -43,9 +39,9 @@ class Offre
     /**
      * Get the value of lastName
      */
-    public function getdomaine_informatique()
+    public function getid_dom()
     {
-        return $this->domaine_informatique;
+        return $this->id_dom;
     }
 
     /**
@@ -53,9 +49,9 @@ class Offre
      *
      * @return  self
      */
-    public function setdomaine_informatique($domaine_informatique)
+    public function setid_dom($id_dom)
     {
-        $this->domaine_informatique = $domaine_informatique;
+        $this->id_dom = $id_dom;
 
         return $this;
     }

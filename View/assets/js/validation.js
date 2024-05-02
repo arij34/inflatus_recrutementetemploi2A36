@@ -1,17 +1,17 @@
 function validateForm() {
-    var domaine_informatique = document.forms["myForm"]["domaine_informatique"].value;
-    var titre = document.forms["myForm"]["titre"].value;
-    var description = document.forms["myForm"]["description_o"].value;
-    var type = document.forms["myForm"]["type_o"].value;
-    var entreprise = document.forms["myForm"]["entreprise"].value;
-    var lieu = document.forms["myForm"]["lieu"].value;
-    var datePub = document.forms["myForm"]["date_publication"].value;
-    var dateLimite = document.forms["myForm"]["date_limite"].value;
-    var contact = document.forms["myForm"]["contact"].value;
-    var status = document.forms["myForm"]["status_o"].value;
+    var id_dom = document.forms["monFormulaire"]["id_dom"].value;
+    var titre = document.forms["monFormulaire"]["titre"].value;
+    var description_o = document.forms["monFormulaire"]["description_o"].value;
+    var type_o = document.forms["monFormulaire"]["type_o"].value;
+    var entreprise = document.forms["monFormulaire"]["entreprise"].value;
+    var lieu = document.forms["monFormulaire"]["lieu"].value;
+    var date_publication = document.forms["monFormulaire"]["date_publication"].value;
+    var date_limite = document.forms["monFormulaire"]["date_limite"].value;
+    var contact = document.forms["monFormulaire"]["contact"].value;
+    var status_o = document.forms["monFormulaire"]["status_o"].value;
 
     // Vérifier si les champs sont vides
-    if (domaine == "" || titre == "" || description == "" || type == "" || entreprise == "" || lieu == "" || datePub == "" || dateLimite == "" || contact == "" || status == "") {
+    if (id_dom == "" || titre == "" || description_o == "" || type_o == "" || entreprise == "" || lieu == "" || date_publication == "" || date_limite == "" || contact == "" || status_o == "") {
         alert("Veuillez remplir tous les champs");
         return false;
     }
@@ -23,26 +23,26 @@ function validateForm() {
     }
 
     // Vérifier si description contient seulement des lettres
-    if (!/^[a-zA-Z]+$/.test(description)) {
+    if (!/^[a-zA-Z]+$/.test(description_o)) {
         alert("Le champ Description doit contenir uniquement des lettres");
         return false;
     }
 
     // Vérifier si type contient seulement des lettres
-    if (!/^[a-zA-Z]+$/.test(type)) {
+    if (!/^[a-zA-Z]+$/.test(type_o)) {
         alert("Le champ Type doit contenir uniquement des lettres");
         return false;
     }
 
     // Vérifier si datePub est égale à la date du système
     var currentDate = new Date().toISOString().slice(0, 10);
-    if (datePub !== currentDate) {
+    if (date_publication !== currentDate) {
         alert("La date de publication doit être égale à la date du système");
         return false;
     }
 
     // Vérifier si dateLimite est différente de la date du système
-    if (dateLimite === currentDate) {
+    if (date_limite === currentDate) {
         alert("La date limite ne peut pas être la même que la date du système");
         return false;
     }
@@ -53,6 +53,7 @@ function validateForm() {
         return false;
     }
 
-    // Si tout est valide, retourner true
+    // Si toutes les validations passent, afficher une alerte pour indiquer que le formulaire a été envoyé avec succès
+    alert("Votre offre a été envoyée avec succès.");
     return true;
 }

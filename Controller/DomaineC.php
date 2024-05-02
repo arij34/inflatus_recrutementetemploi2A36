@@ -1,9 +1,12 @@
 <?php
-include '../config.php';
+require_once '../config.php';
+
 include '../Model/Domaine.php';
 
 class DomaineC
 {
+    
+
     public function ListeDomaines()
     {
         $sql = "SELECT * FROM domaine";

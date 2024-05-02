@@ -8,6 +8,7 @@
     <title>Ludiflex | Login & Register</title>
     <!-- BOXICONS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,6 +16,8 @@
 
     <!-- STYLE -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
@@ -46,45 +49,45 @@
     </style>
 </head>
 <body>
-    <div class="content">
-        <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-            <div class="container">
-              <div class="row">
-                <div class="col-12">
-                  <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="acceuil.html" class="logo">
-                      <h4>
-                        <div class="corner-container">
-                          <img src="assets/images/logo.png" >
-                        </div> 
-                      Kha<span>Damni</span></h4>
-                    </a>
-        
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li class="scroll-to-section"><a href="acceuil.html" class="active">Home</a></li>
-                      <li class="scroll-to-section"><a href="#about"></a></li>
-                      <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
-                      <li class="scroll-to-section"><a href="#portfolio">Entretien</a></li>
-                      <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
-                      <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
-                      <li class="scroll-to-section"><div class="main-red-button"><a href="C:\Users\21628\OneDrive\Desktop\projet_web\loginn\loginn\Untitled-1.html">Se connecter</a></div></li> 
-                    </ul>        
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                  </nav>
-                </div>
-              </div>
-            </div>
-        </header>
+<div class="content">
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <nav class="main-nav">
+                <!-- ***** Logo Start ***** -->
+                <a href="acceuil.php" class="logo">
+                  <h4>
+                    <div class="corner-container">
+                      <img src="assets/images/logo.png" >
+                    </div> 
+                  Kha<span>Damni</span></h4>
+                </a>
     
-<div class="form-container">
-    <style>
-        /* POPPINS FONT */
+                <!-- ***** Logo End ***** -->
+                <!-- ***** Menu Start ***** -->
+                <ul class="nav">
+                  <li class="scroll-to-section"><a href="acceuil.php" >Home</a></li>
+                  <li class="scroll-to-section"><a href="#about"></a></li>
+                  <li class="scroll-to-section"><a href="#services"class="active">Offres&demandes</a></li>
+                  <li class="scroll-to-section"><a href="#portfolio">Entretien</a></li>
+                  <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
+                  <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
+                  <li class="scroll-to-section"><div class="main-red-button"><a href="C:\Users\21628\OneDrive\Desktop\projet_web\loginn\loginn\Untitled-1.html">Se connecter</a></div></li> 
+                </ul>        
+                <a class='menu-trigger'>
+                    <span>Menu</span>
+                </a>
+                <!-- ***** Menu End ***** -->
+              </nav>
+            </div>
+          </div>
+        </div>
+    </header>
+    
+    <div class="form-container">
+        <style>
+            /* POPPINS FONT */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* ====== BASE ===== */
@@ -374,42 +377,82 @@ body {
         width: 100%;
     }
 }
-    </style>
-    <div class="col col-1">
+        </style>
+       <div class="col col-1">
         <div class="image-layer">
             <img src="assets\img\about-left-image.png" class="form-image-main">
             <img src="assets/img/cloud.png" class="form-image cloud">
             <img src="assets/img/stars.png" class="form-image stars">
         </div>
-        <p class="featured-words">Bienvenue sur <span>   Khademni</span></p>
-    </div>
-    <div class="col col-2">
+        <p class="featured-words">Bienvenue sur <span> Khademni</span></p>
+        </div>
+     <div class="col col-2">
         
-       
         <div class="login-form">
             <div class="form-title">
-                <span>Ajouter le nouveau domaine</span>
+                <span> Remplir votre demande </span>
             </div>
-            <form method="POST" action="../addDomaine.php">
+            <form  name="monFormulaire" method="POST" action="../ajoutDemande.php">
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="hidden" class="input-field" name="Id_domaine" placeholder="Id_domaine" required>
+                        <input type="hidden" class="input-field" name="id_demande" placeholder="Id_demande" >
                     </div>
                 </div>
-                
-               
                 <div class="form-inputs">
                     <div class="input-box">
-                        <select name="domaine_informatique" class="input-field" required>
-                            <option value="" disabled selected hidden> Domaine informatique</option>
-                            <option value="Développement Web">Développement Web</option>
-                            <option value="Développement Mobile">Développement Mobile</option>
-                            <option value="Science des Données">Science des Données</option>
-                            <option value="Sécurité Informatique">Sécurité Informatique</option>
-                            <!-- Add more options as needed -->
-                        </select>
+                        <input type="text" class="input-field" name="id_etudiant" placeholder="Id_etudiant" >
                     </div>
                 </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="nom_d" placeholder="Nom" >
+                        <input type="text" class="input-field" name="prenom_d" placeholder="Prénom" >
+                    </div>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="email_d" placeholder="Email" >
+                    </div>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="tel" class="input-field" name="telephone_d" placeholder="Telephone" >
+                    </div>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="file" class="input-field" name="cv_d" placeholder="CV" >
+                    </div>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="file" class="input-field" name="lettre_motivation" placeholder="Lettre_motivation" >
+                    </div>
+                </div>
+
+
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="id_o" placeholder="Id_offre" value="<?= isset($existing_id_o['id_o']) ? $existing_id_o['id_o'] : '' ?>">
+                        
+                    </div>
+                </div>
+                <div class="form-inputs">
+                <div class="input-box">
+            <input type="date" class="input-field" name="date_d" id="date_d" placeholder="Date de demande">
+        </div>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <select class="input-field" name="status_d">
+                            <option value="" disabled selected hidden> Status</option>
+                            <option value="envoyee">envoyée</option>
+                            <option value="en_attente">en attente</option>
+                            <option value="acceptee">acceptée</option>
+                            <option value="refusee">refusée</option>
+                        </select> 
+                    </div>
+                </div>              
                 <div class="form-inputs">    
                     <div class="input-box">
                         <button type="submit" name="envoyer" class="input-submit">
@@ -418,22 +461,30 @@ body {
                         </button>
                     </div>
                 </div>
-            </form>  
+
+                <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentDate = new Date().toISOString().slice(0, 10);
+        document.getElementById("date_d").value = currentDate;
+    });
+</script>
+            </form> 
+            
         </div>
     </div>
 </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-                    <p>© Copyright 2024 Khadamni. All Rights Reserved.</p>
-                </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+                <p>© Copyright 2024 Khadamni. All Rights Reserved.</p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 </div>
-   
 
+<!-- JS -->
 <script src="assets/js/main.js"></script>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -441,5 +492,6 @@ body {
 <script src="assets/js/animation.js"></script>
 <script src="assets/js/imagesloaded.js"></script>
 <script src="assets/js/templatemo-custom.js"></script>
+<script src="assets/js/val_demande.js"></script>
 </body>
 </html>

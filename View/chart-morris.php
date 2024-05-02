@@ -1,3 +1,49 @@
+<?php
+include '../Controller/OffreC.php';
+include '../Controller/DemandeC.php';
+
+$demanceC = new demandeC();
+
+$db = config::getConnexion();
+
+// Récupérer toutes les occurrences de lieu_commande
+$queryAllLocations = $db->query("SELECT DISTINCT id_dom FROM offre");
+$queryAllLocations->execute();
+$allLocations = $queryAllLocations->fetchAll(PDO::FETCH_COLUMN);
+
+// Récupérer le nombre d'occurrences pour chaque lieu_commande
+$locationCounts = [];
+foreach ($allLocations as $location) {
+    $queryCount = $db->prepare("SELECT COUNT(*) FROM offre WHERE id_dom = :location");
+    $queryCount->bindParam(':location', $location);
+    $queryCount->execute();
+    $locationCounts[$location] = $queryCount->fetchColumn();
+}
+
+// Convertir les données en format JSON pour une utilisation dans JavaScript
+$locationCountsJSON = json_encode(array_values($locationCounts));
+$locationLabelsJSON = json_encode(array_keys($locationCounts));
+
+
+// Récupérer toutes les occurrences de domaine_informatisue_test
+$queryAllDomains = $db->query("SELECT DISTINCT date_d FROM demande");
+$queryAllDomains->execute();
+$allDomains = $queryAllDomains->fetchAll(PDO::FETCH_COLUMN);
+
+// Récupérer le nombre d'occurrences pour chaque domaine_informatisue_test
+$domainCounts = [];
+foreach ($allDomains as $domain) {
+    $queryCount = $db->prepare("SELECT COUNT(*) FROM test WHERE date_d = :domain");
+    $queryCount->bindParam(':domain', $domain);
+    $queryCount->execute();
+    $domainCounts[$domain] = $queryCount->fetchColumn();
+}
+
+// Convertir les données en format JSON pour une utilisation dans JavaScript
+$domainCountsJSON = json_encode(array_values($domainCounts));
+$domainLabelsJSON = json_encode(array_keys($domainCounts));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,57 +51,46 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <title>KHADAMNI - Dashboard</title>
+    <!-- Pignose Calender -->
+    <link href="../view/dashboard/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="../view/dashboard/plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="../view/dashboard/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../view/dashboard/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
+<div id="preloader">
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
             </svg>
         </div>
     </div>
-    <!--*******************
-        Preloader end
-    ********************-->
+    <div id="main-wrapper">   
+        <div class="corner-container">
+                  <img src="../view/dashboard/images/logoooooo.png" >
+                  <style>
+                    .corner-container {
+                        position: fixed; /* Position fixe pour que le logo reste fixe lors du défilement */
+                        top: 0; /* Distance depuis le haut */
+                        left: 70px; /* Distance depuis la gauche */
+                        z-index: 9999; /* Assure que le logo est au-dessus de tout le contenu */
+                    }
 
-    
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
-    <div id="main-wrapper">
+                    .corner-container img {
+                        width: 90px; /* Largeur minimale du logo */
+                        top: 0; /* Distance depuis le haut */
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-        <div class="nav-header">
-            <div class="brand-logo">
-                <a href="index.html">
-                    <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
-                    <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span>
-                    <span class="brand-title">
-                        <img src="images/logo-text.png" alt="">
-                    </span>
-                </a>
-            </div>
-        </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
-
-        <!--**********************************
-            Header start
-        ***********************************-->
+                        height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
+                    }
+                  </style>
+                </div>
+      
         <div class="header">    
             <div class="header-content clearfix">
                 
@@ -71,12 +106,13 @@
                         </div>
                         <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
                         <div class="drop-down   d-md-none">
-							<form action="#">
-								<input type="text" class="form-control" placeholder="Search">
-							</form>
+                            <form action="#">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </form>
                         </div>
                     </div>
                 </div>
+                
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
@@ -228,14 +264,9 @@
                 </div>
             </div>
         </div>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-        <div class="nk-sidebar">           
+     
+        <div class="nk-sidebar">  
+                     
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
@@ -244,254 +275,178 @@
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./index.html">Home 1</a></li>
+                            <li><a href="listuser.php">Acceuil</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
-                    <li class="mega-menu mega-menu-sm">
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./layout-blank.html">Blank</a></li>
-                            <li><a href="./layout-one-column.html">One Column</a></li>
-                            <li><a href="./layout-two-column.html">Two column</a></li>
-                            <li><a href="./layout-compact-nav.html">Compact Nav</a></li>
-                            <li><a href="./layout-vertical.html">Vertical</a></li>
-                            <li><a href="./layout-horizontal.html">Horizontal</a></li>
-                            <li><a href="./layout-boxed.html">Boxed</a></li>
-                            <li><a href="./layout-wide.html">Wide</a></li>
-                            
-                            
-                            <li><a href="./layout-fixed-header.html">Fixed Header</a></li>
-                            <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Apps</li>
+                    <li class="nav-label">Gestions</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-envelope menu-icon"></i> <span class="nav-text">Email</span>
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Tables </span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./email-inbox.html">Inbox</a></li>
-                            <li><a href="./email-read.html">Read</a></li>
-                            <li><a href="./email-compose.html">Compose</a></li>
+                            <li><a href="table-basic.php" aria-expanded="false">Gestion Entretien</a></li>
                         </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
+                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Statistique</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Profile</a></li>
-                            <li><a href="./app-calender.html">Calender</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Flot</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">UI Components</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-grid menu-icon"></i><span class="nav-text">UI Components</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.html">Accordion</a></li>
-                            <li><a href="./ui-alert.html">Alert</a></li>
-                            <li><a href="./ui-badge.html">Badge</a></li>
-                            <li><a href="./ui-button.html">Button</a></li>
-                            <li><a href="./ui-button-group.html">Button Group</a></li>
-                            <li><a href="./ui-cards.html">Cards</a></li>
-                            <li><a href="./ui-carousel.html">Carousel</a></li>
-                            <li><a href="./ui-dropdown.html">Dropdown</a></li>
-                            <li><a href="./ui-list-group.html">List Group</a></li>
-                            <li><a href="./ui-media-object.html">Media Object</a></li>
-                            <li><a href="./ui-modal.html">Modal</a></li>
-                            <li><a href="./ui-pagination.html">Pagination</a></li>
-                            <li><a href="./ui-popover.html">Popover</a></li>
-                            <li><a href="./ui-progressbar.html">Progressbar</a></li>
-                            <li><a href="./ui-tab.html">Tab</a></li>
-                            <li><a href="./ui-typography.html">Typography</a></li>
-                        <!-- </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-layers menu-icon"></i><span class="nav-text">Components</span>
-                        </a>
-                        <ul aria-expanded="false"> -->
-                            <li><a href="./uc-nestedable.html">Nestedable</a></li>
-                            <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
-                            <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
-                            <li><a href="./uc-toastr.html">Toastr</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="widgets.html" aria-expanded="false">
-                            <i class="icon-badge menu-icon"></i><span class="nav-text">Widget</span>
-                        </a>
-                    </li>
-                    <li class="nav-label">Forms</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-basic.html">Basic Form</a></li>
-                            <li><a href="./form-validation.html">Form Validation</a></li>
-                            <li><a href="./form-step.html">Step Form</a></li>
-                            <li><a href="./form-editor.html">Editor</a></li>
-                            <li><a href="./form-picker.html">Picker</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Table</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-menu menu-icon"></i><span class="nav-text">Table</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./table-basic.html" aria-expanded="false">Basic Table</a></li>
-                            <li><a href="./table-datatable.html" aria-expanded="false">Data Table</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Pages</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Pages</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./page-login.html">Login</a></li>
-                            <li><a href="./page-register.html">Register</a></li>
-                            <li><a href="./page-lock.html">Lock Screen</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./page-error-404.html">Error 404</a></li>
-                                    <li><a href="./page-error-403.html">Error 403</a></li>
-                                    <li><a href="./page-error-400.html">Error 400</a></li>
-                                    <li><a href="./page-error-500.html">Error 500</a></li>
-                                    <li><a href="./page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="./chart-morris.php">Gestion Entretien</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-
-        <!--**********************************
-            Content body start
-        ***********************************-->
+       
         <div class="content-body">
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Acceuil</a></li>
                     </ol>
                 </div>
             </div>
-            <!-- row -->
+           
 
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Donut Chart</h4>
-                                <div id="morris-donut-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Visit Chart</h4>
-                                <div id="morris-area-chart0"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Area Chart</h4>
-                                <div id="extra-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Line Chart</h4>
-                                <div id="morris-line-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Line Chart</h4>
-                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Bar Chart</h4>
-                                <div id="morris-bar-chart"></div>
-                            </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Statistique de Type d'entretien</h4>
+                    <div class="graphBox" style="width: 500px; height: 500px;">
+                        <div class="box1">
+                            <canvas id="pieChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #/ container -->
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-        
-        
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Histogramme de Domaine Informatique</h4>
+                    <div class="graphBox" style="width: 500px; height: 500px;">
+                        <div class="box1">
+                            <canvas id="histogramChart"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
+</div>
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <script src="plugins/common/common.min.js"></script>
-    <script src="js/custom.min.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/gleek.js"></script>
-    <script src="js/styleSwitcher.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var locationCounts = <?php echo $locationCountsJSON; ?>;
+        var locationLabels = <?php echo $locationLabelsJSON; ?>;
 
-    <script src="./plugins/raphael/raphael.min.js"></script>
-    <script src="./plugins/morris/morris.min.js"></script>
-    <script src="./js/plugins-init/morris-init.js"></script>
+        var ctx1 = document.getElementById('pieChart').getContext('2d');
+        var myChart1 = new Chart(ctx1, {
+            type: 'polarArea',
+            data: {
+                labels: locationLabels,
+                datasets: [{
+                    label: 'Nombre de commandes par lieu',
+                    data: locationCounts,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var domainCounts = <?php echo $domainCountsJSON; ?>;
+        var domainLabels = <?php echo $domainLabelsJSON; ?>;
+
+        var ctx2 = document.getElementById('histogramChart').getContext('2d');
+        var myChart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: domainLabels,
+                datasets: [{
+                    label: 'Number of Tests per Domain',
+                    data: domainCounts,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                         beginAtZero: true,
+                        precision: 0,
+                        stepSize: 1
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+
+
+
+</div>
+        <div class="footer">
+            <div class="copyright">
+            <p>Copyright &copy; Designed & Developed by KHADAMNI</a> 2024</p>
+        </div>
+  
+      
+</div>
+  
+    <script src="../view/dashboard/plugins/common/common.min.js"></script>
+    <script src="../view/dashboard/js/custom.min.js"></script>
+    <script src="../view/dashboard/js/settings.js"></script>
+    <script src="../view/dashboard/js/gleek.js"></script>
+    <script src="../view/dashboard/js/styleSwitcher.js"></script>
+
+    <!-- Chartjs -->
+    <script src="../view/dashboard/plugins/chart.js/Chart.bundle.min.js"></script>
+    <!-- Circle progress -->
+    <script src="../view/dashboard/plugins/circle-progress/circle-progress.min.js"></script>
+    <!-- Datamap -->
+    <script src="../view/dashboard/plugins/d3v3/index.js"></script>
+    <script src="../view/dashboard/plugins/topojson/topojson.min.js"></script>
+    <script src=".../view/dashboard/plugins/datamaps/datamaps.world.min.js"></script>
+    <!-- Morrisjs -->
+    <script src="../view/dashboard/plugins/raphael/raphael.min.js"></script>
+    <script src="../view/dashboard/plugins/morris/morris.min.js"></script>
+    <!-- Pignose Calender -->
+    <script src="../view/dashboard/plugins/moment/moment.min.js"></script>
+    <script src="../view/dashboard/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+    <!-- ChartistJS -->
+    <script src="../view/dashboard/plugins/chartist/js/chartist.min.js"></script>
+    <script src="../view/dashboard/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+    <script src="../view/dashboard/js/dashboard/dashboard-1.js"></script>
 
 </body>
 

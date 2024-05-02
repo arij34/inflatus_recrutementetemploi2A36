@@ -16,20 +16,21 @@ class Demande
 
 
 
-    public function __construct($id_d = null, $id_e, $nd, $pd, $ed, $td, $cvd, $lm, $id_o, $dd, $sd)
-{
-    $this->id_d = $id_d;
-    $this->id_etudiant = $id_e;
-    $this->nom_d = $nd;
-    $this->prenom_d = $pd;
-    $this->email_d = $ed;
-    $this->telephone_d = $td;
-    $this->cv_d = $cvd;
-    $this->lettre_motivation = $lm;
-    $this->id_o = $id_o;
-    $this->date_d = $dd;
-    $this->status_d = $sd;
-}
+    public function __construct(?int $id_d, ?int $id_etudiant, ?string $nom_d, ?string $prenom_d, ?string $email_d, ?int $telephone_d, ?string $cv_d, ?string $lettre_motivation, ?int $id_o, ?DateTime $date_d, ?string $status_d)
+    {
+        $this->id_d = $id_d;
+        $this->id_etudiant = $id_etudiant;
+        $this->nom_d = $nom_d;
+        $this->prenom_d = $prenom_d;
+        $this->email_d = $email_d;
+        $this->telephone_d = $telephone_d;
+        $this->cv_d = $cv_d;
+        $this->lettre_motivation = $lettre_motivation;
+        $this->id_o = $id_o;
+        $this->date_d = $date_d;
+        $this->status_d = $status_d;
+    }
+    
 
 
     /**

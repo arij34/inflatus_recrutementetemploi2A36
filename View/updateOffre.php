@@ -11,7 +11,7 @@ $offre = null;
 $offreC = new OffreC();
 if (
     isset($_POST["id_o"]) &&
-    isset($_POST["domaine_informatique"]) &&
+    isset($_POST["id_dom"]) &&
     isset($_POST["titre"]) &&
     isset($_POST["description_o"]) &&
     isset($_POST["type_o"]) &&
@@ -24,7 +24,7 @@ if (
 ) {
     if (
         !empty($_POST["id_o"]) &&
-        !empty($_POST["domaine_informatique"]) &&
+        !empty($_POST["id_dom"]) &&
         !empty($_POST["titre"]) &&
         !empty($_POST["description_o"]) &&
         !empty($_POST["type_o"]) &&
@@ -37,7 +37,7 @@ if (
     ) {
         $offre = new Offre(
             $_POST["id_o"],
-            $_POST["domaine_informatique"],
+            $_POST["id_dom"],
             $_POST["titre"],
             $_POST["description_o"],
             $_POST["type_o"],
@@ -90,9 +90,9 @@ if (
                 </tr>
                 <tr>
                     <td>
-                        <label for="domaine_informatique">Domaine Informatique:</label>
+                        <label for="id_dom">Domaine Informatique:</label>
                     </td>
-                    <td><input type="text" name="domaine_informatique" id="domaine_informatique" value="<?php echo $offre['domaine_informatique']; ?>" maxlength="100"></td>
+                    <td><input type="text" name="id_dom" id="id_dom" value="<?php echo $offre['id_dom']; ?>" maxlength="100"></td>
                 </tr>
                 <tr>
                     <td>

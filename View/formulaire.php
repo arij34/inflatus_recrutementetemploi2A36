@@ -55,7 +55,7 @@
                 <div class="col-12">
                   <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="acceuil.html" class="logo">
+                    <a href="acceuil.php" class="logo">
                       <h4>
                         <div class="corner-container">
                           <img src="assets/images/logo.png" >
@@ -66,9 +66,9 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li class="scroll-to-section"><a href="acceuil.html" class="active">Home</a></li>
+                      <li class="scroll-to-section"><a href="acceuil.php" >Home</a></li>
                       <li class="scroll-to-section"><a href="#about"></a></li>
-                      <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
+                      <li class="scroll-to-section"><a href="#services" class="active">Offres&demandes</a></li>
                       <li class="scroll-to-section"><a href="#portfolio">Entretien</a></li>
                       <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
                       <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
@@ -402,8 +402,9 @@ body {
                 <span>Remplir votre offre</span>
             </div>
             
-         <!--<form method="POST"action="../addOffre.php"> -->
-            <form  name="myForm" method="POST" action="../addOffre.php" onsubmit="return validateForm()">
+        
+         <form  name="monFormulaire" method="POST" action="../addOffre.php">   
+            
             <div class="form-inputs">
                 <div class="input-box">
                     <input type="hidden" class="input-field" placeholder="Id_offre" >
@@ -411,12 +412,13 @@ body {
             </div>
             <div class="form-inputs">
                 <div class="input-box">
-                    <select class="input-field"  name="domaine_informatique" >
-                        <option value="" disabled selected hidden>domaine_informatique</option>
-                        <option value="Développement Web">Développement Web</option>
-                        <option value="Développement Mobile">Développement Mobile</option>
-                        <option value="Science des Données">Science des Données</option>
-                        <option value="Sécurité Informatique">Sécurité Informatique</option>
+                    
+                    <select class="input-field"  name="id_dom" >
+                        <?php
+                        foreach($ListeDomaines as $domaine){
+                            echo'<option value="' . $domaine['id_dom'] . '">' . $domaine['domaine_informatique'] . '</option>';
+                        }
+                        ?>
                         <!-- Add more options as needed -->
                     </select>
                 </div>
@@ -482,6 +484,12 @@ body {
                     </button>
                 </div>
             </div>
+            <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentDate = new Date().toISOString().slice(0, 10);
+        document.getElementById("date_publication").value = currentDate;
+    });
+</script>
         </form>    
         </div>     
     </div>
@@ -500,12 +508,13 @@ body {
 
 <!-- JS -->
 <script src="assets/js/main.js"></script>
-<script src="../templatemo_562_space_dynamic/assets/js/validation.js"></script>
+
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/owl-carousel.js"></script>
 <script src="assets/js/animation.js"></script>
 <script src="assets/js/imagesloaded.js"></script>
+<script src="assets/js/validation.js"></script>
 <script src="assets/js/templatemo-custom.js"></script>
 </body>
 </html>

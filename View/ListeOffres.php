@@ -2,6 +2,7 @@
 include '../Controller/OffreC.php';
 $offreC = new OffreC();
 $liste = $offreC->ListeOffres();
+
 ?>
 <html>
 
@@ -18,13 +19,10 @@ $liste = $offreC->ListeOffres();
 
 <body>
   
-
-  
-
-  <body style="padding-top: 100px;">
+  <body style="padding-top: 50px;">
     <div class="row page-titles mx-0">
       <div class="col-lg-6">
-        <div class="card" style="width: 1400px;">
+        <div class="card" style="width: 1200px;">
           <div class="card-body">
             <h4 class="card-title">Table Offres</h4>
             <div class="table-responsive">
@@ -32,7 +30,7 @@ $liste = $offreC->ListeOffres();
                 <thead>
                   <tr>
                     <th scope="col">id_o</th>
-                    <th scope="col">domaine_informatique</th>
+                    <th scope="col">id_dom</th>
                     <th scope="col">titre</th>
                     <th scope="col">description_o</th>
                     <th scope="col">type</th>
@@ -51,7 +49,7 @@ $liste = $offreC->ListeOffres();
                   ?>
                     <tr>
                       <td><?php echo $offre['id_o']; ?></td>
-                      <td><?php echo $offre['domaine_informatique']; ?></td>
+                      <td><?php echo $offre['id_dom']; ?></td>
                       <td><?php echo $offre['titre']; ?></td>
                       <td><?php echo $offre['description_o']; ?></td>
                       <td><?php echo $offre['type_o']; ?></td>
@@ -87,18 +85,18 @@ $liste = $offreC->ListeOffres();
 
    
 
-    <script src="../templatemo_562_space_dynamic/assets/js/isotope.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/owl-carousel.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/animation.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/imagesloaded.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/templatemo-custom.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/main.js"></script>
-    <script src="../templatemo_562_space_dynamic/assets/js/tabs.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/imagesloaded.js"></script>
+    <script src="assets/js/templatemo-custom.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tabs.js"></script>
 
     
-    <script src="../templatemo_562_space_dynamic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../templatemo_562_space_dynamic/vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
-    <script src="../templatemo_562_space_dynamic/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   
   </body>
 

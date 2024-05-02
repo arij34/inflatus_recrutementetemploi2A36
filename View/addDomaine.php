@@ -31,7 +31,8 @@ if (
         $domaineC->addDomaine($domaine);
 
         // Rediriger vers la liste des demandes après l'ajout
-        header('Location:ListeDomaines.php');
+        
+        header('Location:ListeDomaines_front.php');
         exit; // Terminer le script après la redirection
     } else {
         $error = "Missing information";
