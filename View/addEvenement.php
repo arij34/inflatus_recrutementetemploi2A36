@@ -2,11 +2,13 @@
 include '../Controller/EvenementC.php'; // Inclure le fichier EvenementC.php
 $error = "";
 
-// create employe
+// Créer un événement
 $evenement = null;
-
-// create an instance of the controller
+$categorieevnC = new CategorieevnC();
+$listeCategorieevns = $categorieevnC->listcategorieevns();
+// Créer une instance du contrôleur
 $evenementC = new EvenementC();
+
 if (
     isset($_POST["nomEvenement"]) &&
     isset($_POST["adresseEVN"]) &&
@@ -19,16 +21,24 @@ if (
         !empty($_POST["dateEVN"]) &&
         !empty($_POST["idCategorieEVN"])
     ) {
-        $nomCategorie = $evenementC->getNomCategorie($_POST["idCategorieEVN"]); // Récupérer le nom de la catégorie
+        $nomCategorie = $_POST["idCategorieEVN"];
+        // Vérifier si une nouvelle catégorie a été saisie
+        if (isset($_POST["nouvelleCategorie"]) && !empty($_POST["nouvelleCategorie"])) {
+            // Ajouter la nouvelle catégorie
+            $categorieevnC->addcategorieevn($_POST["nouvelleCategorie"]);
+            // Récupérer l'ID de la nouvelle catégorie ajoutée
+            $nomCategorie = $categorieevnC->getLastInsertedId();
+        }
         $evenement = new Evenement(
             NULL,
             $_POST["nomEvenement"],
             $_POST["adresseEVN"],
             new DateTime($_POST['dateEVN']),
-            $nomCategorie // Utiliser le nom de la catégorie récupéré
+            $nomCategorie // Utiliser l'ID de la catégorie
         );
         $evenementC->addEvenement($evenement);
         header('Location:ListEvenement.php');
+        exit(); // Terminer le script après la redirection
     } else {
         $error = "Missing information";
     }
@@ -52,13 +62,13 @@ if (
         <!-- STYLE -->
         <link rel="stylesheet" href="assets/css/style.css">
 
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
         <!-- Additional CSS Files -->
-        <link rel="stylesheet" href="templatemo_562_space_dynamic/assets/css/fontawesome.css">
-        <link rel="stylesheet" href="templatemo_562_space_dynamic/assets/css/templatemo-space-dynamic.css">
-        <link rel="stylesheet" href="templatemo_562_space_dynamic/assets/css/animated.css">
-        <link rel="stylesheet" href="templatemo_562_space_dynamic/assets/css/owl.css">
+        <link rel="stylesheet" href="../assets/css/fontawesome.css">
+        <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+        <link rel="stylesheet" href="../assets/css/animated.css">
+        <link rel="stylesheet" href="../assets/css/owl.css">
     
         <style>
             /* Ajout de marge entre le header et le formulaire */
@@ -93,7 +103,7 @@ if (
                     <a href="acceuil.html" class="logo">
                       <h4>
                         <div class="corner-container">
-                          <img src="templatemo_562_space_dynamic/assets/images/logo.png" >
+                          <img src="../assets/images/logo.png" >
                         </div> 
                       Kha<span>Damni</span></h4>
                     </a>
@@ -418,54 +428,78 @@ body {
         <div class="image-layer">
             
             
-            <img src="templatemo_562_space_dynamic\assets\images\about-left-image.png" class="form-image-main">
+            <img src="..\assets\images\about-left-image.png" class="form-image-main">
             
-            <img src="templatemo_562_space_dynamic\assets\images\cloud.png" class="form-image cloud">
-            <img src="templatemo_562_space_dynamic\assets\images\stars.png" class="form-image stars">
+            <img src="..\assets\images\cloud.png" class="form-image cloud">
+            <img src="..\assets\images\stars.png" class="form-image stars">
         </div>
 
         <p class="featured-words">Bienvenue sur <span>   Khademni</span></p>
     </div>
-
-
     <div class="col col-2">
-        
-
-
-        <div class="login-form">
-            <div class="form-title">
-                <span>ajouter evenement </span>
-            </div>
-            <form name="monFormulaire" method="POST" action="">
-                 <div class="input-box">
-                    <input type="text" class="input-field" placeholder="nomEvenement" name="nomEvenement">
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="adresseEVN" name="adresseEVN">
-                </div>
-                <div class="input-box">
-                   <input type="date" class="input-field" placeholder="dateEVN" name="dateEVN">
-                </div>
-                <div class="input-box">
-                 <select name="idCategorieEVN" class="input-field"> <!-- Champ de sélection -->
-                 <option value="">Sélectionner une catégorie</option> <!-- Option par défaut -->
-                 <?php
-                 $categorieevnC = new CategorieevnC(); // Instance de la classe categorieevnC
-                 $listeCategorieevns = $CategorieevnC->listcategorieevns(); // Récupérer la liste des catégories
-                 foreach ($listeCategorieevns as $Categorieevn) { // Parcourir la liste des catégories
-                 echo '<option value="' . $Categorieevn['idCategorieEVN'] . '">' . $Categorieevn['nomcategorieEVN'] . '</option>'; // Afficher chaque catégorie dans une option
-                  }
-                 ?>
-                 </select>
-                </div>
-
-                <div class="input-box">
-                 <button type="submit" name="envoyer" style="background-color: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">envoyer<i class="bx bx-right-arrow-alt"></i></button>
-                </div>
-            </form>
-
-        </div>     
+    <div class="login-form">
+        <div class="form-title">
+            <span>ajouter evenement </span>
+        </div>
+        <form name="monFormulaire" method="POST" action="" onsubmit="return validateForm();">
+    <div class="input-box">
+        <input type="text" class="input-field" placeholder="nomEvenement" name="nomEvenement">
+        <div id="nomEvenementError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
     </div>
+    <div class="input-box">
+        <input type="text" class="input-field" placeholder="adresseEVN" name="adresseEVN">
+        <div id="adresseEVNError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
+    </div>
+    <div class="input-box">
+        <input type="date" class="input-field" placeholder="dateEVN" name="dateEVN">
+        <div id="dateEVNError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
+    </div>
+    <div class="input-box">
+        <select name="idCategorieEVN" id="idCategorieEVN" class="input-field">
+            <?php
+            foreach ($listeCategorieevns as $categorieevn) {
+                echo '<option value="' . $categorieevn['idCategorieEVN'] . '">' . $categorieevn['nomCategorieEVN'] . '</option>';
+            }
+            ?>
+        </select>
+        <a href="javascript:void(0);" id="ajouterCategorie">Ajouter une catégorie</a>
+        <div id="nouvelleCategorie" style="display: none;">
+            <input type="text" class="input-field" placeholder="Nouvelle catégorie" name="nouvelleCategorie" id="nouvelleCategorieInput">
+            <button type="button" id="validerNouvelleCategorie">Valider</button>
+        </div>
+    </div>
+    <div class="input-box">
+        <button type="submit" name="envoyer" style="background-color: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">envoyer<i class="bx bx-right-arrow-alt"></i></button>
+    </div>
+</form>
+
+<script src="validation.js"></script> 
+<script>
+    document.getElementById('ajouterCategorie').addEventListener('click', function() {
+        document.getElementById('nouvelleCategorie').style.display = 'block';
+    });
+
+    document.getElementById('validerNouvelleCategorie').addEventListener('click', function() {
+        var nouvelleCategorieInput = document.getElementById('nouvelleCategorieInput').value;
+        var selectCategorie = document.getElementById('idCategorieEVN');
+        var optionExists = false;
+        for (var i = 0; i < selectCategorie.options.length; i++) {
+            if (selectCategorie.options[i].text === nouvelleCategorieInput) {
+                optionExists = true;
+                break;
+            }
+        }
+        if (!optionExists) {
+            var newOption = new Option(nouvelleCategorieInput, '');
+            selectCategorie.appendChild(newOption);
+        }
+        document.getElementById('nouvelleCategorie').style.display = 'none';
+    });
+</script>
+
+
+    </div>
+</div>
 </div>
 <footer>
         <div class="container">
@@ -480,14 +514,14 @@ body {
 
 
 <!-- JS -->
-<script src="assets/js/main.js"></script>
-<script src="assets/js/validation.js"></script>
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/owl-carousel.js"></script>
-<script src="assets/js/animation.js"></script>
-<script src="assets/js/imagesloaded.js"></script>
-<script src="assets/js/templatemo-custom.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/validation.js"></script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/owl-carousel.js"></script>
+<script src="../assets/js/animation.js"></script>
+<script src="../assets/js/imagesloaded.js"></script>
+<script src="../assets/js/templatemo-custom.js"></script>
 </body>
 </html>
 

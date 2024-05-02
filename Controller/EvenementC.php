@@ -1,7 +1,7 @@
 <?php
-include '../config.php';
+//include '../config.php';
 include '../Model/Evenement.php';
-include '../Model/categorieevn.php';
+require_once '../Controller/categorieevnC.php';
 
 class EvenementC
 {
@@ -55,11 +55,11 @@ class EvenementC
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE evenement SET 
-                    nomEvenement = :nomEvenement, 
-                    adresseEVN = :adresseEVN, 
-                    dateEVN = :dateEVN, 
-                    idCategorieEVN = :idCategorieEVN,
-                WHERE idEvenement = :idEvenement'
+                nomEvenement = :nomEvenement, 
+                adresseEVN = :adresseEVN, 
+                dateEVN = :dateEVN, 
+                idCategorieEVN = :idCategorieEVN
+            WHERE idEvenement = :idEvenement'
             );
             $query->execute([
                 'idEvenement' => $idEvenement,

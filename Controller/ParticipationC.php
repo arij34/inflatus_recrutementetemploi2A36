@@ -1,0 +1,103 @@
+<?php
+include '../config.php'; // Assurez-vous que ce chemin est correct
+include '../Model/Participation.php'; // Assurez-vous que ce chemin est correct
+
+class ParticipationC
+{
+    public function listParticipations()
+    {
+        $sql = "SELECT * FROM participation"; // Assurez-vous que la table dans la base de données est nommée "participation"
+        $db = config::getConnexion();
+        try {
+            $liste = $db->query($sql);
+            return $liste;
+        } catch (Exception $e) {
+            die('Error:' . $e->getMessage());
+        }
+    }
+    public function deleteParticipation($idParticipation)
+    {
+        $sql = "DELETE FROM participation  WHERE idParticipation = :idParticipation";
+        $db = config::getConnexion();
+        $req = $db->prepare($sql);
+        $req->bindValue(':idParticipation', $idParticipation);
+
+        try {
+            $req->execute();
+        } catch (Exception $e) {
+            die('Error:' . $e->getMessage());
+        }
+    }
+    public function addParticipation($email, $MDP, $idEvenement)
+{
+    $sql = "INSERT INTO participation (idEvenement, idEtudiant, nomE, prenomE, telephoneE, age, emailE, MDPE)  
+            SELECT :idEvenement, idEtudiant, nomE, prenomE, telephoneE, age, emailE, MDPE 
+            FROM etudiant 
+            WHERE emailE = :email AND MDPE = :MDP";
+    $db = config::getConnexion();
+    try {
+        $query = $db->prepare($sql);
+        $query->execute([
+            'email' => $email,
+            'MDP' => $MDP,
+            'idEvenement' => $idEvenement
+        ]);
+        // Récupérer l'ID de la participation ajoutée
+        $idParticipation = $db->lastInsertId();
+        return $idParticipation; // Retourner l'ID de la participation ajoutée
+    } catch (Exception $e) {
+        echo 'Error: ' . $e->getMessage();
+        return null; // Retourner null en cas d'erreur
+    }
+}
+
+
+    public function showParticipation($idParticipation)
+    {
+    $sql = "SELECT p.*, e.nomEvenement 
+            FROM participation p
+            INNER JOIN evenement e ON p.idEvenement = e.idEvenement
+            WHERE p.idParticipation = :idParticipation";
+    $db = config::getConnexion();
+    try {
+        $query = $db->prepare($sql);
+        $query->execute(['idParticipation' => $idParticipation]);
+        $participation = $query->fetch();
+        return $participation;
+    } catch (Exception $e) {
+        die('Error: ' . $e->getMessage());
+    }
+    }
+    public function getParticipationsByIdEvenement($idEvenement)
+{
+    $sql = "SELECT * FROM participation WHERE idEvenement = :idEvenement";
+    $db = config::getConnexion();
+    try {
+        $query = $db->prepare($sql);
+        $query->execute(['idEvenement' => $idEvenement]);
+        $participations = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $participations;
+    } catch (Exception $e) {
+        die('Error: ' . $e->getMessage());
+    }
+ }  
+ public function getEventsByStudentId($idEtudiant)
+{
+    $sql = "SELECT e.*, p.idParticipation 
+            FROM evenement e
+            INNER JOIN participation p ON e.IdEvenement = p.IdEvenement
+            WHERE p.idEtudiant = :idEtudiant";
+    
+    $db = config::getConnexion();
+    
+    try {
+        $query = $db->prepare($sql);
+        $query->execute(['idEtudiant' => $idEtudiant]);
+        $events = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $events;
+    } catch (Exception $e) {
+        die('Error: ' . $e->getMessage());
+    }
+}
+
+}

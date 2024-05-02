@@ -61,7 +61,7 @@ if (
 
     <?php
     if (isset($_POST['idEvenement'])) {
-        $Evenement = $evenementC->showEvenement($_POST['idEvenement']);
+        $Evenement =$evenementC->showEvenement($_POST['idEvenement']);
 
     ?>
 

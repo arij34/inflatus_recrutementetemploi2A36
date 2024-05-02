@@ -12,11 +12,12 @@ $list = $evenementC->listEvenements();
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <!-- Custom Stylesheet -->
-    <link href="quixlab-master\css\style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 
 </head>
+
 
 <body>
 
@@ -71,6 +72,11 @@ $list = $evenementC->listEvenements();
             </div>
         </div>
     </div>
+    <script src="../assets/plugins/common/common.min.js"></script>
+    <script src="../assets/js/custom.min.js"></script>
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/gleek.js"></script>
+    <script src="../assets/js/styleSwitcher.js"></script>
 </body>
 
 </html>

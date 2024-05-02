@@ -1,83 +1,138 @@
 <?php
-include '../Controller/EvenementC.php';
+include '../Controller/CategorieevnC.php';
 
-// Instanciation de la classe EvenementC
-$evenementC = new EvenementC();
+// Instanciation de la classe CategorieevnC
+$categorieevnC = new CategorieevnC();
 
-// Vérifier si l'identifiant de l'Evenement est défini dans la requête
+// Vérifier si l'identifiant de la catégorie est défini dans la requête GET
 if(isset($_GET['id'])) {
-    // Récupérez l'ID de l'Evenement depuis l'URL
-    $idEvenement = $_GET['id'];
+    // Récupérer l'ID de la catégorie depuis l'URL
+    $idCategorieEVN = $_GET['id'];
     
-    // Utilisez la méthode getEvenementById() pour récupérer les détails de l'Evenement
-    $evenement = $evenementC->showEvenement($idEvenement);
+    // Utiliser la méthode affiche_evenement() pour récupérer les événements associés à cette catégorie
+    $categorieevn = $categorieevnC->affiche_evenement($idCategorieEVN);
 
-    // Vérifiez si l'Evenement existe
-    if($evenement) {
+    // Vérifier si des événements sont trouvés pour cette catégorie
+    if($categorieevn) {
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="CodeHim">
-    <title>Detail de l'Evenement - Dashboard Profile Page Theme Color CSS Vanilla JS Example </title>
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="user-profile-page-template-in-html-css/css/style.css">
-    <!-- Demo CSS (No need to include it into your project) -->
-    <link rel="stylesheet" href="user-profile-page-template-in-html-css/css/demo.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
-</head>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Space Dynamic - SEO HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="../categorieevn/assets/css/animated.css">
+    <link rel="stylesheet" href="../categorieevn/assets/css/owl.css">
+<!--
+    
+TemplateMo 562 Space Dynamic
+
+https://templatemo.com/tm-562-space-dynamic
+
+-->
+  </head>
+
 <body>
-<header class="cd__intro">
-    <h1> Detail de l'Evenement - Dashboard Profile Page Theme Color CSS Vanilla JS Example </h1>
-</header>
-<main class="cd__main">
-    <div class="profile-page">
-        <div class="content">
-            <div class="content__cover">
-                <div class="content__avatar">
-                </div>
-                <div class="content__bull">
-                </div>
-            </div>
-            <div class="content__title">
-                <h1><?php echo $evenement['nomEvenement']; ?></h1><span><?php echo $evenement['adresseEVN']; ?></span>
-            </div>
-            <div class="content__description">
-                <p><?php echo $evenement['dateEVN']; ?></p>
-                <p><?php echo $evenement['idCategorieEVN']; ?></p>
-            </div>
-        </div>
-        <div class="bg">
-            <div><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="theme-switcher-wrapper" id="theme-switcher-wrapper"><span>Themes color</span>
-            <ul>
-               <li><em class="is-active" data-theme="orange"></em></li>
-               <li><em data-theme="blue"></em></li>
-            </ul>
-         </div>
-         <div class="theme-switcher-button" id="theme-switcher-button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-               <path fill="currentColor" d="M352 0H32C14.33 0 0 14.33 0 32v224h384V32c0-17.67-14.33-32-32-32zM0 320c0 35.35 28.66 64 64 64h64v64c0 35.35 28.66 64 64 64s64-28.65 64-64v-64h64c35.34 0 64-28.65 64-64v-32H0v32zm192 104c13.25 0 24 10.74 24 24 0 13.25-10.75 24-24 24s-24-10.75-24-24c0-13.26 10.75-24 24-24z"></path>
-            </svg>
-         </div>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-</main>
-<!-- Script JS -->
-<script src="user-profile-page-template-in-html-css/js/script.js"></script>
-<!--$%analytics%$-->
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <h4>
+                <div class="corner-container">
+                  <img src= "../assets/images/logo.png" >
+                  <style>
+                    .corner-container {
+                        position: fixed; /* Position fixe pour que le logo reste fixe lors du défilement */
+                        top: 0; /* Distance depuis le haut */
+                        left: 10px; /* Distance depuis la gauche */
+                        z-index: 9999; /* Assure que le logo est au-dessus de tout le contenu */
+                    }
+
+                    .corner-container img {
+                        width: 50px; /* Largeur minimale du logo */
+                        top: 0; /* Distance depuis le haut */
+
+                        height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
+                    }
+                  </style>
+                </div> 
+              Kha<span>Damni</span></h4>
+            </a>
+
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">evenement</a></li>
+              <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
+              <li class="scroll-to-section"><a href="#">Entretien</a></li>
+              <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
+              <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/final/view/afficher.php" class="active">Profile</a></li> 
+
+              <li class="scroll-to-section"><div class="main-red-button"><a href="http://localhost/web/final/view/register.php">Se connecter</a></div></li> 
+
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+  <iframe src="liste.php?id=<?php echo $idCategorieEVN; ?>" frameborder="0" scrolling="no" width="100%" height="800" style="margin-top=100px"></iframe>
+  
+  <!-- Scripts -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/owl-carousel.js"></script>
+  <script src="../assets/js/animation.js"></script>
+  <script src="../assets/js/imagesloaded.js"></script>
+  <script src="../assets/js/templatemo-custom.js"></script>
+
 </body>
 </html>
-
 <?php
     } else {
-        echo "L'Evenement avec l'ID spécifié n'existe pas.";
+        echo "Aucun événement associé à cette catégorie.";
     }
 } else {
-    echo "L'identifiant de l'Evenement n'est pas spécifié.";
+    echo "L'identifiant de la catégorie n'est pas spécifié.";
 }
 ?>
+

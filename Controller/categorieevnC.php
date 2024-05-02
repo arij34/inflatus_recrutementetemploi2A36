@@ -1,8 +1,6 @@
 <?php
 include '../config.php';
 include '../Model/categorieevn.php';
-
-
 class CategorieevnC
 {
     public function listcategorieevns()
@@ -31,39 +29,41 @@ class CategorieevnC
         }
     }
 
-    function addcategorieevn($categorieevn)
-    {
-        $sql = "INSERT INTO categorieevn  
-        VALUES (NULL,:nomCategorieEVN)";
-        $db = config::getConnexion();
-        try {
-            $query = $db->prepare($sql);
-            $query->execute([
-                'nomCategorieEVN'=> $categorieevn->getNomCategorieEVN(),
-            ]);
-        } catch (Exception $e) {
-            echo 'Error: ' . $e->getMessage();
-        }
+    function addcategorieevn($nomCategorieEVN)
+{
+    $sql = "INSERT INTO categorieevn (nomCategorieEVN) VALUES (:nomCategorieEVN)";
+    $db = config::getConnexion();
+    try {
+        $query = $db->prepare($sql);
+        $query->execute([
+            'nomCategorieEVN'=> $nomCategorieEVN,
+           
+        ]);
+    } catch (Exception $e) {
+        echo 'Error: ' . $e->getMessage();
     }
+}
+
 
     function updatecategorieevn($categorieevn, $idCategorieEVN)
-    {
-        try {
-            $db = config::getConnexion();
-            $query = $db->prepare(
-                'UPDATE categorieevn SET 
-                    nomCategorieEVN = :nomCategorieEVN, 
-                WHERE idCategorieEVN = :idCategorieEVN'
-            );
-            $query->execute([
-                'idCategorieEVN' => $idCategorieEVN,
-                'nomCategorieEVN' => $categorieevn->getNomCategorieEVN(),
-            ]);
-            echo $query->rowCount() . " records UPDATED successfully <br>";
-        } catch (PDOException $e) {
-            $e->getMessage();
-        }
+{
+    try {
+        $db = config::getConnexion();
+        $query = $db->prepare(
+            'UPDATE categorieevn SET 
+                nomCategorieEVN = :nomCategorieEVN
+            WHERE idCategorieEVN = :idCategorieEVN'
+        );
+        $query->execute([
+            'idCategorieEVN' => $idCategorieEVN,
+            'nomCategorieEVN' => $categorieevn->getNomCategorieEVN(),
+        ]);
+        echo $query->rowCount() . " records UPDATED successfully <br>";
+    } catch (PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
     }
+}
+
 
     function showcategorieevn($idCategorieEVN)
     {
@@ -78,6 +78,31 @@ class CategorieevnC
             die('Error: ' . $e->getMessage());
         }
     }
-    
-   
+    function getLastInsertedId()
+    {
+        $sql = "SELECT LAST_INSERT_ID() as last_id";
+        $db = config::getConnexion();
+        try {
+            $stmt = $db->query($sql);
+            $row = $stmt->fetch();
+            return $row['last_id'];
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+    function affiche_evenement($idCategorieEVN)
+    {
+        $sql = "SELECT * FROM evenement WHERE idCategorieEVN = :idCategorieEVN";
+        $db = config::getConnexion();
+        try {
+            $query = $db->prepare($sql);
+            $query->execute(['idCategorieEVN' => $idCategorieEVN]);
+            $evenements = $query->fetchAll();
+            return $evenements;
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
 }
+
