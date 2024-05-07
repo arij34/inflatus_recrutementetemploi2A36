@@ -352,7 +352,7 @@ $domainLabelsJSON = json_encode(array_keys($domainCounts));
             data: {
                 labels: locationLabels,
                 datasets: [{
-                    label: 'Nombre de commandes par lieu',
+                    label: 'type d entretien',
                     data: locationCounts,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -391,7 +391,7 @@ $domainLabelsJSON = json_encode(array_keys($domainCounts));
             data: {
                 labels: domainLabels,
                 datasets: [{
-                    label: 'Number of Tests per Domain',
+                    label: ' Tests par Domaine',
                     data: domainCounts,
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',

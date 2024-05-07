@@ -27,7 +27,6 @@ if (
 
         $userC->addUser($user);
 
-<<<<<<< HEAD
         echo '<script>alert("Utilisateur ajouté avec succès.");</script>';
         // Redirect to the quiz.html page
         if ($_POST['domaine_informatique_test'] == 'web') {
@@ -49,10 +48,6 @@ if (
         } else {
             // Do nothing if the condition doesn't match
         }
-=======
-        echo '<script>alert("Utilisateur ajouter avec succés.");</script>';
-        exit;
->>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90
     } else {
         $error = "Tous les champs doivent être remplis";
     }
@@ -121,11 +116,7 @@ if (
 }
 ?>
 
-<<<<<<< HEAD
 <html>
-=======
-<!DOCTYPE html>
->>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -513,7 +504,6 @@ body {
         </div>
         <p class="featured-words">Bienvenue sur <span> Khadamni</span></p>
         </div>
-<<<<<<< HEAD
      <div class="col col-2">
         
                 <div class="login-form">
@@ -561,128 +551,6 @@ body {
         </div>
     </div>
 </div>
-=======
-        <div class="login-form">
-    <form id="test-form" action="register.php" method="post">
-        <div class="form-title">
-            <span>Test Enligne</span>
-        </div>
-        <div class="form-inputs">
-            <div class="input-box">
-                <input type="text" class="input-field" id="email" placeholder="Email" name="email_test" style="width: 100%;" required>
-                <div id="email-error" class="error-message"></div>
-            </div>
-            <div class="input-box">
-                <input type="text" class="input-field" id="entreprise" placeholder="Nom de l'entreprise" name="nom_entreprise_test" style="width: 100%;" required>
-                <div id="entreprise-error" class="error-message"></div>
-            </div>
-            <div class="input-box">
-                <select class="input-field" id="domaine" name="domaine_informatique_test" style="width: 100%;" required>
-                    <option value="" disabled selected hidden> Domaine informatique</option>
-                    <option value="web">Développement Web</option>
-                    <option value="mobile">Développement Mobile</option>
-                    <option value="data">Science des Données</option>
-                    <option value="security">Sécurité Informatique</option>
-                </select>
-                <div id="domaine-error" class="error-message"></div>
-            </div>
-            <div class="input-box">
-                <input type="date" class="input-field" id="date" placeholder="Date de test" name="date_test" style="width: 100%;" required>
-                <div id="date-error" class="error-message"></div>
-            </div>
-            <div class="input-box">
-                <button type="submit" class="input-submit" id="submit-btn">
-                    <span>envoyer</span>
-                    <i class="bx bx-right-arrow-alt"></i>
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
-
-
-<div class="login-form">
-    <form id="test-form" action="register.php" method="post">
-        <div class="register-form">
-            <div class="form-title">
-                <span>Entretien</span>
-            </div>
-            <div class="form-inputs">
-            <div class="input-box">
-                    <input type="text" class="input-field" placeholder="id de test" name="id_test"value="<?= isset($existing_id_test['id_test']) ? $existing_id_test['id_test'] : '' ?>">
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Email" name="email_test">
-                    <td><span id="erreurEmail" style='color:red'></span></td>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Nom" name="nom_entre">
-                    <td><span id="erreurNom" style='color:red'></span></td>
-                    <input type="text" class="input-field" placeholder="Prenom" name="prenom_entre">
-                    <td><p id="errorPrenom" style='color:red'></p></td>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Nom Entreprise" name="nom_entreprise_test">
-                    <td><p id="errorEntre" style='color:red'></p></td>
-                </div>
-                <div class="input-box">
-                    <input type="date" class="input-field" placeholder="Date d'entretien'" name="date_entre">
-                    <td><span id="errorDate_naissance" style='color:red'></span></td>
-                </div>
-                <div class="input-box">
-                    <select class="input-field" name="type_entre" style="width: 100%;">
-                        <option value="" disabled selected hidden> Type d'entretien</option>
-                        <option value="en ligne">En ligne</option>
-                        <option value="presentiel">Presentiel</option>
-                    </select>
-                    <button type="submit" class="input-submit">
-                        <span>register</span>
-                        <i class="bx bx-right-arrow-alt"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-</div>
-
-<script>
-    function validateIdTest() {
-        var id_test = document.getElementById("id_test").value;
-        // Perform AJAX request to check if the id_test exists in the database
-        // You can use XMLHttpRequest or fetch API for this purpose
-        // For demonstration, I'll assume a function called checkIdTestExists is used
-        checkIdTestExists(id_test);
-        return false; // Prevent form submission until AJAX request completes
-    }
-
-    function checkIdTestExists(id_test) {
-        // Make an AJAX request to your PHP script to check if the id_test exists
-        // Here, you would send the id_test to your PHP script and handle the response
-        // For demonstration, I'll assume a simple example using fetch API
-        fetch('check_id_test.php?id_test=' + id_test)
-            .then(response => response.json())
-            .then(data => {
-                if (data.exists) {
-                    // If id_test exists, allow form submission
-                    document.getElementById("id_test_error").innerText = "";
-                    document.getElementById("entretien-form").submit();
-                } else {
-                    // If id_test does not exist, display an error message
-                    document.getElementById("id_test_error").innerText = "ID de test incorrect";
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }
-</script>
-
-<script src="assets/js/main.js"></script>
-<script src="front end/contr_saisie.js"></script>
-</body>
-</html>
->>>>>>> add5478c6eb71824396c18a6da6030b5af3e2f90
 
 <footer>
     <div class="container">
