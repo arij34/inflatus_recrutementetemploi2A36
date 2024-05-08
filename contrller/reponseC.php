@@ -124,6 +124,19 @@ public function addreponse($reponse)
         echo 'Error: ' . $e->getMessage();
     }
 }
+function filterBadWords($text, $badWords) {
+    // Parcourt tous les mots interdits
+    foreach ($badWords as $badWord) {
+        // Génère une chaîne d'étoiles de la même longueur que le mot interdit
+        $replacement = str_repeat('*', mb_strlen($badWord));
+        // Remplace le mot interdit par la chaîne d'étoiles dans le texte
+        $text = str_ireplace($badWord, $replacement, $text);
+    }
+    // Retourne le texte avec les mots interdits remplacés par des étoiles
+    return $text;
+
+
+}
 
 
 }

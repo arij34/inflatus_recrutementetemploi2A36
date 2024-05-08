@@ -1,32 +1,4 @@
-<?php
-function filterBadWords($text, $badWords) {
-    // Parcourt tous les mots interdits
-    foreach ($badWords as $badWord) {
-        // Génère une chaîne d'étoiles de la même longueur que le mot interdit
-        $replacement = str_repeat('*', mb_strlen($badWord));
-        // Remplace le mot interdit par la chaîne d'étoiles dans le texte
-        $text = str_ireplace($badWord, $replacement, $text);
-    }
-    // Retourne le texte avec les mots interdits remplacés par des étoiles
-    return $text;
-}
 
-// Définition des mots interdits
-$badWords = ['farah', 'arij'];
-// Vérifie si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupère et filtre les données du formulaire
-    $date = $_POST["date"];
-    $categorie_reclamation = $_POST["categorie_reclamation"];
-    // Filtrer les mots interdits dans le champ "explication"
-    $explicationFiltered = filterBadWords($_POST["explication"], $badWords);
-} else {
-    // Initialise la variable $explicationFiltered avec une chaîne vide
-    $explicationFiltered = "";
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

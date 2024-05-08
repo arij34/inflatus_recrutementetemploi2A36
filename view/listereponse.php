@@ -37,7 +37,7 @@ $list = $reponseC->listereponse();
 <div class="col-lg-6">
                 <div class="card" style="width: 1200px;">
                     <div class="card-body">
-                        <h4 class="card-title">Table Réponse</h4>
+                        <h4 class="card-title">Table Reponse</h4>
                         <div class="table-responsive">
                             <table class="table table-bordered verticle-middle">
                                 <thead>
@@ -46,6 +46,7 @@ $list = $reponseC->listereponse();
                                         <th scope="col">reponse</th>
                                         <th scope="col">id_reclamation</th>
                                         <th scope="col">statut</th>
+                                        <th scope="col">Action</th>
                                         
                                     </tr>
                                 </thead>
@@ -57,38 +58,16 @@ $list = $reponseC->listereponse();
                                         <td><?php echo $reponse['id_reponse']; ?></td>
                                         <td><?php echo $reponse['reponse']; ?></td>
                                         <td><?php echo $reponse['id_reclamation']; ?></td>
-                                        <td><?php echo $reponse['statut']; ?></td>
-
                                         <td>
-                                        <form method="POST" action="updatereponse.php">
-    <!-- Input for etat_reponse (response state) -->
-    <input type="text" name="reponse" placeholder="reponse" required>
-    
-    <!-- Input for id_reclamation (claim ID) -->
-    <input type="text" name="id_reclamation" placeholder="Claim ID" required>
+                                            <form action="updateStatut.php" method="post">
+                                                <input type="hidden" name="id_reponse" value="<?php echo $reponse['id_reponse']; ?>">
+                                                <input type="radio" name="statut" value="En cours" <?php if ($reponse['statut'] == 'En cours') echo 'checked'; ?>> En cours
+                                                <input type="radio" name="statut" value="Résolu" <?php if ($reponse['statut'] == 'Résolu') echo 'checked'; ?>> Résolu
+                                                <input type="submit" value="Mettre à jour">
+                                            </form>
+                                        </td>
+                                        <td><!-- Autres actions ici --></td>
 
-    <!-- Submit button -->
-    <button type="submit">update Response</button>
-</form>
-                                </td>
-                                        <td>
-                                        <form method="POST" action="addreponse.php">
-    <!-- Input for etat_reponse (response state) -->
-    <input type="text" name="reponse" placeholder="Response state" required>
-    
-    <!-- Input for id_reclamation (claim ID) -->
-    <input type="text" name="id_reclamation" placeholder="Claim ID" required>
-
-    <!-- Submit button -->
-    <button type="submit">Add Response</button>
-</form>
- </td>                                   
-  <td>
-     <form method="POST" action="deletereponse.php">
-      <input type="hidden" value="<?php echo $reponse['id_reclamation']; ?>" name="id_reclamation">
-         <button type="submit" class="btn btn-danger" name="delete"><i class="fa fa-trash"></i></button>
-     </form>
- </td>
                                     </tr>
                                     <?php
                                 }
@@ -99,6 +78,6 @@ $list = $reponseC->listereponse();
                     </div>
                 </div>
             </div>
-</body>
 
+</body>
 </html>

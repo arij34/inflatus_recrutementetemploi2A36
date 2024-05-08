@@ -49,7 +49,10 @@ if (
 </head>
 
 <body>
-    <button><a href="listereclame.php">Retour à la liste</a></button>
+<button style="background-color: white; border: 2px solid red; padding: 10px 20px; font-size: 16px; border-radius: 20px;">
+    <a href="listereclame.php" style="text-decoration: none; color: black;">Retour à la liste</a>
+</button>
+
     <hr>
 
     <div id="error">
@@ -62,56 +65,35 @@ if (
 
     ?>
 
-<form action="" method="POST">
-    <table border="1" align="center">
-        <tr>
-            <td>
-                <label for="id_reclamation">id_reclamation:
-                </label>
-            </td>
-            <td><input type="text" name="id_reclamation" id="id_reclamation" value="<?php echo $reclamation['id_reclamation']; ?>" maxlength="20"></td>
-        </tr>
-        <tr>
-            <td>
-                <label for="date">date:
-                </label>
-            </td>
-            <td>
-                <input type="date" name="date" id="date" value="<?php echo $reclamation['date']; ?>">
-            </td>
-        </tr>
-        
-        <tr>
-            <td>
-                <label for="categorie_reclamation">Catégorie:
-                </label>
-            </td>
-            <td>
-                <input type="text" name="categorie_reclamation" value="<?php echo $reclamation['categorie_reclamation']; ?>" id="categorie_reclamation">
-            </td>
-        </tr>
+<form action="" method="POST" style="text-align: center;">
+    <div style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 10px; display: inline-block;">
+        <label for="id_reclamation" style="display: block; margin-bottom: 5px;">id_reclamation:</label>
+        <input type="text" name="id_reclamation" id="id_reclamation" value="<?php echo $reclamation['id_reclamation']; ?>" maxlength="20" style="width: 200px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+    <div style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 10px; display: inline-block;">
+        <label for="date" style="display: block; margin-bottom: 5px;">date:</label>
+        <input type="text" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" style="width: 200px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;" readonly>
+    </div>
+    <div style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 10px; display: inline-block;">
+        <label for="categorie_reclamation" style="display: block; margin-bottom: 5px;">Catégorie:</label>
+        <input type="text" name="categorie_reclamation" value="<?php echo $reclamation['categorie_reclamation']; ?>" id="categorie_reclamation" style="width: 200px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+    <div style="margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 10px; display: inline-block;">
+        <label for="explication" style="display: block; margin-bottom: 5px;">explication:</label>
+        <input type="text" name="explication" value="<?php echo $reclamation['explication']; ?>" id="explication" style="width: 200px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+   
+    <div>
+        <input type="submit" value="Update" style="padding: 8px 20px; background-color: #fe3f40; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+        <input type="reset" value="Reset" style="padding: 8px 20px; background-color: #ccc; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+    </div>
+    <div style="margin-bottom: 300px;">
+    <img src="services-left-image.png" alt="" style="width: 400px; height: 300px;">
+</div>
 
-        <tr>
-            <td>
-                <label for="explication">explication:
-                </label>
-            </td>
-            <td>
-                <input type="text" name="explication" value="<?php echo $reclamation['explication']; ?>" id="explication">
-            </td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Update">
-            </td>
-            <td>
-                <input type="reset" value="Reset">
-            </td>
-        </tr>
-    </table>
 </form>
+
+
 
     <?php
     }
