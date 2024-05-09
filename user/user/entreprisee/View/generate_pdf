@@ -1,0 +1,65 @@
+<?php
+ob_start();
+include '../Controller/EntrepriseC.php';
+require 'vendor/autoload.php';
+
+$c = new EntrepriseC();
+$tab = $c->listEntreprises();
+
+if (isset($_POST["type"]) && $_POST["type"] === "pdf") {
+    error_reporting(0);
+    ob_start();
+
+    // Création d'une nouvelle instance de PDF
+    $pdf = new TCPDF();
+    
+    // Définir les informations du document
+    $pdf->SetCreator(PDF_CREATOR);
+    $pdf->SetAuthor('Ameni');
+    $pdf->SetTitle('Liste des entreprises PDF');
+    $pdf->SetSubject('Table des entreprises');
+
+    // Ajouter une page
+    $pdf->AddPage();
+
+    // Définir la police
+    $pdf->SetFont('dejavusans', '', 12);
+
+    // Générer le contenu HTML avec un design personnalisé
+    $html = '<h1 style="text-align: center;">Table des utilisateurs</h1>';
+    $html .= '<table border="1" cellpadding="5" style="width: 100%;">';
+    $html .= '<thead>
+                <tr>
+                    <th>Nom Entreprise</th>
+                    <th>Adresse</th>
+                    <th>Date de creation</th>
+                    <th>téléphone</th>
+                    <th>description</th>
+                    <th>Email</th>
+                    <th>Mot De Passe</th>
+                </tr>
+             </thead>';
+    $html .= '<tbody>';
+    
+    foreach ($tab as $entreprise) {
+        $html .= '<tr>';
+        $html .= '<td>' . $entreprise['nomEntreprise'] . '</td>';
+        $html .= '<td>' . $entreprise['adresse'] . '</td>';
+        $html .= '<td>' . $entreprise['dateCreation'] . '</td>';
+        $html .= '<td>' . $entreprise['telephoneEn'] . '</td>';
+        $html .= '<td>' . $user['descriptionE'] . '</td>';
+        $html .= '<td>' . $user['emailEn'] . '</td>';
+        $html .= '<td>' . $user['MDPEn'] . '</td>';
+        $html .= '</tr>';
+    }
+
+    $html .= '</tbody></table>';
+
+    // Écrire le contenu HTML dans le PDF
+    $pdf->writeHTML($html, true, false, true, false, '');
+
+    // Télécharger le PDF
+    $pdf->Output('utilisateurs_table.pdf', 'D');
+    exit;
+}
+?>
