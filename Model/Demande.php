@@ -6,7 +6,7 @@ class Demande
     private ?string $nom_d = null;
     private ?string $prenom_d = null;
     private ?string $email_d = null;
-    private ?int $telephone_d = null;
+    private ?string $telephone_d = null;
     private ?string $cv_d = null;
     private ?string $lettre_motivation = null;
     private ?int $id_o = null;
@@ -16,7 +16,7 @@ class Demande
 
 
 
-    public function __construct(?int $id_d, ?int $id_etudiant, ?string $nom_d, ?string $prenom_d, ?string $email_d, ?int $telephone_d, ?string $cv_d, ?string $lettre_motivation, ?int $id_o, ?DateTime $date_d, ?string $status_d)
+    public function __construct(?int $id_d, ?int $id_etudiant, ?string $nom_d, ?string $prenom_d, ?string $email_d,?string $telephone_d, ?string $cv_d, ?string $lettre_motivation, ?int $id_o, ?DateTime $date_d, ?string $status_d)
     {
         $this->id_d = $id_d;
         $this->id_etudiant = $id_etudiant;

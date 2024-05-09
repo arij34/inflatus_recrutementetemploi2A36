@@ -53,7 +53,7 @@
                 <div class="col-12">
                   <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="acceuil.html" class="logo">
+                    <a href="acceuil.php" class="logo">
                       <h4>
                         <div class="corner-container">
                           <img src="assets/images/logo.png" >

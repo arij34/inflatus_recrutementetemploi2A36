@@ -25,6 +25,9 @@ $liste = $offreC->ListeOffres();
         <div class="card" style="width: 1200px;">
           <div class="card-body">
             <h4 class="card-title">Table Offres</h4>
+             <div style="padding-left: 950px;">
+            <a href="ajouterOffre_back.php" class="btn btn-success mb-2">Ajouter une nouvelle offre</a>
+            </div>
             <div class="table-responsive">
               <table class="table table-bordered verticle-middle">
                 <thead>

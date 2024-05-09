@@ -188,6 +188,13 @@ else {
                                         <input type="hidden" value="<?php echo $offre['id_o']; ?>" name="id_o">
                                         <button type="submit" class="btn btn-danger" name="delete"><i class="fa fa-trash"></i></button>
                                     </form>
+                                    &nbsp;&nbsp;
+                                    <div >
+    
+                                          <a href="ajoutDemande.php?id_o=<?= $offre['id_o'] ?>" class="main-orange-button">Postuler </a>
+
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -215,11 +222,9 @@ else {
             color: white; /* Couleur du texte en blanc pour les liens */
         }
 </style>
-<center>
-            <div class="main-orange-button">
-                <a href="ajoutDemande.php " >Ajouter votre demande </a>
-            </div>
-        </center>
+
+            
+       
 
     <footer>
         <div class="container">

@@ -7,6 +7,14 @@ $error = "";
 $demande = null;
 $demandeC = new DemandeC(); // Instancier la classe DemandeC
 
+// Récupérer l'id_o de l'URL
+if(isset($_GET['id_o'])) {
+    $id_o = $_GET['id_o'];
+    // Utilisez $id_o comme nécessaire dans votre page ajoutDemande.php
+} else {
+    // Gérer le cas où id_o n'est pas défini dans l'URL
+}
+
 if (
     isset($_POST["id_etudiant"]) &&
     isset($_POST["nom_d"]) &&
@@ -15,7 +23,6 @@ if (
     isset($_POST["telephone_d"]) &&
     isset($_POST["cv_d"]) &&
     isset($_POST["lettre_motivation"]) &&
-    isset($_POST["id_o"]) &&
     isset($_POST["date_d"]) &&
     isset($_POST["status_d"])
 ) {
@@ -31,7 +38,6 @@ if (
         !empty($_POST["date_d"]) &&
         !empty($_POST["status_d"])
     ) {
-        // Check if the provided id_test exists in the test table
         $id_o = $_POST['id_o'];
         $pdo = new PDO(
             'mysql:host=localhost;dbname=recrutement',
@@ -47,13 +53,16 @@ if (
         $statement->execute([$id_o]);
         $existing_id_o = $statement->fetchColumn();
 
-        // If the provided id_test does not exist, display an alert message
+        // Si le id_o n'existe pas, afficher une alerte et rediriger
         if (!$existing_id_o) {
             echo '<script>alert("Le id_o fourni n\'existe pas. Veuillez entrer un id_o valide.");</script>';
-        } else {
-            // Proceed with adding the user to the entretien table
-            $demande = new Demande(
-                null, // Laisser l'ID être défini automatiquement
+            header('Location: ListeDemandes_front.php');
+            exit;
+        }
+
+        // Si le id_o existe, ajouter la demande
+        $demande = new Demande(
+            null, // Laisser l'ID être défini automatiquement
             $_POST["id_etudiant"],
             $_POST["nom_d"],
             $_POST["prenom_d"],
@@ -64,21 +73,19 @@ if (
             $_POST["id_o"],
             new DateTime($_POST['date_d']),
             $_POST["status_d"]
-            );
+        );
 
-            $demandeC->ajoutDemande($demande);
+        $demandeC->ajoutDemande($demande);
 
-            echo '<script>alert("Utilisateur ajouter avec succés.");</script>';
-            header('Location:ListeDemandes_front.php');
-            exit;
-        }
+        echo '<script>alert("Utilisateur ajouté avec succès.");</script>';
+        header('Location: ListeDemandes_front.php');
+        exit;
     } else {
         $error = "Tous les champs doivent être remplis";
     }
-    $offreC = new OffreC();
-    $ListeOffress = $offreC->ListeOffres();
-    
 }
+
+?>
 ?>
 <html>
 <html lang="en">
@@ -557,7 +564,9 @@ body {
                 </div>
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="tel" class="input-field" name="telephone_d" placeholder="Telephone" >
+                    <input type="tel" class="input-field" name="telephone_d" placeholder="Telephone">
+
+                        
                     </div>
                 </div>
                 <div class="form-inputs">
@@ -574,7 +583,7 @@ body {
 
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="text" class="input-field" name="id_o" placeholder="Id_offre" value="<?= isset($existing_id_o['id_o']) ? $existing_id_o['id_o'] : '' ?>">
+                        <input type="text" class="input-field" name="id_o" placeholder="Id_offre" value="<?= isset($id_o) ? $id_o : '' ?>">
                         
                     </div>
                 </div>
@@ -602,6 +611,8 @@ body {
                         </button>
                     </div>
                 </div>
+                <a href="resume.php">Cliquez ici pour créé votre CV </a>
+
 
                 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -633,6 +644,9 @@ body {
 <script src="assets/js/animation.js"></script>
 <script src="assets/js/imagesloaded.js"></script>
 <script src="assets/js/templatemo-custom.js"></script>
+
+
+
 
 </body>
 </html>

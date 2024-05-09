@@ -203,7 +203,7 @@ if (
                     <td>
                         <label for="telephone_d">telephone_d:</label>
                     </td>
-                    <td><input type="text" name="telephone_d" id="telephone_d" value="<?php echo $demande['telephone_d']; ?>" maxlength="255"></td>
+                    <td><input type="tel" name="telephone_d" id="telephone_d" value="<?php echo $demande['telephone_d']; ?>" maxlength="255"></td>
                 </tr>
                 <tr>
                     <td>

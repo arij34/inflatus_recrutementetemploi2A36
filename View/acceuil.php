@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="assets/css/animated.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 <!--
     
 TemplateMo 562 Space Dynamic
@@ -192,7 +193,7 @@ https://templatemo.com/tm-562-space-dynamic
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
               <center><div class="main-blue-button">
-                 <a href="domaine.php">Ajouter un domaine </a>
+                 <a href="addDomaine.php">Ajouter un domaine </a>
               </div></center>
               <div class="section-heading text-center wow bounceIn" data-wow-duration="1s" data-wow-delay="0.1s">
                <h2><span style="color: #03a4ed;"> Voici les différents </span> domaines <span style="color:#fe3f40;">de nos offres!!!</span> </h2>
@@ -569,6 +570,8 @@ https://templatemo.com/tm-562-space-dynamic
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/templatemo-custom.js"></script>
+  <script src="assets/js/isotope.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>

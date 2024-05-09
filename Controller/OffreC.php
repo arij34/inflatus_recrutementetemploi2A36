@@ -5,6 +5,24 @@ require_once '../Controller/DomaineC.php';
 
 class OffreC
 {
+
+    function statistiqueOffresParDomaine()
+    {
+        $sql = "SELECT id_dom, COUNT(*) as nombre_offres FROM offre GROUP BY id_dom";
+        $db = config::getConnexion();
+        try {
+            $query = $db->query($sql);
+            $statistiques = $query->fetchAll();
+            return $statistiques;
+        } catch (Exception $e) {
+            die('Error: ' . $e->getMessage());
+        }
+    }
+    
+
+
+
+
     /*
      function ListeOffres()
     {
