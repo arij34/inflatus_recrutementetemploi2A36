@@ -28,6 +28,8 @@ if (
             $_POST["adresseEVN"],
             new DateTime($_POST['dateEVN']),
             $_POST["idCategorieEVN"],
+            $_POST["adresseEVN"],
+            new DateTime($_POST['dateEVN'])
         );
         $evenementC->updateEvenement($evenement, $_POST["idEvenement"]);
         header('Location:ListEvenement.php');
@@ -61,8 +63,7 @@ if (
 
     <?php
     if (isset($_POST['idEvenement'])) {
-        $Evenement =$evenementC->showEvenement($_POST['idEvenement']);
-
+        $Evenement = $evenementC->showEvenement($_POST['idEvenement']);
     ?>
 
         <form action="" method="POST">

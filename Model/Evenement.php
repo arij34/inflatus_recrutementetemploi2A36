@@ -6,13 +6,17 @@ class Evenement
     private ?string $adresseEVN = null;
     private ?dateTime $dateEVN = null;
     private ?string $idCategorieEVN = null;
-    public function __construct($id=NULL, $nom, $adresseEVN,$dateEVN,$idCategorieEVN)
+    private ?string $ancienneAdresseEVN= null;
+    private ?dateTime $ancienneDateEVN = null;
+    public function __construct($id=NULL, $nom, $adresseEVN,$dateEVN,$idCategorieEVN,$ancienneAdresseEVN,$ancienneDateEVN)
     {
         $this->idEvenement = $id;
         $this->nomEvenement = $nom;
         $this->adresseEVN = $adresseEVN;
         $this->dateEVN = $dateEVN;
         $this->idCategorieEVN = $idCategorieEVN;
+        $this->ancienneAdresseEVN =$ancienneAdresseEVN;
+        $this->ancienneDateEVN = $ancienneDateEVN;
     }
 
     /**
@@ -98,6 +102,42 @@ class Evenement
     public function setIdCategorieEVN($idCategorieEVN)
     {
         $this->idCategorieEVN = $idCategorieEVN;
+
+        return $this;
+    }
+    public function getAncienneAdresseEVN()
+    {
+        return $this->ancienneAdresseEVN;
+    }
+
+    /**
+     * Set the value of adresseEVN
+     *
+     * @return  self
+     */
+    public function setAncienneAdresseEVN($ancienneAdresseEVN)
+    {
+        $this->ancienneAdresseEVN = $ancienneAdresseEVN;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateEVN
+     */
+    public function getAncienneDateEVN()
+    {
+        return $this->ancienneDateEVN;
+    }
+
+    /**
+     * Set the value of dateEVNCreation
+     *
+     * @return  self
+     */
+    public function setAncienneDateEVN($ancienneDateEVN)
+    {
+        $this->ancienneDateEVN= $ancienneDateEVN;
 
         return $this;
     }

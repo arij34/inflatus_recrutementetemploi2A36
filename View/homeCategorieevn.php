@@ -2,7 +2,9 @@
 include '../Controller/categorieevnC.php';
 $categorieevnC = new CategorieevnC();
 $list = $categorieevnC->listcategorieevns();
+$counts = $categorieevnC->countEvenementsParCategorie(); // Appel de la méthode pour compter les événements par catégorie
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -257,6 +259,13 @@ https://templatemo.com/tm-562-space-dynamic
                         <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
                             <div class="hidden-content">
                                 <h4><?php echo $categorie['nomCategorieEVN']; ?></h4>
+                                <?php
+                                    // Chercher le nombre d'événements associés à cette catégorie dans les résultats de $counts
+                                    $count = array_reduce($counts, function ($acc, $item) use ($categorie) {
+                                        return $item['nomCategorieEVN'] === $categorie['nomCategorieEVN'] ? $item['nombre_evenements'] : $acc;
+                                    }, 0);
+                                ?>
+                                <p><?php echo $count; ?> événements</p>
                             </div>
                             <div class="showed-content">
                                 <a href="detail.php?id=<?php echo $categorie['idCategorieEVN']; ?>">

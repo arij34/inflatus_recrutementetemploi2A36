@@ -66,7 +66,7 @@ if($idEvenement !== null) {
                             ?>
                             <tr>
                                 <td><?php echo $Participation['idParticipation']; ?></td>
-                                <td><?php echo $Participation['idEvenement']; ?></td>
+                                <td><?php echo $Participation['nomEvenement']; ?></td>
                                 <td><?php echo $Participation['nomE']; ?></td>
                                 <td><?php echo $Participation['prenomE']; ?></td>
                                 <td><?php echo $Participation['idEtudiant']; ?></td>

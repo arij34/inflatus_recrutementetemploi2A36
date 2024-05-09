@@ -9,15 +9,20 @@ $listeCategorieevns = $categorieevnC->listcategorieevns();
 // Créer une instance du contrôleur
 $evenementC = new EvenementC();
 
+// Vérifier si une adresse est envoyée via l'URL
+if (isset($_GET["adresseEVN"])) {
+    $adresseEVN = $_GET["adresseEVN"];
+} else {
+    $adresseEVN = ""; // Adresse par défaut si aucune adresse n'est envoyée
+}
+
 if (
     isset($_POST["nomEvenement"]) &&
-    isset($_POST["adresseEVN"]) &&
     isset($_POST["dateEVN"]) &&
     isset($_POST["idCategorieEVN"])
 ) {
     if (
         !empty($_POST["nomEvenement"]) &&
-        !empty($_POST["adresseEVN"]) &&
         !empty($_POST["dateEVN"]) &&
         !empty($_POST["idCategorieEVN"])
     ) {
@@ -32,9 +37,11 @@ if (
         $evenement = new Evenement(
             NULL,
             $_POST["nomEvenement"],
-            $_POST["adresseEVN"],
+            $adresseEVN, // Utiliser l'adresse récupérée depuis l'URL
             new DateTime($_POST['dateEVN']),
-            $nomCategorie // Utiliser l'ID de la catégorie
+            $nomCategorie, // Utiliser l'ID de la catégorie
+            $adresseEVN, // Ancienne adresse par défaut
+            new DateTime($_POST['dateEVN']) // Ancienne date par défaut
         );
         $evenementC->addEvenement($evenement);
         header('Location:ListEvenement.php');
@@ -44,6 +51,7 @@ if (
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -438,41 +446,41 @@ body {
     </div>
     <div class="col col-2">
     <div class="login-form">
-        <div class="form-title">
-            <span>ajouter evenement </span>
+    <div class="form-title">
+        <span>ajouter evenement </span>
+    </div>
+    <form name="monFormulaire" method="POST" action="" onsubmit="return validateForm();">
+        <div class="input-box">
+            <input type="text" class="input-field" placeholder="nomEvenement" name="nomEvenement">
+            <div id="nomEvenementError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
         </div>
-        <form name="monFormulaire" method="POST" action="" onsubmit="return validateForm();">
-    <div class="input-box">
-        <input type="text" class="input-field" placeholder="nomEvenement" name="nomEvenement">
-        <div id="nomEvenementError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
-    </div>
-    <div class="input-box">
-        <input type="text" class="input-field" placeholder="adresseEVN" name="adresseEVN">
-        <div id="adresseEVNError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
-    </div>
-    <div class="input-box">
-        <input type="date" class="input-field" placeholder="dateEVN" name="dateEVN">
-        <div id="dateEVNError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
-    </div>
-    <div class="input-box">
-        <select name="idCategorieEVN" id="idCategorieEVN" class="input-field">
-            <?php
-            foreach ($listeCategorieevns as $categorieevn) {
-                echo '<option value="' . $categorieevn['idCategorieEVN'] . '">' . $categorieevn['nomCategorieEVN'] . '</option>';
-            }
-            ?>
-        </select>
-        <a href="javascript:void(0);" id="ajouterCategorie">Ajouter une catégorie</a>
-        <div id="nouvelleCategorie" style="display: none;">
-            <input type="text" class="input-field" placeholder="Nouvelle catégorie" name="nouvelleCategorie" id="nouvelleCategorieInput">
-            <button type="button" id="validerNouvelleCategorie">Valider</button>
+        <div class="input-box">
+            <input type="text" class="input-field" placeholder="adresseEVN" name="adresseEVN" value="<?php echo isset($adresseEVN) ? $adresseEVN : ''; ?>">
+            <div id="adresseEVNError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
         </div>
-    </div>
-    <div class="input-box">
-        <button type="submit" name="envoyer" style="background-color: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">envoyer<i class="bx bx-right-arrow-alt"></i></button>
-    </div>
-</form>
-
+        <a href="map.php" style="margin-left: 10px;">Choisir localisation</a> <!-- Ajout du lien -->
+        <div class="input-box">
+            <input type="date" class="input-field" placeholder="dateEVN" name="dateEVN">
+            <div id="dateEVNError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->
+        </div>
+        <div class="input-box">
+            <select name="idCategorieEVN" id="idCategorieEVN" class="input-field">
+                <?php
+                foreach ($listeCategorieevns as $categorieevn) {
+                    echo '<option value="' . $categorieevn['idCategorieEVN'] . '">' . $categorieevn['nomCategorieEVN'] . '</option>';
+                }
+                ?>
+            </select>
+            <a href="javascript:void(0);" id="ajouterCategorie">Ajouter une catégorie</a>
+            <div id="nouvelleCategorie" style="display: none;">
+                <input type="text" class="input-field" placeholder="Nouvelle catégorie" name="nouvelleCategorie" id="nouvelleCategorieInput">
+                <button type="button" id="validerNouvelleCategorie">Valider</button>
+            </div>
+        </div>
+        <div class="input-box">
+            <button type="submit" name="envoyer" style="background-color: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">envoyer<i class="bx bx-right-arrow-alt"></i></button>
+        </div>
+    </form>
 <script src="validation.js"></script> 
 <script>
     document.getElementById('ajouterCategorie').addEventListener('click', function() {
@@ -524,4 +532,3 @@ body {
 <script src="../assets/js/templatemo-custom.js"></script>
 </body>
 </html>
-

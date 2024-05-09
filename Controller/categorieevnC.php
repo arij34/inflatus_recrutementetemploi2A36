@@ -103,6 +103,24 @@ class CategorieevnC
             echo 'Error: ' . $e->getMessage();
         }
     }
+    function countEvenementsParCategorie()
+    {
+        $sql = "SELECT c.nomCategorieEVN, COUNT(e.idEvenement) AS nombre_evenements 
+                FROM categorieevn c
+                LEFT JOIN evenement e ON c.idCategorieEVN = e.idCategorieEVN
+                GROUP BY c.idCategorieEVN";
+
+        $db = config::getConnexion();
+        try {
+            $query = $db->query($sql);
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            return false;
+        }
+    }
+
 
 }
 

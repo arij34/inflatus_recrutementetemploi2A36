@@ -5,16 +5,19 @@ include '../Model/Participation.php'; // Assurez-vous que ce chemin est correct
 class ParticipationC
 {
     public function listParticipations()
-    {
-        $sql = "SELECT * FROM participation"; // Assurez-vous que la table dans la base de données est nommée "participation"
-        $db = config::getConnexion();
-        try {
-            $liste = $db->query($sql);
-            return $liste;
-        } catch (Exception $e) {
-            die('Error:' . $e->getMessage());
-        }
+{
+    $sql = "SELECT p.*, e.nomEvenement AS nomEvenement
+            FROM participation p
+            INNER JOIN evenement e ON p.idEvenement = e.idEvenement"; // Joindre la table evenement pour obtenir le nom de l'événement
+    $db = config::getConnexion();
+    try {
+        $liste = $db->query($sql);
+        return $liste;
+    } catch (Exception $e) {
+        die('Error:' . $e->getMessage());
     }
+}
+
     public function deleteParticipation($idParticipation)
     {
         $sql = "DELETE FROM participation  WHERE idParticipation = :idParticipation";
@@ -99,5 +102,40 @@ class ParticipationC
         die('Error: ' . $e->getMessage());
     }
 }
+public function getEventNameById($idEvenement)
+{
+    $sql = "SELECT nomEvenement FROM evenement WHERE idEvenement = :idEvenement";
+    $db = config::getConnexion();
+    try {
+        $query = $db->prepare($sql);
+        $query->execute(['idEvenement' => $idEvenement]);
+        $eventName = $query->fetchColumn();
+        return $eventName;
+    } catch (Exception $e) {
+        die('Error: ' . $e->getMessage());
+    }
+}
+public function compareInfosByStudentIdAndEventId($idEtudiant, $idEvenement)
+{
+    $sql = "SELECT e.ancienneAdresseEVN, e.adresseEVN, e.ancienneDateEVN, e.dateEVN
+            FROM evenement e
+            INNER JOIN participation p ON e.idEvenement = p.idEvenement
+            WHERE p.idEtudiant = :idEtudiant AND p.idEvenement = :idEvenement";
+
+    $db = config::getConnexion();
+
+    try {
+        $query = $db->prepare($sql);
+        $query->execute([
+            'idEtudiant' => $idEtudiant,
+            'idEvenement' => $idEvenement
+        ]);
+        $infos = $query->fetch(PDO::FETCH_ASSOC);
+        return $infos;
+    } catch (Exception $e) {
+        die('Error: ' . $e->getMessage());
+    }
+}
+
 
 }

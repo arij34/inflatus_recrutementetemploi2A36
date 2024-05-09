@@ -18,61 +18,88 @@ class EvenementC
     }
 
     function deleteEvenement($idEvenement)
-    {
-        $sql = "DELETE FROM evenement  WHERE idEvenement = :idEvenement";
+{
+    // Avant de supprimer l'événement, récupérez ses informations
+    $evenementToDelete = $this->showEvenement($idEvenement);
+
+    $sql = "DELETE FROM evenement  WHERE idEvenement = :idEvenement";
+    $db = config::getConnexion();
+    $req = $db->prepare($sql);
+    $req->bindValue(':idEvenement', $idEvenement);
+
+    try {
+        $req->execute();
+
+        // Envoyez l'alerte pour informer que l'événement a été supprimé
+        $message = "L'événement avec l'ID " . $idEvenement . " a été supprimé.";
+        // Envoyer l'alerte par e-mail
+        // mail($to, $subject, $message, $headers);
+        // Ou vous pouvez utiliser une autre méthode d'alerte, comme l'envoi d'une notification, l'enregistrement dans un fichier de journal, etc.
+    } catch (Exception $e) {
+        die('Error:' . $e->getMessage());
+    }
+}
+function addEvenement($Evenement)
+{
+    $sql = "INSERT INTO evenement  
+            VALUES (NULL, :nomEvenement, :adresseEVN, :dateEVN, :idCategorieEVN, :ancienneAdresseEVN, :ancienneDateEVN)";
+    $db = config::getConnexion();
+    try {
+        $query = $db->prepare($sql);
+        $query->execute([
+            'nomEvenement' => $Evenement->getNomEvenement(),
+            'adresseEVN' => $Evenement->getAdresseEVN(),
+            'dateEVN' => $Evenement->getDateEVN()->format('Y-m-d'),
+            'idCategorieEVN' => $Evenement->getIdCategorieEVN(),
+            'ancienneAdresseEVN' => $Evenement->getAncienneAdresseEVN() ?? $Evenement->getAdresseEVN(),
+            'ancienneDateEVN' => $Evenement->getAncienneDateEVN()->format('Y-m-d') ?? $Evenement->getDateEVN()->format('Y-m-d'),
+        ]);
+    } catch (Exception $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+}
+
+
+function updateEvenement($Evenement, $idEvenement)
+{
+    try {
         $db = config::getConnexion();
-        $req = $db->prepare($sql);
-        $req->bindValue(':idEvenement', $idEvenement);
+        
+        // Récupérer les anciennes valeurs de dateEVN et adresseEVN
+        $oldEvenement = $this->showEvenement($idEvenement);
+        $ancienneDateEVN = $oldEvenement['dateEVN'];
+        $ancienneAdresseEVN = $oldEvenement['adresseEVN'];
 
-        try {
-            $req->execute();
-        } catch (Exception $e) {
-            die('Error:' . $e->getMessage());
-        }
-    }
+        $query = $db->prepare(
+            'UPDATE evenement SET 
+            nomEvenement = :nomEvenement, 
+            adresseEVN = :adresseEVN, 
+            ancienneDateEVN = :ancienneDateEVN, 
+            ancienneAdresseEVN = :ancienneAdresseEVN, 
+            dateEVN = :dateEVN, 
+            idCategorieEVN = :idCategorieEVN
+        WHERE idEvenement = :idEvenement'
+        );
 
-    function addEvenement($Evenement)
-    {
-        $sql = "INSERT INTO evenement  
-        VALUES (NULL, :nomEvenement, :adresseEVN, :dateEVN, :idCategorieEVN)";
-        $db = config::getConnexion();
-        try {
-            $query = $db->prepare($sql);
-            $query->execute([
-                'nomEvenement' => $Evenement->getNomEvenement(),
-                'adresseEVN' => $Evenement->getAdresseEVN(),
-                'dateEVN' => $Evenement->getDateEVN()->format('Y-m-d'),
-                'idCategorieEVN' => $Evenement->getIdCategorieEVN(),
-            ]);
-        } catch (Exception $e) {
-            echo 'Error: ' . $e->getMessage();
-        }
-    }
+        $query->execute([
+            'idEvenement' => $idEvenement,
+            'nomEvenement' => $Evenement->getNomEvenement(),
+            'adresseEVN' => $Evenement->getadresseEVN(),
+            'ancienneDateEVN' => $ancienneDateEVN,
+            'ancienneAdresseEVN' => $ancienneAdresseEVN,
+            'dateEVN' => $Evenement->getdateEVN()->format('Y-m-d'),
+            'idCategorieEVN' => $Evenement->getIdCategorieEVN(),
+        ]);
 
-    function updateEvenement($Evenement, $idEvenement)
-    {
-        try {
-            $db = config::getConnexion();
-            $query = $db->prepare(
-                'UPDATE evenement SET 
-                nomEvenement = :nomEvenement, 
-                adresseEVN = :adresseEVN, 
-                dateEVN = :dateEVN, 
-                idCategorieEVN = :idCategorieEVN
-            WHERE idEvenement = :idEvenement'
-            );
-            $query->execute([
-                'idEvenement' => $idEvenement,
-                'nomEvenement' => $Evenement->getNomEvenement(),
-                'adresseEVN' => $Evenement->getadresseEVN(),
-                'dateEVN' => $Evenement->getdateEVN()->format('Y-m-d'),
-                'idCategorieEVN' => $Evenement->getIdCategorieEVN(),
-            ]);
-            echo $query->rowCount() . " records UPDATED successfully <br>";
-        } catch (PDOException $e) {
-            $e->getMessage();
-        }
+        // Votre logique supplémentaire ici...
+
+        echo $query->rowCount() . " records UPDATED successfully <br>";
+    } catch (PDOException $e) {
+        $e->getMessage();
     }
+}
+
+
 
     function showEvenement($idEvenement)
     {
@@ -100,6 +127,7 @@ class EvenementC
             die('Error: ' . $e->getMessage());
         }
     }
+
 
    
 }

@@ -94,7 +94,7 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="homeCategorieevn.php" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#portfolio">evenement</a></li>
               <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
               <li class="scroll-to-section"><a href="#">Entretien</a></li>
@@ -116,7 +116,6 @@ https://templatemo.com/tm-562-space-dynamic
   </header>
   <!-- ***** Header Area End ***** -->
   <iframe src="liste.php?id=<?php echo $idCategorieEVN; ?>" frameborder="0" scrolling="no" width="100%" height="800" style="margin-top=100px"></iframe>
-  
   <!-- Scripts -->
   <script src="../assets/vendor/jquery/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -129,8 +128,8 @@ https://templatemo.com/tm-562-space-dynamic
 </html>
 <?php
     } else {
-        echo "Aucun événement associé à cette catégorie.";
-    }
+      echo "<script>alert('Aucun événement associé à cette catégorie.');</script>";
+  }
 } else {
     echo "L'identifiant de la catégorie n'est pas spécifié.";
 }

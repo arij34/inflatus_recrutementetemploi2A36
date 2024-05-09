@@ -10,8 +10,8 @@ $participationC = new ParticipationC();
 // Récupération de tous les événements auxquels l'étudiant participe
 $events = $participationC->getEventsByStudentId($idEtudiant);
 
-// Initialisation de la variable pour stocker les événements modifiés
-$modifiedEvents = [];
+// Initialisation du drapeau pour détecter les différences
+$differencesFound = false;
 
 // Parcourir tous les événements
 foreach ($events as $evenement) {
@@ -20,12 +20,10 @@ foreach ($events as $evenement) {
 
     // Vérifier s'il y a des différences dans les adresses ou les dates
     if ($infos['ancienneAdresseEVN'] !== $infos['adresseEVN'] || $infos['ancienneDateEVN'] !== $infos['dateEVN']) {
-        // Stocker l'événement modifié avec ses informations
-        $modifiedEvents[] = [
-            'nomEvenement' => $evenement['nomEvenement'],
-            'dateEVN' => $infos['dateEVN'],
-            'adresseEVN' => $infos['adresseEVN']
-        ];
+        // Mettre à jour le drapeau s'il y a des différences
+        $differencesFound = true;
+        // Sortir de la boucle si une différence est trouvée dans au moins un événement
+        break;
     }
 }
 ?>
@@ -59,14 +57,9 @@ foreach ($events as $evenement) {
 </head>
 <body>
     <!-- Afficher l'alerte si des différences sont trouvées -->
-    <?php if (!empty($modifiedEvents)): ?>
+    <?php if ($differencesFound): ?>
         <div class="alert alert-warning" role="alert">
-            Les informations ont été modifiées pour les événements suivants :
-            <ul>
-                <?php foreach ($modifiedEvents as $event): ?>
-                    <li><?php echo $event['nomEvenement'] . ' - ' . $event['dateEVN'] . ' - ' . $event['adresseEVN']; ?></li>
-                <?php endforeach; ?>
-            </ul>
+            Les informations ont été modifiées pour au moins un événement.
         </div>
     <?php endif; ?>
 

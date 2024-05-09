@@ -1,11 +1,13 @@
 <?php
-        include '../Controller/ParticipationC.php';
-        $participationC = new ParticipationC();
-        $idParticipation = $_GET["idParticipation"];
-        $participation = $participationC->showParticipation($idParticipation);
+include '../Controller/ParticipationC.php';
+$participationC = new ParticipationC();
+$idParticipation = $_GET["idParticipation"];
+$participation = $participationC->showParticipation($idParticipation);
 
-        // Vérifier si des informations de participation sont récupérées
-        if ($participation) {
+// Vérifier si des informations de participation sont récupérées
+if ($participation) {
+    $idEvenement = $participation['idEvenement'];
+    $nomEvenement = $participationC->getEventNameById($idEvenement);
 ?>
 <!doctype html>
 <html lang="en">
@@ -28,14 +30,20 @@
     <style>
         /* CSS pour le cadre de style */
         .participant-info {
-            border: 2px solid #3498db;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 200px;
-            background-color: #f8f9fa;
-        }
+    border: 2px solid #3498db;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 200px auto; /* Pour centrer horizontalement et définir la marge supérieure */
+    max-width: 600px; /* Définir une largeur maximale */
+    background-color: #f8f9fa;
+}
+
 
         .participant-info h3 {
+            color: #fe3f40;
+            margin-bottom: 10px;
+        }
+        .participant-info h2 {
             color: #3498db;
             margin-bottom: 10px;
         }
@@ -54,7 +62,7 @@
     <section class="participant-info">
     <div style="display: flex; align-items: center;">
         <div style="flex: 1;">
-            <h3>merci à votre partcipation </h3>
+            <h2>Merci pour votre participation à l'événement <h3> <?php echo $nomEvenement; ?></h2></h3>
             <?php
                 echo "<p>Nom: " . $participation['nomE'] . "</p>";
                 echo "<p>Prénom: " . $participation['prenomE'] . "</p>";
@@ -64,7 +72,7 @@
             ?>
         </div>
         <div style="flex: 1;">
-            <img src="../assets/images/18058.jpg" alt="Description de l'image"style="max-width:550px; height: auto;">
+            <img src="../assets/images/18058.jpg" alt="Description de l'image" style="max-width:550px; height: auto;">
         </div>
     </div>
 </section>
@@ -84,7 +92,6 @@
 </html>
 <?php
 } else {
-        echo "Aucune information de participant trouvée";
-    }
-
+    echo "Aucune information de participant trouvée";
+}
 ?>
