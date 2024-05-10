@@ -35,15 +35,15 @@ else {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
         <!-- STYLE -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
 
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
         <!-- Additional CSS Files -->
-        <link rel="stylesheet" href="assets/css/fontawesome.css">
-        <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-        <link rel="stylesheet" href="assets/css/animated.css">
-        <link rel="stylesheet" href="assets/css/owl.css">
+        <link rel="stylesheet" href="../assets/css/fontawesome.css">
+        <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+        <link rel="stylesheet" href="../assets/css/animated.css">
+        <link rel="stylesheet" href="../assets/css/owl.css">
         <style>
             /* Ajout de marge entre le header et le formulaire */
             .form-container {
@@ -85,7 +85,7 @@ else {
                     <a href="acceuil.php" class="logo">
                       <h4>
                         <div class="corner-container">
-                          <img src="assets/images/logo.png" >
+                          <img src="../assets/images/logo.png" >
                         </div> 
                       Kha<span>Damni</span></h4>
                     </a>
@@ -137,7 +137,7 @@ else {
             <option value="" disabled selected hidden>Trier par</option>
             <option value="date_publication">Date de publication</option>
             <option value="type_o">Type</option>
-            <option value="entreprise">Entreprise</option>
+            <option value="idEntreprise">idEntreprise</option>
         </select>
     </div>
     <button type="button" id="btnTri" class="btn btn-primary">Trier</button>
@@ -171,7 +171,7 @@ else {
                                     <span style="color: blue;">titre : </span><?php echo $offre['titre']; ?>&nbsp;&nbsp;
                                     <span style="color: blue;">description_o : </span><?php echo $offre['description_o']; ?><br>
                                     <span style="color: blue;">type : </span><?php echo $offre['type_o']; ?>&nbsp;&nbsp;
-                                    <span style="color: blue;">entreprise : </span><?php echo $offre['entreprise']; ?><br>
+                                    <span style="color: blue;">idEntreprise : </span><?php echo $offre['idEntreprise']; ?><br>
                                     <span style="color: blue;">lieu : </span><?php echo $offre['lieu']; ?>&nbsp;&nbsp;
                                     <span style="color: blue;">date_publication : </span><?php echo $offre['date_publication']; ?><br>
                                     <span style="color: blue;">date_limite : </span><?php echo $offre['date_limite']; ?>&nbsp;&nbsp;
@@ -237,18 +237,18 @@ else {
 </footer>
    
 
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/animation.js"></script>
-    <script src="assets/js/imagesloaded.js"></script>
-    <script src="assets/js/templatemo-custom.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/tabs.js"></script>
+    <script src="../assets/js/isotope.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+    <script src="../assets/js/animation.js"></script>
+    <script src="../assets/js/imagesloaded.js"></script>
+    <script src="../assets/js/templatemo-custom.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tabs.js"></script>
 
     
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
   </div>
   </body>
 

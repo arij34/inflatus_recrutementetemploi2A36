@@ -18,15 +18,15 @@ $liste = $demandeC->ListeDemandes();
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
         <!-- STYLE -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
 
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
         <!-- Additional CSS Files -->
-        <link rel="stylesheet" href="assets/css/fontawesome.css">
-        <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-        <link rel="stylesheet" href="assets/css/animated.css">
-        <link rel="stylesheet" href="assets/css/owl.css">
+        <link rel="stylesheet" href="../assets/css/fontawesome.css">
+        <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+        <link rel="stylesheet" href="../assets/css/animated.css">
+        <link rel="stylesheet" href="../assets/css/owl.css">
         <style>
             /* Ajout de marge entre le header et le formulaire */
             .form-container {
@@ -62,7 +62,7 @@ $liste = $demandeC->ListeDemandes();
                     <a href="acceuil.php" class="logo">
                       <h4>
                         <div class="corner-container">
-                          <img src="assets/images/logo.png" >
+                          <img src="../assets/images/logo.png" >
                         </div> 
                       Kha<span>Damni</span></h4>
                     </a>
@@ -105,7 +105,7 @@ $liste = $demandeC->ListeDemandes();
                   <h5 class="card-title">  <span style="color:#fe3f40;">Demande :  </span><?php echo  $demande['id_d']; ?></h5>
                   <p class="card-text">
                   <span style="color: blue;">id_d : </span> <?php echo $demande['id_d']; ?> &nbsp;&nbsp;
-                  <span style="color: blue;">id_etudiant :</span> <?php echo $demande['id_etudiant']; ?><br>
+                  <span style="color: blue;">idEtudiant :</span> <?php echo $demande['idEtudiant']; ?><br>
                   <span style="color: blue;">nom_d : </span><?php echo $demande['nom_d']; ?>&nbsp;&nbsp;
                   <span style="color: blue;">prenom_d : </span><?php echo $demande['prenom_d']; ?><br>
                   <span style="color: blue;">email_d : </span><?php echo $demande['email_d']; ?>&nbsp;&nbsp;
@@ -151,18 +151,18 @@ $liste = $demandeC->ListeDemandes();
         </div>
 </footer>
  
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/animation.js"></script>
-    <script src="assets/js/imagesloaded.js"></script>
-    <script src="assets/js/templatemo-custom.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/tabs.js"></script>
+    <script src="../assets/js/isotope.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+    <script src="../assets/js/animation.js"></script>
+    <script src="../assets/js/imagesloaded.js"></script>
+    <script src="../assets/js/templatemo-custom.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tabs.js"></script>
 
     
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
   </div>
   </body>
 

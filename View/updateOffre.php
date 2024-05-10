@@ -15,7 +15,7 @@ if (
     isset($_POST["titre"]) &&
     isset($_POST["description_o"]) &&
     isset($_POST["type_o"]) &&
-    isset($_POST["entreprise"]) &&
+    isset($_POST["idEntreprise"]) &&
     isset($_POST["lieu"]) &&
     isset($_POST["date_publication"]) &&
     isset($_POST["date_limite"]) &&
@@ -28,7 +28,7 @@ if (
         !empty($_POST["titre"]) &&
         !empty($_POST["description_o"]) &&
         !empty($_POST["type_o"]) &&
-        !empty($_POST["entreprise"]) &&
+        !empty($_POST["idEntreprise"]) &&
         !empty($_POST["lieu"]) &&
         !empty($_POST["date_publication"]) &&
         !empty($_POST["date_limite"]) &&
@@ -41,7 +41,7 @@ if (
             $_POST["titre"],
             $_POST["description_o"],
             $_POST["type_o"],
-            $_POST["entreprise"],
+            $_POST["idEntreprise"],
             $_POST["lieu"],
             new DateTime($_POST["date_publication"]),
             new DateTime($_POST["date_limite"]),
@@ -114,9 +114,9 @@ if (
                 </tr>
                 <tr>
                     <td>
-                        <label for="entreprise">entreprise:</label>
+                        <label for="idEntreprise">idEntreprise:</label>
                     </td>
-                    <td><input type="text" name="entreprise" id="entreprise" value="<?php echo $offre['entreprise']; ?>" maxlength="255"></td>
+                    <td><input type="text" name="idEntreprise" id="idEntreprise" value="<?php echo $offre['idEntreprise']; ?>" maxlength="255"></td>
                 </tr>
                 <tr>
                     <td>

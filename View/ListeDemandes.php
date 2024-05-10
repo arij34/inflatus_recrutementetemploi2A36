@@ -27,7 +27,7 @@ $liste = $demandeC->ListeDemandes();
                 <thead>
                   <tr>
                     <th scope="col">id_d</th>
-                    <th scope="col">id_etudiant</th>
+                    <th scope="col">idEtudiant</th>
                     <th scope="col">nom_d</th>
                     <th scope="col">prenom_d</th>
                     <th scope="col">email_d</th>
@@ -46,7 +46,7 @@ $liste = $demandeC->ListeDemandes();
                   ?>
                     <tr>
                       <td><?php echo $demande['id_d']; ?></td>
-                      <td><?php echo $demande['id_etudiant']; ?></td>
+                      <td><?php echo $demande['idEtudiant']; ?></td>
                       <td><?php echo $demande['nom_d']; ?></td>
                       <td><?php echo $demande['prenom_d']; ?></td>
                       <td><?php echo $demande['email_d']; ?></td>

@@ -10,7 +10,7 @@ $demande = null;
 $demandeC = new DemandeC();
 if (
     isset($_POST["id_d"]) &&
-    isset($_POST["id_etudiant"]) &&
+    isset($_POST["idEtudiant"]) &&
     isset($_POST["nom_d"]) &&
     isset($_POST["prenom_d"]) &&
     isset($_POST["email_d"]) &&
@@ -23,7 +23,7 @@ if (
 ) {
     if (
         !empty($_POST["id_d"]) &&
-        !empty($_POST["id_etudiant"]) &&
+        !empty($_POST["idEtudiant"]) &&
         !empty($_POST["nom_d"]) &&
         !empty($_POST["prenom_d"]) &&
         !empty($_POST["email_d"]) &&
@@ -36,7 +36,7 @@ if (
     ) {
         $demande = new Demande(
             $_POST["id_d"],
-            $_POST["id_etudiant"],
+            $_POST["idEtudiant"],
             $_POST["nom_d"],
             $_POST["prenom_d"],
             $_POST["email_d"],
@@ -69,15 +69,15 @@ if (
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
         <!-- STYLE -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
 
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
         <!-- Additional CSS Files -->
-        <link rel="stylesheet" href="assets/css/fontawesome.css">
-        <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-        <link rel="stylesheet" href="assets/css/animated.css">
-        <link rel="stylesheet" href="assets/css/owl.css">
+        <link rel="stylesheet" href="../assets/css/fontawesome.css">
+        <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+        <link rel="stylesheet" href="../assets/css/animated.css">
+        <link rel="stylesheet" href="../assets/css/owl.css">
         <style>
             /* Ajout de marge entre le header et le formulaire */
             .form-container {
@@ -124,7 +124,7 @@ if (
                     <a href="acceuil.php" class="logo">
                       <h4>
                         <div class="corner-container">
-                          <img src="assets/images/logo.png" >
+                          <img src="../assets/images/logo.png" >
                         </div> 
                       Kha<span>Damni</span></h4>
                     </a>
@@ -175,9 +175,9 @@ if (
                 <br>
                 <tr>
                     <td>
-                        <label for="id_etudiant">id_etudiant:</label>
+                        <label for="idEtudiant">idEtudiant:</label>
                     </td>
-                    <td><input type="text" name="id_etudiant" id="did_etudiant" value="<?php echo $demande['id_etudiant']; ?>" maxlength="100"></td>
+                    <td><input type="text" name="idEtudiant" id="didEtudiant" value="<?php echo $demande['idEtudiant']; ?>" maxlength="100"></td>
                 </tr>
                 <tr>
                     <td>
@@ -265,18 +265,18 @@ if (
         </div>
 </footer>
  
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/animation.js"></script>
-    <script src="assets/js/imagesloaded.js"></script>
-    <script src="assets/js/templatemo-custom.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/tabs.js"></script>
+    <script src="../assets/js/isotope.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+    <script src="../assets/js/animation.js"></script>
+    <script src="../assets/js/imagesloaded.js"></script>
+    <script src="../assets/js/templatemo-custom.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tabs.js"></script>
 
     
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
   </div>
  
 </body>

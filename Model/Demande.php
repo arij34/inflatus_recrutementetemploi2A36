@@ -2,7 +2,7 @@
 class Demande
 {
     private ?int $id_d = null;
-    private ?int $id_etudiant = null;
+    private ?int $idEtudiant = null;
     private ?string $nom_d = null;
     private ?string $prenom_d = null;
     private ?string $email_d = null;
@@ -16,10 +16,10 @@ class Demande
 
 
 
-    public function __construct(?int $id_d, ?int $id_etudiant, ?string $nom_d, ?string $prenom_d, ?string $email_d,?string $telephone_d, ?string $cv_d, ?string $lettre_motivation, ?int $id_o, ?DateTime $date_d, ?string $status_d)
+    public function __construct(?int $id_d, ?int $idEtudiant, ?string $nom_d, ?string $prenom_d, ?string $email_d,?string $telephone_d, ?string $cv_d, ?string $lettre_motivation, ?int $id_o, ?DateTime $date_d, ?string $status_d)
     {
         $this->id_d = $id_d;
-        $this->id_etudiant = $id_etudiant;
+        $this->idEtudiant = $idEtudiant;
         $this->nom_d = $nom_d;
         $this->prenom_d = $prenom_d;
         $this->email_d = $email_d;
@@ -44,9 +44,9 @@ class Demande
     /**
      * Get the value of lastName
      */
-    public function getid_etudiant()
+    public function getidEtudiant()
     {
-        return $this->id_etudiant;
+        return $this->idEtudiant;
     }
 
     /**
@@ -54,9 +54,9 @@ class Demande
      *
      * @return  self
      */
-    public function setid_etudiant($id_etudiant)
+    public function setidEtudiant($idEtudiant)
     {
-        $this->id_etudiant = $id_etudiant;
+        $this->idEtudiant = $idEtudiant;
 
         return $this;
     }

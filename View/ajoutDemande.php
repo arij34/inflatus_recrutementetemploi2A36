@@ -16,7 +16,7 @@ if(isset($_GET['id_o'])) {
 }
 
 if (
-    isset($_POST["id_etudiant"]) &&
+    isset($_POST["idEtudiant"]) &&
     isset($_POST["nom_d"]) &&
     isset($_POST["prenom_d"]) &&
     isset($_POST["email_d"]) &&
@@ -27,7 +27,7 @@ if (
     isset($_POST["status_d"])
 ) {
     if (
-        !empty($_POST["id_etudiant"]) &&
+        !empty($_POST["idEtudiant"]) &&
         !empty($_POST["nom_d"]) &&
         !empty($_POST["prenom_d"]) &&
         !empty($_POST["email_d"]) &&
@@ -40,7 +40,7 @@ if (
     ) {
         $id_o = $_POST['id_o'];
         $pdo = new PDO(
-            'mysql:host=localhost;dbname=recrutement',
+            'mysql:host=localhost;dbname=khadamni',
             'root',
             '',
             [
@@ -63,7 +63,7 @@ if (
         // Si le id_o existe, ajouter la demande
         $demande = new Demande(
             null, // Laisser l'ID être défini automatiquement
-            $_POST["id_etudiant"],
+            $_POST["idEtudiant"],
             $_POST["nom_d"],
             $_POST["prenom_d"],
             $_POST["email_d"],
@@ -102,16 +102,16 @@ if (
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- STYLE -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-    <link rel="stylesheet" href="assets/css/animated.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="../assets/css/animated.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
 
     <style>
         /* Ajout de marge entre le header et le formulaire */
@@ -146,7 +146,7 @@ if (
                 <a href="acceuil.php" class="logo">
                   <h4>
                     <div class="corner-container">
-                      <img src="assets/images/logo.png" >
+                      <img src="../assets/images/logo.png" >
                     </div> 
                   Kha<span>Damni</span></h4>
                 </a>
@@ -467,9 +467,9 @@ body {
         </style>
        <div class="col col-1">
         <div class="image-layer">
-            <img src="assets\img\about-left-image.png" class="form-image-main">
-            <img src="assets/img/cloud.png" class="form-image cloud">
-            <img src="assets/img/stars.png" class="form-image stars">
+            <img src="../assets/img/about-left-image.png" class="form-image-main">
+            <img src="../assets/img/cloud.png" class="form-image cloud">
+            <img src="../assets/img/stars.png" class="form-image stars">
         </div>
         <p class="featured-words">Bienvenue sur <span> Khademni</span></p>
         </div>
@@ -481,7 +481,7 @@ body {
             </div>
             <script>
     function validateForm(event) {
-        var id_etudiant = document.forms["monFormulaire"]["id_etudiant"].value;
+        var idEtudiant = document.forms["monFormulaire"]["idEtudiant"].value;
         var nom_d = document.forms["monFormulaire"]["nom_d"].value;
         var prenom_d = document.forms["monFormulaire"]["prenom_d"].value;
         var email_d = document.forms["monFormulaire"]["email_d"].value;
@@ -493,13 +493,13 @@ body {
         var status_d = document.forms["monFormulaire"]["status_d"].value;
 
         // Vérifier si les champs sont vides
-        if (id_etudiant == "" || nom_d == "" || prenom_d == "" || email_d == "" || telephone_d == "" || cv_d == "" || lettre_motivation == "" || id_o == "" || date_d == "" || status_d == "") {
+        if (idEtudiant == "" || nom_d == "" || prenom_d == "" || email_d == "" || telephone_d == "" || cv_d == "" || lettre_motivation == "" || id_o == "" || date_d == "" || status_d == "") {
             alert("Veuillez remplir tous les champs");
             return false;
         }
 
-        // Vérifier si id_etudiant contient uniquement des chiffres
-        if (!/^\d+$/.test(id_etudiant)) {
+        // Vérifier si idEtudiant contient uniquement des chiffres
+        if (!/^\d+$/.test(idEtudiant)) {
             alert("Le champ ID Étudiant doit contenir uniquement des chiffres");
             return false;
         }
@@ -548,7 +548,7 @@ body {
                 </div>
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="text" class="input-field" name="id_etudiant" placeholder="Id_etudiant" >
+                        <input type="text" class="input-field" name="idEtudiant" placeholder="idEtudiant" >
                     </div>
                 </div>
                 <div class="form-inputs">
@@ -637,13 +637,13 @@ body {
 </div>
 
 <!-- JS -->
-<script src="assets/js/main.js"></script>
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/owl-carousel.js"></script>
-<script src="assets/js/animation.js"></script>
-<script src="assets/js/imagesloaded.js"></script>
-<script src="assets/js/templatemo-custom.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/owl-carousel.js"></script>
+<script src="../assets/js/animation.js"></script>
+<script src="../assets/js/imagesloaded.js"></script>
+<script src="../assets/js/templatemo-custom.js"></script>
 
 
 

@@ -6,6 +6,28 @@ require_once '../Controller/DomaineC.php';
 class OffreC
 {
 
+    public function getOffresByEntrepriseId($idEntreprise)
+    {
+        $sql = "SELECT  *
+                FROM offre
+                WHERE idEntreprise = :idEntreprise";
+        
+        $db = config::getConnexion();
+        
+        try {
+            $query = $db->prepare($sql);
+            $query->execute(['idEntreprise' => $idEntreprise]);
+            $events = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $events;
+        } catch (Exception $e) {
+            die('Error: ' . $e->getMessage());
+        }
+    }
+
+
+
+
+
     function statistiqueOffresParDomaine()
     {
         $sql = "SELECT id_dom, COUNT(*) as nombre_offres FROM offre GROUP BY id_dom";
@@ -76,8 +98,8 @@ class OffreC
 
     function addOffre($offre)
     {
-        $sql = "INSERT INTO offre (id_dom, titre, description_o, type_o, entreprise, lieu, date_publication, date_limite, contact, status_o)  
-                VALUES (:id_dom, :titre, :description_o, :type_o, :entreprise, :lieu, :date_publication, :date_limite, :contact, :status_o)";
+        $sql = "INSERT INTO offre (id_dom, titre, description_o, type_o, idEntreprise, lieu, date_publication, date_limite, contact, status_o)  
+                VALUES (:id_dom, :titre, :description_o, :type_o, :idEntreprise, :lieu, :date_publication, :date_limite, :contact, :status_o)";
         $db = config::getConnexion();
         try {
             $query = $db->prepare($sql);
@@ -86,7 +108,7 @@ class OffreC
             $query->bindParam(':titre', $offre->gettitre());
             $query->bindParam(':description_o', $offre->getdescription_o());
             $query->bindParam(':type_o', $offre->gettype_o());
-            $query->bindParam(':entreprise', $offre->getentreprise());
+            $query->bindParam(':idEntreprise', $offre->getidEntreprise());
             $query->bindParam(':lieu', $offre->getlieu());
             $query->bindParam(':date_publication', $offre->getdate_publication()->format('Y-m-d'));
             $query->bindParam(':date_limite', $offre->getdate_limite()->format('Y-m-d'));
@@ -117,7 +139,7 @@ class OffreC
             titre=:titre, 
             description_o=:description_o, 
             type_o=:type_o, 
-            entreprise=:entreprise, 
+            idEntreprise=:idEntreprise, 
             lieu=:lieu, 
             date_publication=:date_publication, 
             date_limite=:date_limite,
@@ -135,7 +157,7 @@ class OffreC
             'titre' => $offre->gettitre(),
             'description_o' => $offre->getdescription_o(),
             'type_o' => $offre->gettype_o(),
-            'entreprise' => $offre->getentreprise(),
+            'idEntreprise' => $offre->getidEntreprise(),
             'lieu' => $offre->getlieu(),
             'date_publication' => $date_publication,
             'date_limite' => $date_limite,

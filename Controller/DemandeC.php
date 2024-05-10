@@ -24,6 +24,24 @@ class DemandeC
 
 
 
+public function getDemandesByStudentId($idEtudiant)
+{
+    $sql = "SELECT  *
+            FROM demande
+            WHERE idEtudiant = :idEtudiant";
+    
+    $db = config::getConnexion();
+    
+    try {
+        $query = $db->prepare($sql);
+        $query->execute(['idEtudiant' => $idEtudiant]);
+        $events = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $events;
+    } catch (Exception $e) {
+        die('Error: ' . $e->getMessage());
+    }
+}
+
 
 
     public function statistiqueDemandesParDate()
@@ -102,12 +120,12 @@ class DemandeC
     function ajoutDemande($demande)
     {    
         $sql = "INSERT INTO demande    
-        VALUES (NULL, :id_etudiant, :nom_d, :prenom_d, :email_d, :telephone_d, :cv_d, :lettre_motivation, :id_o, :date_d, :status_d)";
+        VALUES (NULL, :idEtudiant, :nom_d, :prenom_d, :email_d, :telephone_d, :cv_d, :lettre_motivation, :id_o, :date_d, :status_d)";
         $db = config::getConnexion();
         try {
             $query = $db->prepare($sql);
             $query->execute([
-                'id_etudiant' => $demande->getid_etudiant(),
+                'idEtudiant' => $demande->getidEtudiant(),
                 'nom_d' => $demande->getnom_d(),
                 'prenom_d' => $demande->getprenom_d(),
                 'email_d' => $demande->getemail_d(),
@@ -130,7 +148,7 @@ class DemandeC
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE demande SET 
-                id_etudiant=:id_etudiant, 
+                idEtudiant=:idEtudiant, 
                 nom_d=:nom_d, 
                 prenom_d=:prenom_d, 
                 email_d=:email_d, 
@@ -147,7 +165,7 @@ class DemandeC
     
             $query->execute([
                 'id_d' => $demande->getid_d(),
-                'id_etudiant' => $demande->getid_etudiant(),
+                'idEtudiant' => $demande->getidEtudiant(),
                 'nom_d' => $demande->getnom_d(),
                 'prenom_d' => $demande->getprenom_d(),
                 'email_d' => $demande->getemail_d(),
