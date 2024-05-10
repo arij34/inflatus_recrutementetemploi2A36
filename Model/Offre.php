@@ -6,21 +6,21 @@ class Offre
     private ?string $titre = null;
     private ?string $description_o = null;
     private ?string $type_o = null;
-    private ?string $entreprise = null;
+    private ?int $idEntreprise = null;
     private ?string $lieu = null;
     private ?DateTime $date_publication = null;
     private ?DateTime $date_limite = null;
     private ?int $contact = null;
     private ?string $status_o = null;
 
-    public function __construct($id_o, $id_dom, $titre, $description_o, $type_o, $entreprise, $lieu, $date_publication, $date_limite, $contact, $status_o)
+    public function __construct($id_o, $id_dom, $titre, $description_o, $type_o, $idEntreprise, $lieu, $date_publication, $date_limite, $contact, $status_o)
     {
         $this->id_o = $id_o;
         $this->id_dom = $id_dom;
         $this->titre = $titre;
         $this->description_o = $description_o;
         $this->type_o = $type_o;
-        $this->entreprise = $entreprise;
+        $this->idEntreprise = $idEntreprise;
         $this->lieu = $lieu;
         $this->date_publication = $date_publication;
         $this->date_limite = $date_limite;
@@ -118,9 +118,9 @@ class Offre
 
 
 
-    public function getentreprise()
+    public function getidEntreprise()
     {
-        return $this->entreprise;
+        return $this->idEntreprise;
     }
 
     /**
@@ -128,9 +128,9 @@ class Offre
      *
      * @return  self
      */
-    public function setentreprise($entreprise)
+    public function setidEntreprise($idEntreprise)
     {
-        $this->entreprise = $entreprise;
+        $this->idEntreprise = $idEntreprise;
 
         return $this;
     }

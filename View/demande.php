@@ -400,7 +400,7 @@ body {
                 </div>
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="text" class="input-field" name="id_etudiant" placeholder="Id_etudiant" >
+                        <input type="text" class="input-field" name="idEtudiant" placeholder="idEtudiant" >
                     </div>
                 </div>
                 <div class="form-inputs">

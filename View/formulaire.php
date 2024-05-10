@@ -442,7 +442,7 @@ body {
             </div>
             <div class="form-inputs">
                 <div class="input-box">
-                    <input type="text" class="input-field" placeholder="entreprise" name="entreprise" >
+                    <input type="text" class="input-field" placeholder="idEntreprise" name="idEntreprise" >
                 </div>
             </div>
             <div class="form-inputs">

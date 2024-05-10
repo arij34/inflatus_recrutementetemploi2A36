@@ -37,7 +37,7 @@ $liste = $offreC->ListeOffres();
                     <th scope="col">titre</th>
                     <th scope="col">description_o</th>
                     <th scope="col">type</th>
-                    <th scope="col">entreprise</th>
+                    <th scope="col">idEntreprise</th>
                     <th scope="col">lieu</th>
                     <th scope="col">date_publication</th>
                     <th scope="col">date_limite</th>
@@ -56,7 +56,7 @@ $liste = $offreC->ListeOffres();
                       <td><?php echo $offre['titre']; ?></td>
                       <td><?php echo $offre['description_o']; ?></td>
                       <td><?php echo $offre['type_o']; ?></td>
-                      <td><?php echo $offre['entreprise']; ?></td>
+                      <td><?php echo $offre['idEntreprise']; ?></td>
                       <td><?php echo $offre['lieu']; ?></td>
                       <td><?php echo $offre['date_publication']; ?></td>
                       <td><?php echo $offre['date_limite']; ?></td>

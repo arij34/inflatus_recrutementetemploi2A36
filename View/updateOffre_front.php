@@ -15,7 +15,7 @@ if (
     isset($_POST["titre"]) &&
     isset($_POST["description_o"]) &&
     isset($_POST["type_o"]) &&
-    isset($_POST["entreprise"]) &&
+    isset($_POST["idEntreprise"]) &&
     isset($_POST["lieu"]) &&
     isset($_POST["date_publication"]) &&
     isset($_POST["date_limite"]) &&
@@ -28,7 +28,7 @@ if (
         !empty($_POST["titre"]) &&
         !empty($_POST["description_o"]) &&
         !empty($_POST["type_o"]) &&
-        !empty($_POST["entreprise"]) &&
+        !empty($_POST["idEntreprise"]) &&
         !empty($_POST["lieu"]) &&
         !empty($_POST["date_publication"]) &&
         !empty($_POST["date_limite"]) &&
@@ -41,7 +41,7 @@ if (
             $_POST["titre"],
             $_POST["description_o"],
             $_POST["type_o"],
-            $_POST["entreprise"],
+            $_POST["idEntreprise"],
             $_POST["lieu"],
             new DateTime($_POST["date_publication"]),
             new DateTime($_POST["date_limite"]),
@@ -71,15 +71,15 @@ if (
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
         <!-- STYLE -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
 
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
         <!-- Additional CSS Files -->
-        <link rel="stylesheet" href="assets/css/fontawesome.css">
-        <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-        <link rel="stylesheet" href="assets/css/animated.css">
-        <link rel="stylesheet" href="assets/css/owl.css">
+        <link rel="stylesheet" href="../assets/css/fontawesome.css">
+        <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+        <link rel="stylesheet" href="../assets/css/animated.css">
+        <link rel="stylesheet" href="../assets/css/owl.css">
         <style>
             /* Ajout de marge entre le header et le formulaire */
             .form-container {
@@ -115,7 +115,7 @@ if (
                     <a href="acceuil.php" class="logo">
                       <h4>
                         <div class="corner-container">
-                          <img src="assets/images/logo.png" >
+                          <img src="../assets/images/logo.png" >
                         </div> 
                       Kha<span>Damni</span></h4>
                     </a>
@@ -212,9 +212,9 @@ if (
                 <br>
                 <tr>
                     <td>
-                        <label for="entreprise">entreprise:</label>
+                        <label for="idEntreprise">idEntreprise:</label>
                     </td>
-                    <td><input type="text" name="entreprise" id="entreprise" value="<?php echo $offre['entreprise']; ?>" maxlength="255"></td>
+                    <td><input type="text" name="idEntreprise" id="idEntreprise" value="<?php echo $offre['idEntreprise']; ?>" maxlength="255"></td>
                 </tr>
                 <tr>
                     <td>
@@ -281,18 +281,18 @@ if (
             </div>
         </div>
 </footer>
-<script src="assets/js/isotope.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/animation.js"></script>
-    <script src="assets/js/imagesloaded.js"></script>
-    <script src="assets/js/templatemo-custom.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/tabs.js"></script>
+<script src="../assets/js/isotope.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+    <script src="../assets/js/animation.js"></script>
+    <script src="../assets/js/imagesloaded.js"></script>
+    <script src="../assets/js/templatemo-custom.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tabs.js"></script>
 
     
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
   </div>
 
 

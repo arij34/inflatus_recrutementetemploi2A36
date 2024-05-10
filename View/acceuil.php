@@ -19,11 +19,11 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-    <link rel="stylesheet" href="assets/css/animated.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="../assets/css/animated.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
 <!--
     
 TemplateMo 562 Space Dynamic
@@ -35,8 +35,7 @@ https://templatemo.com/tm-562-space-dynamic
 
 <body>
 
- er End ***** -->
-
+ 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
     <div class="container">
@@ -47,7 +46,7 @@ https://templatemo.com/tm-562-space-dynamic
             <a href="acceuil.php" class="logo">
               <h4>
                 <div class="corner-container">
-                  <img src="assets/images/logo.png" >
+                  <img src="../assets/images/logo.png" >
                   <style>
                     .corner-container {
                         position: fixed; /* Position fixe pour que le logo reste fixe lors du défilement */
@@ -111,7 +110,7 @@ https://templatemo.com/tm-562-space-dynamic
             </div>
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="assets/images/banner-right-image.png" alt="team meeting">
+                <img src="../assets/images/banner-right-image.png" alt="team meeting">
               </div>
             </div>
           </div>
@@ -125,7 +124,7 @@ https://templatemo.com/tm-562-space-dynamic
       <div class="row">
         <div class="col-lg-4">
           <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <img src="assets/images/about-left-image.png" alt="person graphic">
+            <img src="../assets/images/about-left-image.png" alt="person graphic">
           </div>
         </div>
         <div class="col-lg-8 align-self-center">
@@ -134,7 +133,7 @@ https://templatemo.com/tm-562-space-dynamic
               <div class="col-lg-6">
                 <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
                   <div class="icon">
-                    <img src="assets/images/service-icon-01.png" alt="reporting">
+                    <img src="../assets/images/service-icon-01.png" alt="reporting">
                   </div>
                   <div class="right-text">
                     <h4>Data Analysis</h4>
@@ -145,7 +144,7 @@ https://templatemo.com/tm-562-space-dynamic
               <div class="col-lg-6">
                 <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
                   <div class="icon">
-                    <img src="assets/images/service-icon-02.png" alt="">
+                    <img src="../assets/images/service-icon-02.png" alt="">
                   </div>
                   <div class="right-text">
                     <h4>Data Reporting</h4>
@@ -156,7 +155,7 @@ https://templatemo.com/tm-562-space-dynamic
               <div class="col-lg-6">
                 <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
                   <div class="icon">
-                    <img src="assets/images/service-icon-03.png" alt="">
+                    <img src="../assets/images/service-icon-03.png" alt="">
                   </div>
                   <div class="right-text">
                     <h4>Web Analytics</h4>
@@ -167,7 +166,7 @@ https://templatemo.com/tm-562-space-dynamic
               <div class="col-lg-6">
                 <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
                   <div class="icon">
-                    <img src="assets/images/service-icon-04.png" alt="">
+                    <img src="../assets/images/service-icon-04.png" alt="">
                   </div>
                   <div class="right-text">
                     <h4>SEO Suggestions</h4>
@@ -187,9 +186,10 @@ https://templatemo.com/tm-562-space-dynamic
   
 
 
-
+                                           <!--       scroll section mta3i     -->
   <div id="services" class="our-services section">
     <div class="container">
+      <!--       domaine     -->
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
               <center><div class="main-blue-button">
@@ -215,7 +215,7 @@ https://templatemo.com/tm-562-space-dynamic
               </style>
               
               <div class="showed-content text-center">
-                  <img src="assets/images/développement mobile.png" alt="Description de l'image">
+                  <img src="../assets/images/développement mobile.png" alt="Description de l'image">
               </div>
           </div>
           
@@ -229,7 +229,7 @@ https://templatemo.com/tm-562-space-dynamic
               </div>
               
               <div class="showed-content">
-                  <img src="assets/images/développement web.png" alt="Description de l'image">
+                  <img src="../assets/images/développement web.png" alt="Description de l'image">
               </div>
           </div>
           
@@ -249,7 +249,7 @@ https://templatemo.com/tm-562-space-dynamic
               </div>
           
               <div class="showed-content text-center">
-                  <img src="assets/images/securité de l'informatique.png" alt="Description de l'image">
+                  <img src="../assets/images/securité de l'informatique.png" alt="Description de l'image">
               </div>
           </div>
           
@@ -262,14 +262,15 @@ https://templatemo.com/tm-562-space-dynamic
                   <h4>Science de l'informatique</h4>
               </div>
               <div class="showed-content">
-                  <img src="assets/images/science de l'informatique.png" alt="Description de l'image">
+                  <img src="../assets/images/science de l'informatique.png" alt="Description de l'image">
               </div>
           </div>
           
           </a>
         </div>
-
-        <div class="row">
+        <!--       domaine  fin   -->
+             <!--       offre     -->
+      <div class="row">
         <div class="col-lg-12">
           <div class="row">
             <div class="col-lg-6 align-self-center">
@@ -296,24 +297,24 @@ https://templatemo.com/tm-562-space-dynamic
             </div>
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="assets/images/Job hunt-cuate.png" alt="team meeting">
+                <img src="../assets/images/Job hunt-cuate.png" alt="team meeting">
               </div>
             </div>
           </div>
         </div>
       </div>
-        
-      </div>
+        <!--       offre  fin    -->
+    <!--       demande    -->
 
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
           <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="assets/images/Online Review-pana.png" alt="team meeting">
+                <img src="../assets/images/Online Review-pana.png" alt="team meeting">
               </div>
-            </div>
-            <div class="col-lg-6 align-self-center">
+          </div>
+          <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <h2> <em> <span style="color: #03a4ed;"> Voila </span></em>nos <span style="color:#fe3f40;">demandes!!!</span> </h2>
                 &nbsp;&nbsp;
@@ -354,15 +355,20 @@ https://templatemo.com/tm-562-space-dynamic
             
           </div>
         </div>
-      </div>
+      
         
-      </div>
-
+      
+  </div>
   </div>
   
   </div>
+  <!--       demande fin    -->
     
 </div>
+                                                     <!--       scroll mta3i fin        -->
+
+
+
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
@@ -382,7 +388,7 @@ https://templatemo.com/tm-562-space-dynamic
                 <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
               </div>
               <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
+                <img src="../assets/images/portfolio-image.png" alt="">
               </div>
             </div>
           </a>
@@ -395,7 +401,7 @@ https://templatemo.com/tm-562-space-dynamic
                 <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
               </div>
               <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
+                <img src="../assets/images/portfolio-image.png" alt="">
               </div>
             </div>
           </a>
@@ -408,7 +414,7 @@ https://templatemo.com/tm-562-space-dynamic
                 <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
               </div>
               <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
+                <img src="../assets/images/portfolio-image.png" alt="">
               </div>
             </div>
           </a>
@@ -421,7 +427,7 @@ https://templatemo.com/tm-562-space-dynamic
                 <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
               </div>
               <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
+                <img src="../assets/images/portfolio-image.png" alt="">
               </div>
             </div>
           </a>
@@ -440,14 +446,14 @@ https://templatemo.com/tm-562-space-dynamic
         </div>
         <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
           <div class="top-dec">
-            <img src="assets/images/blog-dec.png" alt="">
+            <img src="../assets/images/blog-dec.png" alt="">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
           <div class="left-image">
-            <a href="#"><img src="assets/images/big-blog-thumb.jpg" alt="Workspace Desktop"></a>
+            <a href="#"><img src="../assets/images/big-blog-thumb.jpg" alt="Workspace Desktop"></a>
             <div class="info">
               <div class="inner-content">
                 <ul>
@@ -474,7 +480,7 @@ https://templatemo.com/tm-562-space-dynamic
                   <p>Lorem ipsum dolor sit amsecteturii and sed doer ket eismod...</p>
                 </div>
                 <div class="right-image">
-                  <a href="#"><img src="assets/images/blog-thumb-01.jpg" alt=""></a>
+                  <a href="#"><img src="../assets/images/blog-thumb-01.jpg" alt=""></a>
                 </div>
               </li>
               <li>
@@ -484,7 +490,7 @@ https://templatemo.com/tm-562-space-dynamic
                   <p>Lorem ipsum dolor sit amsecteturii and sed doer ket eismod...</p>
                 </div>
                 <div class="right-image">
-                  <a href="#"><img src="assets/images/blog-thumb-01.jpg" alt=""></a>
+                  <a href="#"><img src="../assets/images/blog-thumb-01.jpg" alt=""></a>
                 </div>
               </li>
               <li>
@@ -494,7 +500,7 @@ https://templatemo.com/tm-562-space-dynamic
                   <p>Lorem ipsum dolor sit amsecteturii and sed doer ket eismod...</p>
                 </div>
                 <div class="right-image">
-                  <a href="#"><img src="assets/images/blog-thumb-01.jpg" alt=""></a>
+                  <a href="#"><img src="../assets/images/blog-thumb-01.jpg" alt=""></a>
                 </div>
               </li>
             </ul>
@@ -546,7 +552,7 @@ https://templatemo.com/tm-562-space-dynamic
               </div>
             </div>
             <div class="contact-dec">
-              <img src="assets/images/contact-decoration.png" alt="">
+              <img src="../assets/images/contact-decoration.png" alt="">
             </div>
           </form>
         </div>
@@ -564,14 +570,14 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </footer>
   <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/animation.js"></script>
-  <script src="assets/js/imagesloaded.js"></script>
-  <script src="assets/js/templatemo-custom.js"></script>
-  <script src="assets/js/isotope.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/owl-carousel.js"></script>
+  <script src="../assets/js/animation.js"></script>
+  <script src="../assets/js/imagesloaded.js"></script>
+  <script src="../assets/js/templatemo-custom.js"></script>
+  <script src="../assets/js/isotope.js"></script>
+  <script src="../assets/js/main.js"></script>
 
 </body>
 </html>

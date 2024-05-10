@@ -14,7 +14,7 @@ if (
     !empty($_POST["titre"]) &&
     !empty($_POST["description_o"]) &&
     !empty($_POST["type_o"]) &&
-    !empty($_POST["entreprise"]) &&
+    !empty($_POST["idEntreprise"]) &&
     !empty($_POST["lieu"]) &&
     !empty($_POST["date_publication"]) &&
     !empty($_POST["date_limite"]) &&
@@ -36,7 +36,7 @@ if (
             $_POST["titre"],
             $_POST["description_o"],
             $_POST["type_o"],
-            $_POST["entreprise"],
+            $_POST["idEntreprise"],
             $_POST["lieu"],
             $date_publication,
             $date_limite,
@@ -100,8 +100,8 @@ $ListeDomaines = $domaineC->ListeDomaines();
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="entreprise">Entreprise :</label>
-                            <input type="text" class="form-control" id="entreprise" name="entreprise" required>
+                            <label for="idEntreprise">idEntreprise :</label>
+                            <input type="text" class="form-control" id="idEntreprise" name="idEntreprise" required>
                         </div>
                     </div>
                 </div>

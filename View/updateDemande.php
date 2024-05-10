@@ -12,7 +12,7 @@ $demande = null;
 $demandeC = new DemandeC();
 if (
     isset($_POST["id_d"]) &&
-    isset($_POST["id_etudiant"]) &&
+    isset($_POST["idEtudiant"]) &&
     isset($_POST["nom_d"]) &&
     isset($_POST["prenom_d"]) &&
     isset($_POST["email_d"]) &&
@@ -25,7 +25,7 @@ if (
 ) {
     if (
         !empty($_POST["id_d"]) &&
-        !empty($_POST["id_etudiant"]) &&
+        !empty($_POST["idEtudiant"]) &&
         !empty($_POST["nom_d"]) &&
         !empty($_POST["prenom_d"]) &&
         !empty($_POST["email_d"]) &&
@@ -38,7 +38,7 @@ if (
     ) {
         $demande = new Demande(
             $_POST["id_d"],
-            $_POST["id_etudiant"],
+            $_POST["idEtudiant"],
             $_POST["nom_d"],
             $_POST["prenom_d"],
             $_POST["email_d"],
@@ -153,8 +153,8 @@ if (
                         <td><input type="hidden" name="id_d" value="<?php echo $demande['id_d']; ?>"><?php echo $demande['id_d']; ?></td>
                 
                     
-                        <td><label for="id_etudiant">id_etudiant:</label></td>
-                        <td><input type="text" name="id_etudiant" id="did_etudiant" value="<?php echo $demande['id_etudiant']; ?>" maxlength="100"></td>
+                        <td><label for="idEtudiant">idEtudiant:</label></td>
+                        <td><input type="text" name="idEtudiant" id="didEtudiant" value="<?php echo $demande['idEtudiant']; ?>" maxlength="100"></td>
                     </tr>
                     <tr>
                         <td><label for="nom_d">nom_d:</label></td>

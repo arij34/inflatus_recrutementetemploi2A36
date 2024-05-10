@@ -54,14 +54,14 @@ if (
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- STYLE -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-    <link rel="stylesheet" href="assets/css/animated.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="../assets/css/animated.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
 
     <style>
         /* Ajout de marge entre le header et le formulaire */
@@ -96,7 +96,7 @@ if (
                     <a href="acceuil.php" class="logo">
                       <h4>
                         <div class="corner-container">
-                          <img src="assets/images/logo.png" >
+                          <img src="../assets/images/logo.png" >
                         </div> 
                       Kha<span>Damni</span></h4>
                     </a>
@@ -417,9 +417,9 @@ body {
     </style>
     <div class="col col-1">
         <div class="image-layer">
-            <img src="assets\img\about-left-image.png" class="form-image-main">
-            <img src="assets/img/cloud.png" class="form-image cloud">
-            <img src="assets/img/stars.png" class="form-image stars">
+            <img src="../assets/img/about-left-image.png" class="form-image-main">
+            <img src="../assets/img/cloud.png" class="form-image cloud">
+            <img src="../assets/img/stars.png" class="form-image stars">
         </div>
         <p class="featured-words">Bienvenue sur <span>   Khademni</span></p>
     </div>
@@ -469,12 +469,12 @@ body {
 </div>
    
 
-<script src="assets/js/main.js"></script>
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/owl-carousel.js"></script>
-<script src="assets/js/animation.js"></script>
-<script src="assets/js/imagesloaded.js"></script>
-<script src="assets/js/templatemo-custom.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/owl-carousel.js"></script>
+<script src="../assets/js/animation.js"></script>
+<script src="../assets/js/imagesloaded.js"></script>
+<script src="../assets/js/templatemo-custom.js"></script>
 </body>
 </html>
