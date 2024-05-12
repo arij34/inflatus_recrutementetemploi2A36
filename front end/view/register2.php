@@ -102,7 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/css/animated.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="style_certif.css">
-    <script src="https://unpkg.com/@zxing/library@latest"></script>
     <script src="https://cdn.jsdelivr.net/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 
@@ -413,6 +412,21 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.input-field3 {
+    width: 1%;
+    height: 1px;
+    padding: 0 1px;
+    margin: 5px 0;
+    color: #ffff;
+    background: #acd7f6f0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 ::placeholder {
     color: #fff;
     font-size: 15px;
@@ -474,7 +488,7 @@ body {
                             <form id="test-form" action="register2.php" method="post">
                     <div class="form-inputs">
                         <div class="input-box">
-                        <input type="text" class="input-field" placeholder="id de test" name="id_test" value="<?= isset($id_test_auto) ? htmlspecialchars($id_test_auto) : '' ?>">
+                        <input type="text" class="input-field3" placeholder="id de test" name="id_test" value="<?= isset($id_test_auto) ? htmlspecialchars($id_test_auto) : '' ?>">
 
                         </div>
                     </div>
@@ -705,11 +719,11 @@ form.addEventListener('submit', (e) => {
 <!-- JS -->
 <script src="script_certif.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="vendor/jquery/jquery.min.js"></script>
+
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/owl-carousel.js"></script>
 <script src="assets/js/animation.js"></script>
 <script src="assets/js/imagesloaded.js"></script>
-<script src="assets/js/templatemo-custom.js"></script>
+
 </body>
 </html>
