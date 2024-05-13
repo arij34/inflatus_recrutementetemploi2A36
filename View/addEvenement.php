@@ -1,5 +1,7 @@
 <?php
 include '../Controller/EvenementC.php'; // Inclure le fichier EvenementC.php
+// Vérifier si l'ID de l'entreprise est passé dans l'URL
+session_start();
 $error = "";
 
 // Créer un événement
@@ -16,6 +18,17 @@ if (isset($_GET["adresseEVN"])) {
     $adresseEVN = ""; // Adresse par défaut si aucune adresse n'est envoyée
 }
 
+// When setting idEntreprise
+if (isset($_GET["idEntreprise"])) {
+    $_SESSION["idEntreprise"] = $_GET["idEntreprise"];
+}
+
+// When retrieving idEntreprise
+if (isset($_SESSION["idEntreprise"])) {
+    $idEntreprise = $_SESSION["idEntreprise"];
+} else {
+    $idEntreprise = ""; // Set default value if idEntreprise is not set
+}
 if (
     isset($_POST["nomEvenement"]) &&
     isset($_POST["dateEVN"]) &&
@@ -41,10 +54,11 @@ if (
             new DateTime($_POST['dateEVN']),
             $nomCategorie, // Utiliser l'ID de la catégorie
             $adresseEVN, // Ancienne adresse par défaut
-            new DateTime($_POST['dateEVN']) // Ancienne date par défaut
+            new DateTime($_POST['dateEVN']), // Ancienne date par défaut
+            $idEntreprise, // Utiliser l'ID de l'entreprise
         );
         $evenementC->addEvenement($evenement);
-        header('Location:ListEvenement.php');
+        header('Location:profilentreprise.php');
         exit(); // Terminer le script après la redirection
     } else {
         $error = "Missing information";
@@ -450,6 +464,7 @@ body {
         <span>ajouter evenement </span>
     </div>
     <form name="monFormulaire" method="POST" action="" onsubmit="return validateForm();">
+       <input type="hidden" name="idEntreprise" value="<?php echo $idEntreprise; ?>">
         <div class="input-box">
             <input type="text" class="input-field" placeholder="nomEvenement" name="nomEvenement">
             <div id="nomEvenementError" style="color: red;"></div> <!-- Ajout de l'élément d'erreur -->

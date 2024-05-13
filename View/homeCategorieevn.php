@@ -4,8 +4,6 @@ $categorieevnC = new CategorieevnC();
 $list = $categorieevnC->listcategorieevns();
 $counts = $categorieevnC->countEvenementsParCategorie(); // Appel de la méthode pour compter les événements par catégorie
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -200,49 +198,190 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </div>
 
+  <!--       scroll section mta3i     -->
   <div id="services" class="our-services section">
     <div class="container">
+      <!--       domaine     -->
       <div class="row">
-        <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
-          <div class="left-image">
-            <img src="assets/images/services-left-image.png" alt="">
-          </div>
+        <div class="col-lg-6 offset-lg-3">
+              <center><div class="main-blue-button">
+                 <a href="addDomaine.php">Ajouter un domaine </a>
+              </div></center>
+              <div class="section-heading text-center wow bounceIn" data-wow-duration="1s" data-wow-delay="0.1s">
+               <h2><span style="color: #03a4ed;"> Voici les différents </span> domaines <span style="color:#fe3f40;">de nos offres!!!</span> </h2>
+                &nbsp;&nbsp;
+              </div>
         </div>
-        <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
-          <div class="section-heading">
-            <h2>Grow your website with our <em>SEO</em> service &amp; <span>Project</span> Ideas</h2>
-            <p>Space Dynamic HTML5 template is free to use for your website projects. However, you are not permitted to redistribute the template ZIP file on any CSS template collection websites. Please contact us for more information. Thank you for your kind cooperation.</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+              <div class="hidden-content text-center">
+                  <h4><span class="orange-text">Développement mobile</span></h4>
+              </div>
+              <style>
+                  .orange-text {
+                      color: #fe3f40;
+                  }
+              </style>
+              
+              <div class="showed-content text-center">
+                  <img src="../assets/images/développement mobile.png" alt="Description de l'image">
+              </div>
           </div>
+          
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+              <div class="hidden-content text-center">
+                  <h4>Développement web</h4>
+              </div>
+              
+              <div class="showed-content">
+                  <img src="../assets/images/développement web.png" alt="Description de l'image">
+              </div>
+          </div>
+          
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+              <div class="hidden-content text-center">
+                  <h4><span class="orange-text"> Sécurité </span></h4>
+          
+                  <style>
+                      .orange-text {
+                          color: #fe3f40;
+                      }
+                  </style>
+              </div>
+          
+              <div class="showed-content text-center">
+                  <img src="../assets/images/securité de l'informatique.png" alt="Description de l'image">
+              </div>
+          </div>
+          
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+              <div class="hidden-content text-center">
+                  <h4>Science de l'informatique</h4>
+              </div>
+              <div class="showed-content">
+                  <img src="../assets/images/science de l'informatique.png" alt="Description de l'image">
+              </div>
+          </div>
+          
+          </a>
+        </div>
+        <!--       domaine  fin   -->
+             <!--       offre     -->
+      <div class="row">
+        <div class="col-lg-12">
           <div class="row">
-            <div class="col-lg-12">
-              <div class="first-bar progress-skill-bar">
-                <h4>Website Analysis</h4>
-                <span>84%</span>
-                <div class="filled-bar"></div>
-                <div class="full-bar"></div>
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+              <h2> <em> <span style="color: #03a4ed;"> Voila </span></em>nos <span style="color:#fe3f40;">offres!!!</span> </h2>
+              &nbsp;&nbsp;
+                <p>Découvrez nos offres d'emploi et de stage et bonne chance dans vos recherches !</p>
+                <form id="search" action="#" method="GET">
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <fieldset>
+                  <div style="display: flex; justify-content: center;">
+                    <div class="main-blue-button" style="margin-right: 10px;">
+                      <a href="ListeOffres_front.php">Voir tous les Offres</a>
+                    </div>
+                    <div class="main-blue-button">
+                       <a href="addOffre.php">Ajouter une offre</a>
+                   </div>
+                 </div>
+                </fieldset>
+
+                </form>
               </div>
             </div>
-            <div class="col-lg-12">
-              <div class="second-bar progress-skill-bar">
-                <h4>SEO Reports</h4>
-                <span>88%</span>
-                <div class="filled-bar"></div>
-                <div class="full-bar"></div>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="third-bar progress-skill-bar">
-                <h4>Page Optimizations</h4>
-                <span>94%</span>
-                <div class="filled-bar"></div>
-                <div class="full-bar"></div>
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="../assets/images/Job hunt-cuate.png" alt="team meeting">
               </div>
             </div>
           </div>
         </div>
       </div>
+        <!--       offre  fin    -->
+    <!--       demande    -->
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+          <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="../assets/images/Online Review-pana.png" alt="team meeting">
+              </div>
+          </div>
+          <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <h2> <em> <span style="color: #03a4ed;"> Voila </span></em>nos <span style="color:#fe3f40;">demandes!!!</span> </h2>
+                &nbsp;&nbsp;
+                <p>Pour ajouter votre demande et consulter la liste des offres pour plus d'informations, n'hésitez pas à ajouter votre demande dès maintenant.</p>
+                <form id="search" action="#" method="GET">
+                  
+                <fieldset>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+  <div style="display: flex; justify-content: center;">
+    <div class="main-orange-button" style="margin-right: 20px;">
+      <a href="ListeDemandes_front.php">Voir tous les demandes</a>
+    </div>
+    <div class="main-orange-button">
+      <a href="ajoutDemande.php">Ajouter une demande</a>
     </div>
   </div>
+</fieldset>
+
+                <style>
+           .main-orange-button {
+            background-color: #fe3f40;
+            color: white; /* Couleur du texte en blanc */
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .main-orange-button a {
+            color: white; /* Couleur du texte en blanc pour les liens */
+        }
+      </style>
+                </form>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      
+        
+      
+  </div>
+  </div>
+  
+  </div>
+  <!--       demande fin    -->
+    
+</div>
+                                                     <!--       scroll mta3i fin        -->
+
+
+
+
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
         <div class="row">
@@ -270,7 +409,7 @@ https://templatemo.com/tm-562-space-dynamic
                             <div class="showed-content">
                                 <a href="detail.php?id=<?php echo $categorie['idCategorieEVN']; ?>">
                                     <!-- Utilisez le chemin de l'image de la catégorie -->
-                                    <img src="../assets/images/(1).png" alt="" style="width:100%;">
+                                    <img src="../assets/images/Seminar-pana.png" alt="" style="max-width:3000px;" >
                                 </a>
                             </div>
                         </div>

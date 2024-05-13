@@ -1,5 +1,4 @@
 <?php
-//include '../config.php';
 include '../Model/Evenement.php';
 require_once '../Controller/categorieevnC.php';
 
@@ -42,7 +41,7 @@ class EvenementC
 function addEvenement($Evenement)
 {
     $sql = "INSERT INTO evenement  
-            VALUES (NULL, :nomEvenement, :adresseEVN, :dateEVN, :idCategorieEVN, :ancienneAdresseEVN, :ancienneDateEVN)";
+            VALUES (NULL, :nomEvenement, :adresseEVN, :dateEVN, :idCategorieEVN, :ancienneAdresseEVN, :ancienneDateEVN, :idEntreprise)";
     $db = config::getConnexion();
     try {
         $query = $db->prepare($sql);
@@ -53,6 +52,7 @@ function addEvenement($Evenement)
             'idCategorieEVN' => $Evenement->getIdCategorieEVN(),
             'ancienneAdresseEVN' => $Evenement->getAncienneAdresseEVN() ?? $Evenement->getAdresseEVN(),
             'ancienneDateEVN' => $Evenement->getAncienneDateEVN()->format('Y-m-d') ?? $Evenement->getDateEVN()->format('Y-m-d'),
+            'idEntreprise' => $Evenement->getIdEntreprise(),
         ]);
     } catch (Exception $e) {
         echo 'Error: ' . $e->getMessage();
@@ -60,7 +60,7 @@ function addEvenement($Evenement)
 }
 
 
-function updateEvenement($Evenement, $idEvenement)
+function updateEvenement($Evenement, $idEvenement, $idEntreprise)
 {
     try {
         $db = config::getConnexion();
@@ -78,7 +78,7 @@ function updateEvenement($Evenement, $idEvenement)
             ancienneAdresseEVN = :ancienneAdresseEVN, 
             dateEVN = :dateEVN, 
             idCategorieEVN = :idCategorieEVN
-        WHERE idEvenement = :idEvenement'
+        WHERE idEvenement = :idEvenement AND idEntreprise = :idEntreprise'
         );
 
         $query->execute([
@@ -89,6 +89,7 @@ function updateEvenement($Evenement, $idEvenement)
             'ancienneAdresseEVN' => $ancienneAdresseEVN,
             'dateEVN' => $Evenement->getdateEVN()->format('Y-m-d'),
             'idCategorieEVN' => $Evenement->getIdCategorieEVN(),
+            'idEntreprise' => $idEntreprise,
         ]);
 
         // Votre logique supplémentaire ici...
@@ -98,6 +99,7 @@ function updateEvenement($Evenement, $idEvenement)
         $e->getMessage();
     }
 }
+
 
 
 
@@ -127,7 +129,18 @@ function updateEvenement($Evenement, $idEvenement)
             die('Error: ' . $e->getMessage());
         }
     }
+    function getNomEntrepriseById($idEntreprise)
+{
+    $sql = "SELECT nomEntreprise FROM entreprise WHERE idEntreprise = :idEntreprise";
+    $db = config::getConnexion();
+    try {
+        $query = $db->prepare($sql);
+        $query->execute(['idEntreprise' => $idEntreprise]);
+        $result = $query->fetchColumn();
+        return $result;
+    } catch (Exception $e) {
+        die('Error: ' . $e->getMessage());
+    }
+}
 
-
-   
 }

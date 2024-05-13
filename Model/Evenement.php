@@ -8,7 +8,8 @@ class Evenement
     private ?string $idCategorieEVN = null;
     private ?string $ancienneAdresseEVN= null;
     private ?dateTime $ancienneDateEVN = null;
-    public function __construct($id=NULL, $nom, $adresseEVN,$dateEVN,$idCategorieEVN,$ancienneAdresseEVN,$ancienneDateEVN)
+    private ?int $idEntreprise = null;
+    public function __construct($id=NULL, $nom, $adresseEVN,$dateEVN,$idCategorieEVN,$ancienneAdresseEVN,$ancienneDateEVN,$idEntreprise)
     {
         $this->idEvenement = $id;
         $this->nomEvenement = $nom;
@@ -17,7 +18,8 @@ class Evenement
         $this->idCategorieEVN = $idCategorieEVN;
         $this->ancienneAdresseEVN =$ancienneAdresseEVN;
         $this->ancienneDateEVN = $ancienneDateEVN;
-    }
+        $this->idEntreprise = $idEntreprise;
+    } 
 
     /**
      * Get the value of idEvenement
@@ -138,6 +140,22 @@ class Evenement
     public function setAncienneDateEVN($ancienneDateEVN)
     {
         $this->ancienneDateEVN= $ancienneDateEVN;
+
+        return $this;
+    }
+    public function getIdEntreprise()
+    {
+        return $this->idEntreprise;
+    }
+
+    /**
+     * Set the value of CategorieEVN
+     *
+     * @return  self
+     */
+    public function setIdEntreprise($idEntreprise)
+    {
+        $this->idEntreprise=$idEntreprise;
 
         return $this;
     }

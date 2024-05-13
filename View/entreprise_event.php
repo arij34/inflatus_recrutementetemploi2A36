@@ -1,7 +1,28 @@
 <?php
 include '../Controller/EvenementC.php';
 $evenementC = new EvenementC();
-$list = $evenementC->listEvenements();
+
+// Initialisation de $idEntreprise à null
+$idEntreprise = null;
+
+// Vérification si idEntreprise est spécifié dans l'URL
+if(isset($_GET['idEntreprise']) && !empty($_GET['idEntreprise'])) {
+    // Récupération de l'ID de l'entreprise à partir de l'URL et validation
+    $idEntreprise = intval($_GET['idEntreprise']);
+}
+
+// Si idEntreprise n'est pas spécifié dans l'URL ou est invalide, vous pouvez définir une valeur par défaut
+// ou traiter ce cas selon vos besoins. Par exemple, vous pouvez afficher un message d'erreur ou une liste vide.
+if ($idEntreprise === null) {
+    // Traitement en cas d'absence d'idEntreprise, comme afficher un message d'erreur ou une liste vide
+    // Par exemple :
+    // echo "L'ID de l'entreprise n'est pas spécifié.";
+    // ou
+    // $list = array();
+} else {
+    // Si idEntreprise est spécifié et valide, vous pouvez procéder à la récupération des événements
+    $list = $evenementC->listEvenements();
+}
 ?>
 
 <!DOCTYPE html>
@@ -93,21 +114,15 @@ $list = $evenementC->listEvenements();
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                 <div class="mt-3">
                                     <div class="d-flex justify-content-start">
                                         <?php
                                         // Ajouter le lien vers addEvenement.php avec l'ID de l'entreprise
-                                        $idEntreprise = 80 ; // Remplacez 1 par l'ID de l'entreprise
                                         echo "<a href='addEvenement.php?idEntreprise=$idEntreprise' class='btn btn-primary' style='font-weight: bold; font-size: 18px; width:200px;'>ajouter Evenement</a>";
                                         ?>
-                                        <!-- Ajout du bouton pour afficher la liste des événements -->
-                                        <a href="#" class="btn btn-primary" onclick="afficherListeEvenements()" style="font-weight: bold; font-size: 18px; width: 300px;">Liste des événements</a>
-                                        <!-- Ajout du bouton pour afficher la liste des participations -->
-                                        <a href="#" class="btn btn-primary" onclick="afficherListeParticipations()" style="font-weight: bold; font-size: 18px; width: 300px;">Liste des participations</a>
                                     </div>
                                     <!-- Première table -->
-                                    <div class="table-container" id="tableEvenements" style="display: none;">
+                                    <div class="table-container">
                                         <table class="table table-bordered table-striped verticle-middle" style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -165,23 +180,8 @@ $list = $evenementC->listEvenements();
                 </div>
             </div>
         </div>
-        <div class="table-container" id="tableParticipations" style="display: none;">
-            <iframe src="part_event.php?idEntreprise=<?php echo $idEntreprise; ?>" frameborder="0" scrolling="yes" width="100%" height="1200"></iframe>
-        </div>
-        
     </div>
-
-    <script>
-        function afficherListeEvenements() {
-            document.getElementById('tableEvenements').style.display = 'block';
-            document.getElementById('tableParticipations').style.display = 'none';
-        }
-
-        function afficherListeParticipations() {
-            document.getElementById('tableEvenements').style.display = 'none';
-            document.getElementById('tableParticipations').style.display = 'block';
-        }
-    </script>
+   
 </body>
 
 </html>

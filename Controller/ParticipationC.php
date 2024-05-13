@@ -136,6 +136,23 @@ public function compareInfosByStudentIdAndEventId($idEtudiant, $idEvenement)
         die('Error: ' . $e->getMessage());
     }
 }
+public function getParticipationsByIdEntreprise($idEntreprise)
+{
+    $sql = "SELECT p.*, e.nomEvenement 
+            FROM participation p
+            INNER JOIN evenement e ON p.idEvenement = e.idEvenement
+            WHERE e.idEntreprise = :idEntreprise";
+    $db = config::getConnexion();
+    try {
+        $query = $db->prepare($sql);
+        $query->execute(['idEntreprise' => $idEntreprise]);
+        $participations = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $participations;
+    } catch (Exception $e) {
+        die('Error: ' . $e->getMessage());
+    }
+}
+
 
 
 }

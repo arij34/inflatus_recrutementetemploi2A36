@@ -5,8 +5,14 @@ $adresseEVN = ""; // Initialisation de la variable adresseEVN
 if (isset($_GET["adresseEVN"])) {
     $adresseEVN = $_GET["adresseEVN"]; // Récupérer l'adresse depuis l'URL
 ?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<iframe width="100%" height="500" src="https://maps.google.com/maps?q=<?php echo $adresseEVN; ?>&output=embed"></iframe>
+<center><iframe width="100%" height="500" src="https://maps.google.com/maps?q=<?php echo $adresseEVN; ?>&output=embed"></iframe></center>
 
 <?php
 } else {

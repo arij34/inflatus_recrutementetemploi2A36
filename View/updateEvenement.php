@@ -13,14 +13,17 @@ if (
     isset($_POST["nomEvenement"]) &&
     isset($_POST["adresseEVN"]) &&
     isset($_POST["dateEVN"]) &&
-    isset($_POST["idCategorieEVN"]) 
+    isset($_POST["idCategorieEVN"])&&
+    isset($_POST["idEntreprise"]) 
 ) {
     if (
         !empty($_POST["idEvenement"]) &&
         !empty($_POST["nomEvenement"]) &&
         !empty($_POST["adresseEVN"]) &&
         !empty($_POST["dateEVN"]) &&
-        !empty($_POST["idCategorieEVN"])
+        !empty($_POST["idCategorieEVN"])&&
+        !empty($_POST["idEntreprise"])
+
     ) {
         $evenement = new Evenement(
             $_POST["idEvenement"],
@@ -29,9 +32,10 @@ if (
             new DateTime($_POST['dateEVN']),
             $_POST["idCategorieEVN"],
             $_POST["adresseEVN"],
-            new DateTime($_POST['dateEVN'])
+            new DateTime($_POST['dateEVN']),
+            $_POST["idEntreprise"],
         );
-        $evenementC->updateEvenement($evenement, $_POST["idEvenement"]);
+        $evenementC->updateEvenement($evenement, $_POST["idEvenement"], $_POST["idEntreprise"]);
         header('Location:ListEvenement.php');
     } else {
         $error = "Missing information";
@@ -105,6 +109,15 @@ if (
                     </td>
                     <td>
                         <input type="text" name="idCategorieEVN" value="<?php echo $Evenement['idCategorieEVN']; ?>" id="idCategorieEVN">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="idEntreprise">idEntreprise:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" name="idEntreprise" value="<?php echo $Evenement['idEntreprise']; ?>" id="idEntreprise">
                     </td>
                 </tr>
                 <tr>

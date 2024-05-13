@@ -10,8 +10,8 @@ $participationC = new ParticipationC();
 // Récupération de tous les événements auxquels l'étudiant participe
 $events = $participationC->getEventsByStudentId($idEtudiant);
 
-// Initialisation du drapeau pour détecter les différences
-$differencesFound = false;
+// Initialisation de la variable pour stocker les événements modifiés
+$modifiedEvents = [];
 
 // Parcourir tous les événements
 foreach ($events as $evenement) {
@@ -20,10 +20,12 @@ foreach ($events as $evenement) {
 
     // Vérifier s'il y a des différences dans les adresses ou les dates
     if ($infos['ancienneAdresseEVN'] !== $infos['adresseEVN'] || $infos['ancienneDateEVN'] !== $infos['dateEVN']) {
-        // Mettre à jour le drapeau s'il y a des différences
-        $differencesFound = true;
-        // Sortir de la boucle si une différence est trouvée dans au moins un événement
-        break;
+        // Stocker l'événement modifié avec ses informations
+        $modifiedEvents[] = [
+            'nomEvenement' => $evenement['nomEvenement'],
+            'dateEVN' => $infos['dateEVN'],
+            'adresseEVN' => $infos['adresseEVN']
+        ];
     }
 }
 ?>
@@ -36,31 +38,14 @@ foreach ($events as $evenement) {
     <title>Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
-    
-    <style>
-        body {
-            background: #f7f7ff;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-
-        .main-body {
-            margin-top: 20px; /* Ajoute un espace entre la navbar et le contenu principal */
-        }
-        .delete-btn {
-            font-weight: bold;
-            font-size: 18px;
-        }
-    
-    </style>
 </head>
 <body>
     <!-- Afficher l'alerte si des différences sont trouvées -->
-    <?php if ($differencesFound): ?>
-        <div class="alert alert-warning" role="alert">
-            Les informations ont été modifiées pour au moins un événement.
-        </div>
+    <?php if (!empty($modifiedEvents)): ?>
+        <script>
+            // Afficher une alerte JavaScript
+            alert("Les informations ont été modifiées pour les événements suivants :\n<?php foreach ($modifiedEvents as $event): ?>\n- <?php echo $event['nomEvenement'] . ' - ' . $event['dateEVN'] . ' - ' . $event['adresseEVN']; ?>\n<?php endforeach; ?>");
+        </script>
     <?php endif; ?>
 
     <div class="container">

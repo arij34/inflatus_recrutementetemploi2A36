@@ -55,11 +55,10 @@ if(isset($_GET['id'])) {
                             </div>
                             <a href="addParticipation.php?idEvenement=<?= $evenement['idEvenement']; ?>" class="btn btn-outline-primary">Participer</a>
                             <a href="maphome.php?adresseEVN=<?= urlencode($evenement['adresseEVN']); ?>" class="btn btn-outline-primary">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-        <path d="M8 16a.75.75 0 0 1-.75-.75v-6a.75.75 0 0 1 1.5 0v6A.75.75 0 0 1 8 16zm7-8.5a7 7 0 1 0-14 0 7 7 0 0 0 14 0zM8 1a5 5 0 0 1 5 5c0 2.168-2.42 4.182-4.405 6.424a.75.75 0 0 1-.59.218.75.75 0 0 1-.59-.218C5.42 10.182 3 8.168 3 6a5 5 0 0 1 5-5zm0 8.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5z"/>
-    </svg>
-</a>
-
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                    <path d="M8 16a.75.75 0 0 1-.75-.75v-6a.75.75 0 0 1 1.5 0v6A.75.75 0 0 1 8 16zm7-8.5a7 7 0 1 0-14 0 7 7 0 0 0 14 0zM8 1a5 5 0 0 1 5 5c0 2.168-2.42 4.182-4.405 6.424a.75.75 0 0 1-.59.218.75.75 0 0 1-.59-.218C5.42 10.182 3 8.168 3 6a5 5 0 0 1 5-5zm0 8.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5z"/>
+                                </svg>
+                             </a>
 
                         </div>
                     <?php endforeach; ?>
