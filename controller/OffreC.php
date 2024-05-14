@@ -132,31 +132,30 @@ class OffreC
     }
     
 
-
-          function updateOffre($offre, $id_o)
+function updateOffre($offre, $id_o)
 {
     try {
         $db = config::getConnexion();
         $query = $db->prepare(
             'UPDATE offre SET 
-            id_dom=:id_dom, 
-            titre=:titre, 
-            description_o=:description_o, 
-            type_o=:type_o, 
-            idEntreprise=:idEntreprise, 
-            lieu=:lieu, 
-            date_publication=:date_publication, 
-            date_limite=:date_limite,
-            contact=:contact, 
-            status_o=:status_o 
-            WHERE id_o=:id_o'
+            id_dom = :id_dom, 
+            titre = :titre, 
+            description_o = :description_o, 
+            type_o = :type_o, 
+            idEntreprise = :idEntreprise, 
+            lieu = :lieu, 
+            date_publication = :date_publication, 
+            date_limite = :date_limite,
+            contact = :contact, 
+            status_o = :status_o 
+            WHERE id_o = :id_o'
         );
 
-        $date_publication = $offre->getdate_publication() ? $offre->getdate_publication()->format('Y/m/d') : null;
-        $date_limite = $offre->getdate_limite() ? $offre->getdate_limite()->format('Y/m/d') : null;
+        $date_publication = $offre->getdate_publication() ? $offre->getdate_publication()->format('Y-m-d') : null;
+        $date_limite = $offre->getdate_limite() ? $offre->getdate_limite()->format('Y-m-d') : null;
 
         $query->execute([
-            'id_o' => $offre->getid_o(),
+            'id_o' => $id_o,
             'id_dom' => $offre->getid_dom(),
             'titre' => $offre->gettitre(),
             'description_o' => $offre->getdescription_o(),
@@ -170,9 +169,10 @@ class OffreC
         ]);
         echo $query->rowCount() . " records UPDATED successfully <br>";
     } catch (PDOException $e) {
-        echo $e->getMessage();
+        echo 'Error: ' . $e->getMessage();
     }
 }
+
 
     function showOffre($id_o)
     {

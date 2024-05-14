@@ -158,7 +158,7 @@ if (
     </div>
 
     <?php
-   if (isset($_POST['update'])) {
+   if (isset($_POST['id_d'])) {
         $demande = $demandeC->showDemande($_POST['id_d']);
 
     ?>

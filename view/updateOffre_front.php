@@ -1,12 +1,8 @@
 <?php
-
 include '../controller/offreC.php';
-
 $error = "";
-
 // create offre
 $offre = null;
-
 // create an instance of the controller
 $offreC = new OffreC();
 if (

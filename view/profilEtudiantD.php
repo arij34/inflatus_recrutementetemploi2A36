@@ -79,7 +79,7 @@ $demandeC = $demandeC->getDemandesByStudentId($idEtudiant);
                                                         </form>
                                                     </td>
                                                     <td>
-                                                        <form method="POST" action="./updateDemande_front.php">
+                                                        <form method="POST" action="updateDemande_front.php">
                                                             <input type="hidden" value="<?php echo $Demande['id_d']; ?>" name="id_d">
                                                             <button type="submit" class="btn btn-primary delete-btn">Modifier</button>
                                                         </form>

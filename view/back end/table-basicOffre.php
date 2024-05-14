@@ -326,7 +326,7 @@ $liste = $domaineC->ListeDomaines();
                       <td><?php echo $offre['contact']; ?></td>
                       <td><?php echo $offre['status_o']; ?></td>
                       <td>
-                        <form method="POST" action="../updateOffre_front.php">
+                        <form method="POST" action="../updateOffre.php">
                           <input type="hidden" value="<?php echo $offre['id_o']; ?>" name="id_o">
                           <button type="submit" class="btn btn-primary" name="update"><i class="fa fa-pencil"></i></button>
                         </form>
@@ -392,7 +392,7 @@ $liste = $domaineC->ListeDomaines();
                       <td><?php echo $demande['date_d']; ?></td>
                       <td><?php echo $demande['status_d']; ?></td>
                       <td>
-                        <form method="POST" action="../updateDemande_front.php">
+                        <form method="POST" action="../updateDemande.php">
                           <input type="hidden" value="<?php echo $demande['id_d']; ?>" name="id_d">
                           <button type="submit" class="btn btn-primary" name="update"><i class="fa fa-pencil"></i></button>
                         </form>
@@ -441,12 +441,7 @@ $liste = $domaineC->ListeDomaines();
                       <td><?php echo $domaine['id_dom']; ?></td>
                       <td><?php echo $domaine['domaine_informatique']; ?></td>
 
-                      <td>
-                        <form method="POST" action="../updateDomaine.php">
-                          <input type="hidden" value="<?php echo $domaine['id_dom']; ?>" name="id_dom">
-                          <button type="submit" class="btn btn-primary" name="update"><i class="fa fa-pencil"></i></button>
-                        </form>
-                      </td>
+                      
                       <td>
                         <form method="POST" action="../deleteDomaine.php">
                           <input type="hidden" value="<?php echo $domaine['id_dom']; ?>" name="id_dom">

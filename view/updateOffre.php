@@ -49,7 +49,7 @@ if (
             $_POST["status_o"]
         );
         $offreC->updateOffre($offre, $_POST["id_o"]);
-        header('Location:ListeOffres.php');
+        header('http://localhost/integfy/view/back%20end/table-basicOffre.php');
     } else {
         $error = "Missing information";
     }
@@ -61,11 +61,71 @@ if (
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>offre Display</title>
+    <title>offre demande Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="submit"] {
+            width: 45%; /* Réduit la largeur pour deux éléments par ligne */
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%; /* Pleine largeur pour le bouton */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        button {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <button><a href="ListeOffres.php">Retour à la liste</a></button>
+    <button><a href="http://localhost/integfy/view/back%20end/table-basicOffre.php">Retour à la liste</a></button>
     <hr>
 
     <div id="error">
@@ -77,100 +137,74 @@ if (
         $offre = $offreC->showOffre($_POST['id_o']);
 
     ?>
-
         <form action="" method="POST">
-            <table border="1" align="center">
-                <tr>
-                    <td>
-                        <label for="id_o">Id offre:</label>
+                <table>
+                    <tr>
+                        <th>Champ</th>
+                        <th>Valeur</th>
+                    </tr>
+                    <tr>
+                            
+                        <td> <label for="id_o">Id offre:</label></td>
+                        <td><input type="hidden" name="id_o" value="<?php echo $offre['id_o']; ?>"><?php echo $offre['id_o']; ?> </td>
                     </td>
+                        <td><label for="id_dom">Domaine Informatique:</label></td>
+                        <td><input type="text" name="id_dom" id="id_dom" value="<?php echo $offre['id_dom']; ?>" maxlength="100"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="titre">Titre:</label></td>
+                        <td><input type="text" name="titre" id="titre" value="<?php echo $offre['titre']; ?>" maxlength="255"></td>
+                   
+                        <td><label for="description_o">Description:</label></td>
+                        <td><input type="text" name="description_o" id="description_o" value="<?php echo $offre['description_o']; ?>" maxlength="255"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="type_o">Type:</label></td>
+                        <td><input type="text" name="type_o" id="type_o" value="<?php echo $offre['type_o']; ?>" maxlength="255"></td>
                     
-
-                    <td><input type="hidden" name="id_o" value="<?php echo $offre['id_o']; ?>"> </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="id_dom">Domaine Informatique:</label>
-                    </td>
-                    <td><input type="text" name="id_dom" id="id_dom" value="<?php echo $offre['id_dom']; ?>" maxlength="100"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="titre">Titre:</label>
-                    </td>
-                    <td><input type="text" name="titre" id="titre" value="<?php echo $offre['titre']; ?>" maxlength="255"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="description_o">Description:</label>
-                    </td>
-                    <td><input type="text" name="description_o" id="description_o" value="<?php echo $offre['description_o']; ?>" maxlength="255"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="type_o">Type:</label>
-                    </td>
-                    <td><input type="text" name="type_o" id="type_o" value="<?php echo $offre['type_o']; ?>" maxlength="255"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="idEntreprise">idEntreprise:</label>
-                    </td>
-                    <td><input type="text" name="idEntreprise" id="idEntreprise" value="<?php echo $offre['idEntreprise']; ?>" maxlength="255"></td>
-                </tr>
-                <tr>
+                        <td><label for="idEntreprise">idEntreprise:</label></td>
+                        <td><input type="text" name="idEntreprise" id="idEntreprise" value="<?php echo $offre['idEntreprise']; ?>" maxlength="255"></td>
+                    </tr>
+                    <tr>
                     <td>
                         <label for="lieu">Lieu:</label>
                     </td>
-                    <td><input type="text" name="lieu" id="lieu" value="<?php echo $offre['lieu']; ?>" maxlength="255"></td>
-                </tr>
-                <tr>
+                    <td><input type="text" name="lieu" id="lieu" value="<?php echo $offre['lieu']; ?>" maxlength="255"></td>    
+
+
                     <td>
                         <label for="date_publication">Date Publication:</label>
                     </td>
                     <td>
                         <input type="date" name="date_publication" id="date_publication" value="<?php echo $offre['date_publication']; ?>">
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>
                         <label for="date_limite">Date Limite:</label>
                     </td>
                     <td>
                         <input type="date" name="date_limite" id="date_limite" value="<?php echo $offre['date_limite']; ?>">
                     </td>
-                </tr>
-                <tr>
+                    
                     <td>
                         <label for="contact">Contact:</label>
                     </td>
                     <td><input type="text" name="contact" id="contact" value="<?php echo $offre['contact']; ?>" maxlength="255"></td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>
                         <label for="status_o">Status:</label>
                     </td>
                     <td><input type="text" name="status_o" id="status_o" value="<?php echo $offre['status_o']; ?>" maxlength="255"></td>
-                </tr>
-                <form action="" method="POST">
-    <input type="hidden" name="id_o" value="<?php echo $offre['id_o']; ?>">
-    <table border="1" align="center">
-        <!-- Reste du formulaire -->
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" name="update" value="Update">
-            </td>
-            <td>
-                <input type="reset" value="Reset">
-            </td>
-        </tr>
-    </table>
-</form>
 
-
-            </table>
-        </form>
+                        <td colspan="2" align="center">
+                            <input type="submit" name="update" value="Update">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        
     <?php
     }
     ?>

@@ -50,7 +50,7 @@ if (
             $_POST["status_d"]
         );
         $demandeC->updateDemande($demande, $_POST["id_d"]);
-        header('Location:ListeDemandes.php');
+        header('http://localhost/integfy/view/back%20end/table-basicOffre.php');
     } else {
         $error = "Missing information";
     }
@@ -132,7 +132,7 @@ if (
 
 <body>
     <div class="container">
-        <button><a href="ListeDemandes.php">Retour à la liste</a></button>
+        <button><a href="http://localhost/integfy/view/back%20end/table-basicOffre.php">Retour à la liste</a></button>
         
 
         <div id="error">
