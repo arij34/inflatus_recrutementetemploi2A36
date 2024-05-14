@@ -244,6 +244,27 @@ if ($users) {
                             <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
                         </ul>
                     </li>
+                    <li class="nav-label">Gestion Reclamation</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Reclamation</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../reclam_blog/listerecruteur.php" aria-expanded="false">Tableau Reclamation</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="../reclam_blog/listereponse.php" aria-expanded="false">Tableau reponse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion Blog</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Blog</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

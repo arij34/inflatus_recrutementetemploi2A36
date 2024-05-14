@@ -95,6 +95,17 @@ https://templatemo.com/tm-562-space-dynamic
 
                         height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
                     }
+                    .photo-animee {
+                      animation: deplacement 2s linear infinite alternate; /* Définition de l'animation */
+                    }
+                    @keyframes deplacement {
+                      from {
+                          transform: translateX(0); /* Début de la translation (aucun déplacement) */
+                      }
+                      to {
+                          transform: translateX(100px); /* Fin de la translation (déplacement de 100px vers la droite) */
+                      }
+                    }
                   </style>
                 </div> 
               Kha<span>Damni</span></h4>
@@ -303,7 +314,7 @@ https://templatemo.com/tm-562-space-dynamic
 </div>
 
 
-  <div id="blog" class="our-blog section">
+<div id="blog" class="our-blog section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
@@ -331,7 +342,8 @@ https://templatemo.com/tm-562-space-dynamic
                 <a href="#"><h4>SEO Agency &amp; Digital Marketing</h4></a>
                 <p>Lorem ipsum dolor sit amet, consectetur and sed doer ket eismod tempor incididunt ut labore et dolore magna...</p>
                 <div class="main-blue-button">
-                  <a href="#">Discover More</a>
+                  <a href="../reclam_blog/formulaire.php">Ecrire votre blog</a>
+                  <a href="../reclam_blog/blog.php">voire tous nos blog</a>
                 </div>
               </div>
             </div>
@@ -382,40 +394,25 @@ https://templatemo.com/tm-562-space-dynamic
       <div class="row">
         <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
           <div class="section-heading">
-            <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
+            <h2>"N'hésitez pas à nous envoyer une réclamation concernant vos besoins en matière de site web."</h2>
+            <p>Feel free to send us a message about your website needs</p>
             <div class="phone-info">
-              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
+              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">77234555</a></span></h4>
             </div>
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
           <form id="contact" action="" method="post">
             <div class="row">
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
-                </fieldset>
-              </div>
+              <img src="assets/images/13818740_5362970.png" alt=""class="photo-animee">
               <div class="col-lg-12">
-                <fieldset>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="main-button ">Send Message</button>
-                </fieldset>
+                
+              
+              <?php
+         // Ajouter le lien vers addEvenement.php avec l'ID de l'entreprise
+          // Remplacez 1 par l'ID de l'entreprise
+          echo "<a href='../reclam_blog/reclame.php?idEtudiant=$idEtudiant' class='btn btn-primary' style='font-weight: bold; font-size: 18px; width:200px;'>remplir reclamation</a>";
+           ?>
               </div>
             </div>
             <div class="contact-dec">
