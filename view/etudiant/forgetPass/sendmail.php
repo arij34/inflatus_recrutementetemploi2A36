@@ -1,5 +1,5 @@
 <?php
-include "C:/xampp/htdocs/web/gestionUser/controller/etudiantC.php";
+include "C:/xampp/htdocs/web/controller/etudiantC.php";
 
 
     // Utilisation de PHPMailer pour envoyer l'e-mail
@@ -39,13 +39,13 @@ include "C:/xampp/htdocs/web/gestionUser/controller/etudiantC.php";
             // Contenu de l'e-mail
             $mail->isHTML(true);                                 
             $mail->Subject = 'Changer Mot De Passe';
-            $mail->Body    = 'Voici votre lien pour modifier votre mot de passe : <a href="http://localhost/web/gestionUser/view/etudiant/forgetPass/reset.php">Cliquez ici</a>';
+            $mail->Body    = 'Voici votre lien pour modifier votre mot de passe : <a href="http://localhost/web/view/etudiant/forgetPass/reset.php">Cliquez ici</a>';
             $mail->AltBody = 'Vous avez eu de problème pour charger le formulaire.';
 
             // Envoi de l'e-mail
             if($mail->send()) {
                 // Redirection après l'envoi de l'e-mail
-                header('Location:http://localhost/web/gestionUser/view/etudiant/forgetPass/mailenvoyee.html');
+                header('Location:http://localhost/web/view/etudiant/forgetPass/mailenvoyee.html');
                 exit();
             } else {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

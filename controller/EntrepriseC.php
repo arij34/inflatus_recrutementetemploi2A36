@@ -1,6 +1,6 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/config.php';
-include 'C:/xampp/htdocs/web/gestionUser/Model/Entreprise.php';
+include "C:/xampp/htdocs/web/config.php";
+include 'C:/xampp/htdocs/web/Model/Entreprise.php';
 
 class EntrepriseC
 {

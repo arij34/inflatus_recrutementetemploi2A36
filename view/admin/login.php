@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:/xampp/htdocs/web/gestionUser/controller/UserC.php';
+include 'C:/xampp/htdocs/web/controller/UserC.php';
 $error = "";
 $user = null;
 $userC = new UserC();

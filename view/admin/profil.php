@@ -16,11 +16,11 @@
         $MDPR = $_SESSION['MDPR'];
     } else {
         // Redirect the user to the login page if not logged in
-        header("Location: http://localhost/web/gestionUser/view/admin/aff.php");
+        header("Location: http://localhost/web/view/admin/aff.php");
         exit;
     }
 
-    include 'C:/xampp/htdocs/web/gestionUser/controller/UserC.php';
+    include 'C:/xampp/htdocs/web/controller/UserC.php';
     $userC = new UserC();
     $error = "";
     $success_message = "";
@@ -240,7 +240,7 @@
                                 </div>
                             </div>
                         </li>
-                        <!--<li class="icons dropdown">
+                        <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                                 <span class="activity active"></span>
                                 <img src="https://bootdey.com/img/Content/avatar/avatar6.png" height="40" width="40" alt="">
@@ -248,18 +248,11 @@
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
-                                        <li>
-                                            <a href="afficher.php"><i class="icon-user"></i> <span>Profile</span></a>
-                                        </li>
-                                        <hr class="my-2">
-                                        <li>
-                                            <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                        </li>
-                                        <li><a href="aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="http://localhost/web/view/admin/aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>
-                        </li>-->
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -273,7 +266,7 @@
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/admin/afficher.php">Acceuil</a></li>
+                            <li><a href="http://localhost/web/view/admin/afficher.php">Acceuil</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
@@ -284,7 +277,7 @@
                         </a>
                         <ul aria-expanded="false" >
                             <li>                
-                                <a href="http://localhost/web/gestionUser/view/etudiant/statestique.php">
+                                <a href="http://localhost/web/view/etudiant/statestique.php">
                                     <i class="icon-graph menu-icon"></i> Etudiant
                                 </a>
                             </li>
@@ -296,13 +289,27 @@
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Utilisateurs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/entreprisee/View/table.php" aria-expanded="false">Tableau Entreprise</a></li>
+                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
                         </ul>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
+                            <li><a href="http://localhost/web/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
                         </ul>
                     </li>
-                    
+                    <li class="nav-label">Gestion Evenement</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListEvenement.php" aria-expanded="false">Tableau Evenement</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListCategorieevn.php" aria-expanded="false">Tableau Categorie</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

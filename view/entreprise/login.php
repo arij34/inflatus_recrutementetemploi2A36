@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:/xampp/htdocs/web/gestionUser/controller/EntrepriseC.php';
+include 'C:/xampp/htdocs/web/controller/EntrepriseC.php';
 
 $error = "";
 $entreprise = null;
@@ -70,27 +70,27 @@ if(isset($_POST['afficher'])) {
                 $_SESSION['descriptionE'] = $userByEmail['descriptionE'];
                 $_SESSION['emailEn'] = $emailE;
                 $_SESSION['MDPEn'] = $MDPE;
-                header("Location: http://localhost/web/gestionUser/view/entreprise/Home/templatemo_562_space_dynamic/index.php");
+                header("Location: http://localhost/web/view/entreprise/index.php");
                 exit;
             } else {
                 // Incorrect email or password
                 $error = "Incorrect email or password";
                 echo '<script>                    
                      alert("Veuillez saisir tous les champs.");
-                     window.location.href = "http://localhost/web/gestionUser/view/entreprise/login.php";
+                     window.location.href = "http://localhost/web/view/entreprise/login.php";
                      </script>';
                 exit();
             }
         } else {
             // Email or password is empty
             $error = "Email and password are required";
-            echo '<script> alert("Veuillez entrer votre email et mot de passe") ; window.location.href = "http://localhost/web/gestionUser/view/entreprise/login.php";</script>';
+            echo '<script> alert("Veuillez entrer votre email et mot de passe") ; window.location.href = "http://localhost/web/view/entreprise/login.php";</script>';
             exit();
         }
     } else {
         // Email or password not provided
         $error = "Email and password are required";
-        echo '<script>alert("Veuillez entrer votre email et mot de passe.") ; window.location.href = "http://localhost/web/gestionUser/view/entreprise/login.php";</script>';
+        echo '<script>alert("Veuillez entrer votre email et mot de passe.") ; window.location.href = "http://localhost/web/view/entreprise/login.php";</script>';
         exit();
     }
 
@@ -452,7 +452,7 @@ if(isset($_POST['afficher'])) {
                         <div class="input-box">
                             <input type="password" class="input-field" placeholder="Mot de passe" name="MDPEn" value="<?php echo $user['MDPEn'] ??''; ?>">
                         </div>
-                        <a href="http://localhost/web/gestionUser/view/entreprise/forgetPass/forget.php" class="forgot-password">Mot de passe oublié?</a>
+                        <a href="http://localhost/web/view/entreprise/forgetPass/forget.php" class="forgot-password">Mot de passe oublié?</a>
                         <style>
                         
                             /* Style for the options */

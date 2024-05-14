@@ -1,5 +1,5 @@
 <?php
-include "C:/xampp/htdocs/web/gestionUser/controller/etudiantC.php";
+include "C:/xampp/htdocs/web/controller/etudiantC.php";
 
 
 $userC = new UserC();

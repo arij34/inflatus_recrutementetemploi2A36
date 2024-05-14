@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include 'C:/xampp/htdocs/web/gestionUser/controller/EntrepriseC.php';
+include 'C:/xampp/htdocs/web/controller/EntrepriseC.php';
 
 
 // create an instance of the controller
@@ -181,7 +181,7 @@ if (isset($_POST["modifier"]) && $entreprise && isset($_POST["nomEntreprise"]) &
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="http://localhost/web/gestionUser/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="http://localhost/web/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
@@ -190,7 +190,7 @@ if (isset($_POST["modifier"]) && $entreprise && isset($_POST["nomEntreprise"]) &
                                         </li>
                                         
                                         <hr class="my-2">
-                                        <li><a href="aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="http://localhost/web/view/admin/aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@ if (isset($_POST["modifier"]) && $entreprise && isset($_POST["nomEntreprise"]) &
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/admin/afficher.php">Acceuil</a></li>
+                            <li><a href="http://localhost/web/view/admin/afficher.php">Acceuil</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
@@ -219,7 +219,7 @@ if (isset($_POST["modifier"]) && $entreprise && isset($_POST["nomEntreprise"]) &
                         </a>
                         <ul aria-expanded="false" >
                             <li>                
-                                <a href="http://localhost/web/gestionUser/view/etudiant/statestique.php">
+                                <a href="http://localhost/web/view/etudiant/statestique.php">
                                     <i class="icon-graph menu-icon"></i> Etudiant
                                 </a>
                             </li>
@@ -231,13 +231,27 @@ if (isset($_POST["modifier"]) && $entreprise && isset($_POST["nomEntreprise"]) &
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Utilisateurs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
+                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
                         </ul>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
+                            <li><a href="http://localhost/web/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
                         </ul>
                     </li>
-                    
+                    <li class="nav-label">Gestion Evenement</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListEvenement.php" aria-expanded="false">Tableau Evenement</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListCategorieevn.php" aria-expanded="false">Tableau Categorie</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

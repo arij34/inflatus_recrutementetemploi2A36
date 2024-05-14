@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/controller/EntrepriseC.php';
+include 'C:/xampp/htdocs/web/controller/EntrepriseC.php';
 
 ?>
 <!DOCTYPE html>

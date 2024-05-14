@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/controller/UserC.php';
+include 'C:/xampp/htdocs/web/controller/UserC.php';
 $userC = new UserC();
 
 $error = "";
@@ -197,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php if (!empty($success_message)) : ?>
                 <div class="success" style=" color:green;">
                 <?php echo $success_message; ?>
-                    <a href ="http://localhost/web/gestionUser/view/admin/aff.php" style=" color:green;"> se connecter  </a>
+                    <a href ="http://localhost/web/view/admin/aff.php" style=" color:green;"> se connecter  </a>
                 </div>
             <?php endif; ?> 
             <button type="submit" class="send-btn">Modifier</button>

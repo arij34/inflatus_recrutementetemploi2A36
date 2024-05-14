@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include 'C:/xampp/htdocs/web/gestionUser/controller/UserC.php';
+include 'C:/xampp/htdocs/web/controller/UserC.php';
 
 $userC = new UserC();
 
@@ -202,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </li>
                                         
                                         <hr class="my-2">
-                                        <li><a href="aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="http://localhost/web/view/admin/aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -249,7 +249,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <li><a href="http://localhost/web/gestionUser/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
                         </ul>
                     </li>
-                    
+                    <li class="nav-label">Gestion Evenement</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListEvenement.php" aria-expanded="false">Tableau Evenement</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListCategorieevn.php" aria-expanded="false">Tableau Categorie</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

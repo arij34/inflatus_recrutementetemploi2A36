@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include 'C:/xampp/htdocs/web/gestionUser/controller/EntrepriseC.php';
+include 'C:/xampp/htdocs/web/controller/EntrepriseC.php';
 require 'vendor/autoload.php';
 
 $c = new EntrepriseC();

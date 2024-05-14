@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "C:/xampp/htdocs/web/gestionUser/controller/UserC.php"; 
+include "C:/xampp/htdocs/web/controller/UserC.php"; 
 $error = "";
 $user = null;
 $userC = new UserC();
@@ -54,11 +54,11 @@ if(isset($_POST['afficher']))
                 $_SESSION['dateR'] = $userByEmail['dateR'];
                 $_SESSION['emailR'] = $emailR;
                 $_SESSION['MDPR'] = $MDPR;
-                header("Location: http://localhost/web/gestionUser/view/admin/afficher.php");
+                header("Location: http://localhost/web/view/admin/afficher.php");
                 exit;
             } else {
                 $error = "Incorrect email or password";
-                echo '<script> alert("compte non trouve..") ; window.location.href = "http://localhost/web/gestionUser/view/admin/aff.php"
+                echo '<script> alert("compte non trouve..") ; window.location.href = "http://localhost/web/view/admin/aff.php"
                 exit();</script>';
 
                 exit();
@@ -66,12 +66,12 @@ if(isset($_POST['afficher']))
         } else 
         {
             $error = "Email and password are required";
-            echo '<script> alert("Veuillez entrer votre email et mot de passe") ; window.location.href = "http://localhost/web/gestionUser/view/admin/aff.php";</script>';
+            echo '<script> alert("Veuillez entrer votre email et mot de passe") ; window.location.href = "http://localhost/web/view/admin/aff.php";</script>';
             exit();
         }
     } else {
         $error = "Email and password are required";
-        echo '<script>alert("Veuillez entrer votre email et mot de passe.") ; window.location.href = "http://localhost/web/gestionUser/view/admin/aff.php";</script>';
+        echo '<script>alert("Veuillez entrer votre email et mot de passe.") ; window.location.href = "http://localhost/web/view/admin/aff.php";</script>';
         exit();
     }
     if(isset($error)) {
@@ -120,7 +120,7 @@ if(isset($_POST['afficher']))
                         <div class="input-box">
                             <input type="password" class="input-field" placeholder="Mot de passe" name="MDPR" value="<?php echo $user['MDPR'] ??''; ?>">
                         </div>
-                        <a href="http://localhost/web/gestionUser/view/admin/forgetPass/forget.php" class="forgot-password">  Votre Mot de passe oublié ? cliquer ici !</a>
+                        <a href="http://localhost/web/view/admin/forgetPass/forget.php" class="forgot-password">  Votre Mot de passe oublié ? cliquer ici !</a>
                         <style>
                         
                             /* Style for the options */

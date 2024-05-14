@@ -1,5 +1,5 @@
 <?php
-include "C:/xampp/htdocs/web/gestionUser/controller/etudiantC.php";
+include "C:/xampp/htdocs/web/controller/etudiantC.php";
 $userC = new UserC();
 $users = $userC->listUsers();
 if ($users) {
@@ -134,7 +134,7 @@ if ($users) {
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="http://localhost/web/gestionUser/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="http://localhost/web/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
@@ -161,7 +161,7 @@ if ($users) {
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/admin/afficher.php">Acceuil</a></li>
+                            <li><a href="http://localhost/web/view/admin/afficher.php">Acceuil</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
@@ -172,7 +172,7 @@ if ($users) {
                         </a>
                         <ul aria-expanded="false" >
                             <li>                
-                                <a href="http://localhost/web/gestionUser/view/etudiant/statestique.php">
+                                <a href="http://localhost/web/view/etudiant/statestique.php">
                                     <i class="icon-graph menu-icon"></i> Etudiant
                                 </a>
                             </li>
@@ -184,13 +184,27 @@ if ($users) {
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Utilisateurs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
+                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
                         </ul>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
+                            <li><a href="http://localhost/web/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
                         </ul>
                     </li>
-                    
+                    <li class="nav-label">Gestion Evenement</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListEvenement.php" aria-expanded="false">Tableau Evenement</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListCategorieevn.php" aria-expanded="false">Tableau Categorie</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -198,7 +212,7 @@ if ($users) {
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card" style="width: 1000px; left: 10%; top: 2%">
-                                    <a href="http://localhost/web/gestionUser/view/etudiant/ajouter.php" class="btn btn-primary">
+                                    <a href="http://localhost/web/view/etudiant/ajouter.php" class="btn btn-primary">
                                         ajouter un etudiant <i class="now-ui-icons ui-1_simple-add"></i> 
                                     </a>
                             <div class="card-body" >
@@ -232,7 +246,7 @@ if ($users) {
                                                         <td class="text-center"><?= isset($user['block']) ? $user['block'] : ''; ?></td>
                                                         <td class="text-center">
                                                             <!-- Bouton "Modifier" -->
-                                                            <form method="POST" action="http://localhost/web/gestionUser/view/etudiant/modifier.php">
+                                                            <form method="POST" action="http://localhost/web/view/etudiant/modifier.php">
                                                                 <button class="btn btn-success btn-sm btn-icon"  type="submit" name="modifier">
                                                                 <i class="fa fa-pencil"></i>
                                                                 </button>
@@ -240,7 +254,7 @@ if ($users) {
                                                             </form>
 
                                                             <!-- Bouton "Supprimer" -->
-                                                            <a href="http://localhost/web/gestionUser/view/etudiant/supprimer.php?idEtudiant=<?= isset($user['idEtudiant']) ? $user['idEtudiant'] : ''; ?>" >
+                                                            <a href="http://localhost/web/view/etudiant/supprimer.php?idEtudiant=<?= isset($user['idEtudiant']) ? $user['idEtudiant'] : ''; ?>" >
                                                                 <button  class="btn btn-danger btn-sm btn-icon">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button>

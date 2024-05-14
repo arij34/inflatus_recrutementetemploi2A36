@@ -1,6 +1,6 @@
 <?php
 // Inclusion du fichier de configuration et de la classe UserC
-include 'C:/xampp/htdocs/web/gestionUser/controller/EntrepriseC.php';
+include 'C:/xampp/htdocs/web/controller/EntrepriseC.php';
 
 $userC = new EntrepriseC();
 
@@ -199,7 +199,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php if (!empty($success_message)) : ?>
                 <div class="success" style=" color:green;">
                 <?php echo $success_message; ?>
-                    <a href ="http://localhost/web/gestionUser/view/entreprise/login.php"> se connecter  </a>
+                    <a href ="http://localhost/web/view/entreprise/login.php"> se connecter  </a>
                 </div>
             <?php endif; ?> 
             <button type="submit" class="send-btn">Modifier</button>

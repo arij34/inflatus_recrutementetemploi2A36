@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/controller/EntrepriseC.php';
+include 'C:/xampp/htdocs/web/controller/EntrepriseC.php';
 
 $entrepriseC = new EntrepriseC();
 $list = $entrepriseC->listEntreprises();
@@ -135,7 +135,7 @@ if ($list) {
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="http://localhost/web/gestionUser/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="http://localhost/web/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
@@ -144,7 +144,7 @@ if ($list) {
                                         </li>
                                         
                                         <hr class="my-2">
-                                        <li><a href="aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="http://localhost/web/view/admin/aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@ if ($list) {
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/admin/afficher.php">Acceuil</a></li>
+                            <li><a href="http://localhost/web/view/admin/afficher.php">Acceuil</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
@@ -173,7 +173,7 @@ if ($list) {
                         </a>
                         <ul aria-expanded="false" >
                             <li>                
-                                <a href="http://localhost/web/gestionUser/view/etudiant/statestique.php">
+                                <a href="http://localhost/web/view/etudiant/statestique.php">
                                     <i class="icon-graph menu-icon"></i> Etudiant
                                 </a>
                             </li>
@@ -185,13 +185,27 @@ if ($list) {
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Utilisateurs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
+                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
                         </ul>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
+                            <li><a href="http://localhost/web/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
                         </ul>
                     </li>
-                    
+                    <li class="nav-label">Gestion Evenement</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListEvenement.php" aria-expanded="false">Tableau Evenement</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListCategorieevn.php" aria-expanded="false">Tableau Categorie</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -199,7 +213,7 @@ if ($list) {
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card" style="width: 1000px; left: 10%; top: 2%">
-                                    <a href="http://localhost/web/gestionUser/view/entreprise/addEntreprise.php" class="btn btn-primary">
+                                    <a href="http://localhost/web/view/entreprise/addEntreprise.php" class="btn btn-primary">
                                         ajouter une entreprise<i class="now-ui-icons ui-1_simple-add"></i> 
                                     </a>
                             <div class="card-body">
@@ -232,7 +246,7 @@ if ($list) {
 
                                                     <td class="td-actions text-right">
                                                         <!-- Bouton "Modifier" -->
-                                                        <form method="POST" action="http://localhost/web/gestionUser/view/entreprise/updateEntreprise.php">
+                                                        <form method="POST" action="http://localhost/web/view/entreprise/updateEntreprise.php">
                                                             <button type="submit" class="btn btn-success btn-sm btn-icon"  name="modifier">
                                                                 <i class="fa fa-pencil"></i>
                                                             </button>

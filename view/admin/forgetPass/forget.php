@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/controller/UserC.php';
+include 'C:/xampp/htdocs/web/controller/UserC.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

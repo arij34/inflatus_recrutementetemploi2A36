@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/controller/EntrepriseC.php';
+include 'C:/xampp/htdocs/web/controller/EntrepriseC.php';
 ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -20,7 +20,7 @@ ini_set('display_errors', 1);
         $MDPEn = $_SESSION['MDPEn'];   
     } else {
         // Redirect the user to the login page if not logged in
-        header("Location:http://localhost/web/gestionUser/view/entreprise/login.php");
+        header("Location:http://localhost/web/view/entreprise/login.php");
         exit;
     }
 
@@ -150,7 +150,7 @@ ini_set('display_errors', 1);
     <link href="Home/templatemo_562_space_dynamic/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="Home/templatemo_562_space_dynamic/assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="../entreprise/assets/css/templatemo-space-dynamic.css">
 </head>
 <body>
   <!-- ***** Preloader Start ***** -->
@@ -175,8 +175,8 @@ ini_set('display_errors', 1);
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
               <h4>
-                <div class="corner-container">
-                  <img src="Home/templatemo_562_space_dynamic/assets/images/logo.png" >
+              <div class="corner-container">
+                  <img src="assets/images/logo.png" >
                   <style>
                     .corner-container {
                         position: fixed; /* Position fixe pour que le logo reste fixe lors du défilement */
@@ -192,16 +192,18 @@ ini_set('display_errors', 1);
                         height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
                     }
                   </style>
-                </div> 
+                </div>  
               Kha<span>Damni</span></h4>
             </a>
             <ul class="nav">
-              <li class="scroll-to-section"><a href="http://localhost/web/gestionUser/view/entreprise/Home/templatemo_562_space_dynamic/index.php" class="active">Acceuil</a></li>
-              <li class="scroll-to-section"><a href="#services">Entreprise</a></li>
+              <li class="scroll-to-section"><a href="http://localhost/web/view/entreprise/index.php" class="active">Acceuil</a></li>
+              <li class="scroll-to-section"><a href="../evenement/profilentreprise.php?idE=<?php echo $idE; ?>">Evenement</a></li>
               <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Entretien</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
               <li class="scroll-to-section"><a href="#contact">Reclamation</a></li>
+              <li class="scroll-to-section"><a href="#contact"></a></li>
+
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -225,7 +227,7 @@ ini_set('display_errors', 1);
                             <div class="mt-3">
                                 <h4><?php echo $nomEntreprise; ?></h4>
                                 <p class="text-secondary mb-1">Entreprise</p>
-                                <a href="http://localhost/web/gestionUser/view/Home-absolu/templatemo_562_space_dynamic/index.html" class="btn btn-delete"> <i class="now-ui-icons ui-1_simple-remove"></i> LOG OUT</a>
+                                <a href="http://localhost/web/view/index.html" class="btn btn-delete"> <i class="now-ui-icons ui-1_simple-remove"></i> LOG OUT</a>
 
                             </div>
                         </div>
@@ -493,11 +495,11 @@ ini_set('display_errors', 1);
   </footer>
 
   <!-- Scripts -->
-  <script src="Home/templatemo_562_space_dynamic/vendor/jquery/jquery.min.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/assets/js/owl-carousel.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/assets/js/animation.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/assets/js/imagesloaded.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/assets/js/templatemo-custom.js"></script>
+  <script src="../entreprise/vendor/jquery/jquery.min.js"></script>
+  <script src="../entreprise/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../entreprise/assets/js/owl-carousel.js"></script>
+  <script src="../entreprise/assets/js/animation.js"></script>
+  <script src="../entreprise/assets/js/imagesloaded.js"></script>
+  <script src="../entreprise/assets/js/templatemo-custom.js"></script>
 </body>
 </html>

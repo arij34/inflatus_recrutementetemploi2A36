@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/controller/UserC.php';
+include 'C:/xampp/htdocs/web/controller/UserC.php';
 
 session_start();
 // Check if the user is logged in
@@ -10,7 +10,7 @@ if(isset($_SESSION['idR'])) {
     $prenomR = $_SESSION['prenomR'];   
 } else {
     // Redirect the user to the login page if not logged in
-    header("Location: http://localhost/web/gestionUser/view/admin/aff.php");
+    header("Location: http://localhost/web/view/admin/aff.php");
     exit;
 }
 $userC = new UserC();
@@ -173,7 +173,7 @@ if ($users) {
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="http://localhost/web/gestionUser/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="http://localhost/web/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
@@ -182,7 +182,7 @@ if ($users) {
                                         </li>
                                         
                                         <hr class="my-2">
-                                        <li><a href="http://localhost/web/final/back/viewProfil/aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="http://localhost/web/view/admin/aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -200,7 +200,7 @@ if ($users) {
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/admin/afficher.php">Acceuil</a></li>
+                            <li><a href="http://localhost/web/view/admin/afficher.php">Acceuil</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
@@ -211,7 +211,7 @@ if ($users) {
                         </a>
                         <ul aria-expanded="false" >
                             <li>                
-                                <a href="http://localhost/web/gestionUser/view/etudiant/statestique.php">
+                                <a href="http://localhost/web/view/etudiant/statestique.php">
                                     <i class="icon-graph menu-icon"></i> Etudiant
                                 </a>
                             </li>
@@ -223,13 +223,27 @@ if ($users) {
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Utilisateurs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
+                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
                         </ul>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/gestionUser/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
+                            <li><a href="http://localhost/web/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
                         </ul>
                     </li>
-                    
+                    <li class="nav-label">Gestion Evenement</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListEvenement.php" aria-expanded="false">Tableau Evenement</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListCategorieevn.php" aria-expanded="false">Tableau Categorie</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -281,7 +295,7 @@ if ($users) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="C:/xampp/htdocs/web/gestionUser/view/admin/dashboard/images/users/8.jpg" class="rounded-circle" alt="">
+                                    <img src="C:/xampp/htdocs/web/view/admin/dashboard/images/users/8.jpg" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">Ameni Issaoui</h5>
                                     <p class="m-0">Gestion Utilisateurs</p>
                                 </div>
@@ -292,7 +306,7 @@ if ($users) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="C:/xampp/htdocs/web/gestionUser/view/admin/dashboard/images/users/5.jpg" class="rounded-circle" alt="">
+                                    <img src="C:/xampp/htdocs/web/view/admin/dashboard/images/users/5.jpg" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">Arij Achach</h5>
                                     <p class="m-0">Gestion Entreprise</p>
                                     <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
@@ -304,7 +318,7 @@ if ($users) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="C:/xampp/htdocs/web/gestionUser/view/admin/dashboard/images/users/7.png" class="rounded-circle" alt="">
+                                    <img src="C:/xampp/htdocs/web/view/admin/dashboard/images/users/7.png" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">Farah chebane</h5>
                                     <p class="m-0">Gestion offres&demandes</p>
                                 </div>
@@ -315,7 +329,7 @@ if ($users) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="C:/xampp/htdocs/web/gestionUser/view/admin/dashboard/images/users/yomna.png" class="rounded-circle" alt="">
+                                    <img src="C:/xampp/htdocs/web/view/admin/dashboard/images/users/yomna.png" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">Yomna Bouallegue</h5>
                                     <p class="m-0">Gestion Entretien</p>
                                 </div>
@@ -326,7 +340,7 @@ if ($users) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="C:/xampp/htdocs/web/gestionUser/view/admin/dashboard/images/users/11.png" class="rounded-circle" alt="">
+                                    <img src="C:/xampp/htdocs/web/view/admin/dashboard/images/users/11.png" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">Sirine Bouden</h5>
                                     <p class="m-0">Gestion Reclamation</p>
                                 </div>
@@ -337,7 +351,7 @@ if ($users) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="C:/xampp/htdocs/web/gestionUser/view/admin/dashboard/images/users/12.png" class="rounded-circle" alt="">
+                                    <img src="C:/xampp/htdocs/web/view/admin/dashboard/images/users/12.png" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">Cheker Hasan</h5>
                                     <p class="m-0">Gestion Blog</p>
                                 </div>
@@ -349,7 +363,7 @@ if ($users) {
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card" style="width: 1000px;">
-                                    <a href="http://localhost/web/gestionUser/view/admin/ajouter.php" class="btn btn-primary">
+                                    <a href="http://localhost/web/view/admin/ajouter.php" class="btn btn-primary">
                                         ajouter admin <i class="now-ui-icons ui-1_simple-add"></i> 
                                     </a>
                             <div class="card-body">
@@ -382,7 +396,7 @@ if ($users) {
                                                 
                                                         <td class="td-actions text-right">
                                                             <!-- Bouton "Modifier" -->
-                                                            <form method="POST" action="http://localhost/web/gestionUser/view/admin/modifier.php">
+                                                            <form method="POST" action="http://localhost/web/view/admin/modifier.php">
                                                                 <button class="btn btn-success btn-sm btn-icon" type="submit" name="modifier">
                                                                 <i class="fa fa-pencil"></i>
                                                                 </button>
@@ -390,7 +404,7 @@ if ($users) {
                                                             </form>
 
                                                             <!-- Bouton "Supprimer" -->
-                                                            <a href="http://localhost/web/gestionUser/view/admin/supprimer.php?idR=<?= isset($user['idR']) ? $user['idR'] : ''; ?>" class="btn btn-danger btn-sm btn-icon">
+                                                            <a href="http://localhost/web/view/admin/supprimer.php?idR=<?= isset($user['idR']) ? $user['idR'] : ''; ?>" class="btn btn-danger btn-sm btn-icon">
                                                             <i class="fa fa-trash"></i>
                                                             </a>
                                                         </td>

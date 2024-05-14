@@ -1,5 +1,5 @@
 <?php
-   include "C:/xampp/htdocs/web/gestionUser/controller/etudiantC.php";
+   include "C:/xampp/htdocs/web/controller/etudiantC.php";
 
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -20,7 +20,7 @@
         $MDPE = $_SESSION['MDPE'];   
     } else {
         // Redirect the user to the login page if not logged in
-        header("Location: http://localhost/web/gestionUser/view/etudiant/register.php");
+        header("Location: http://localhost/web/view/etudiant/register.php");
         exit;
     }
 
@@ -146,10 +146,10 @@
     <title>Khadamni</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="Home/templatemo_562_space_dynamic/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="Home/templatemo_562_space_dynamic/assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
 </head>
 <body>
   <!-- ***** Preloader Start ***** -->
@@ -198,12 +198,13 @@
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="http://localhost/web/gestionUser/view/etudiant/Home/templatemo_562_space_dynamic/index.php" class="active">Acceuil</a></li>
+              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php" class="active">Acceuil</a></li>
               <li class="scroll-to-section"><a href="#services">Entreprise</a></li>
+              <li class="scroll-to-section"><a href="../evenement/profilEtud.php?idEtudiant=<?php echo $idEtudiant; ?>">Evenement</a></li>
               <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Entretien</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
-              <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
+              <li class="scroll-to-section" style="color:black;"><a href="#services">Reclamation</a></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -229,7 +230,7 @@
                                 <h4><?php echo $nomE; ?> <?php echo $prenomE; ?></h4>
                                 <p class="text-secondary mb-1">Etudiant</p>
                                 
-                                <a href="http://localhost/web/gestionUser/view/Home-absolu/templatemo_562_space_dynamic/index.html" class="btn btn-delete"> <i class="now-ui-icons ui-1_simple-remove"></i> LOG OUT</a>
+                                <a href="http://localhost/web/view/Home-absolu/templatemo_562_space_dynamic/index.html" class="btn btn-delete"> <i class="now-ui-icons ui-1_simple-remove"></i> LOG OUT</a>
 
 
                             </div>
@@ -485,11 +486,11 @@
     </div>
   </footer>
   <!-- Scripts -->
-  <script src="Home/templatemo_562_space_dynamic/vendor/jquery/jquery.min.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/assets/js/owl-carousel.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/assets/js/animation.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/assets/js/imagesloaded.js"></script>
-  <script src="Home/templatemo_562_space_dynamic/assets/js/templatemo-custom.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/templatemo-custom.js"></script>
 </body>
 </html>

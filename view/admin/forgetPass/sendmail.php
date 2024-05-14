@@ -1,14 +1,14 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/controller/UserC.php';
+include 'C:/xampp/htdocs/web/controller/UserC.php';
 
     // Utilisation de PHPMailer pour envoyer l'e-mail
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
-    require_once "C:/xampp/htdocs/web/gestionUser/view/admin/forgetPass/mail/Exception.php";
-    require_once "C:/xampp/htdocs/web/gestionUser/view/admin/forgetPass/mail/PHPMailer.php";
-    require_once "C:/xampp/htdocs/web/gestionUser/view/admin/forgetPass/mail/SMTP.php";
+    require_once "C:/xampp/htdocs/web/view/admin/forgetPass/mail/Exception.php";
+    require_once "C:/xampp/htdocs/web/view/admin/forgetPass/mail/PHPMailer.php";
+    require_once "C:/xampp/htdocs/web/view/admin/forgetPass/mail/SMTP.php";
 
     // Vérifie si l'adresse e-mail est définie dans les données POST
     if(isset($_POST["email"])) {
@@ -38,13 +38,13 @@ include 'C:/xampp/htdocs/web/gestionUser/controller/UserC.php';
             // Contenu de l'e-mail
             $mail->isHTML(true);                                 
             $mail->Subject = 'Changer Mot De Passe';
-            $mail->Body    = 'Voici votre lien pour modifier votre mot de passe : <a href="http://localhost/web/gestionUser/view/admin/forgetPass/reset.php">Cliquez ici</a>';
+            $mail->Body    = 'Voici votre lien pour modifier votre mot de passe : <a href="http://localhost/web/view/admin/forgetPass/reset.php">Cliquez ici</a>';
             $mail->AltBody = 'Vous avez eu de problème pour charger le formulaire.';
 
             // Envoi de l'e-mail
             if($mail->send()) {
                 // Redirection après l'envoi de l'e-mail
-                header('Location: http://localhost/web/gestionUser/view/admin/forgetPass/mailenvoyee.html');
+                header('Location: http://localhost/web/view/admin/forgetPass/mailenvoyee.html');
                 exit();
             } else {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "C:/xampp/htdocs/web/gestionUser/controller/etudiantC.php";
+include "C:/xampp/htdocs/web/controller/etudiantC.php";
 
 
 $error = "";
@@ -64,7 +64,7 @@ if(isset($_POST['afficher'])) {
                 // Check if the user is not blocked
                 if(isset($userByEmail['block']) && $userByEmail['block'] == 1) {
                     // User account is blocked
-                    echo "<script>alert('Erreur: Votre compte est bloqué.'); window.location.href = 'http://localhost/web/gestionUser/view/etudiant/register.php';</script>";
+                    echo "<script>alert('Erreur: Votre compte est bloqué.'); window.location.href = 'http://localhost/web/view/etudiant/register.php';</script>";
                     exit();
                 } else {
                     // Both email and password are correct and user is not blocked
@@ -75,25 +75,25 @@ if(isset($_POST['afficher'])) {
                     $_SESSION['age'] = $userByEmail['age'];
                     $_SESSION['emailE'] = $emailE;
                     $_SESSION['MDPE'] = $MDPE;
-                    header("Location: http://localhost/web/gestionUser/view/etudiant/Home/templatemo_562_space_dynamic/index.php");
+                    header("Location: http://localhost/web/view/etudiant/index.php");
                     exit;
                 }
             } else {
                 // Incorrect email or password
                 $error = "Incorrect email or password";
-                echo "<script>alert('Compte non trouvé.'); window.location.href = 'http://localhost/web/gestionUser/view/etudiant/register.php';</script>";
+                echo "<script>alert('Compte non trouvé.'); window.location.href = 'http://localhost/web/view/etudiant/register.php';</script>";
                 exit();
             }
         } else {
             // Email or password is empty
             $error = "Email and password are required";
-            echo "<script>alert('Veuillez entrer votre email et mot de passe.'); window.location.href = 'http://localhost/web/gestionUser/view/etudiant/register.php';</script>";
+            echo "<script>alert('Veuillez entrer votre email et mot de passe.'); window.location.href = 'http://localhost/web/view/etudiant/register.php';</script>";
             exit();
         }
     } else {
         // Email or password not provided
         $error = "Email and password are required";
-        echo "<script>alert('Veuillez entrer votre email et mot de passe.'); window.location.href = 'http://localhost/web/gestionUser/view/etudiant/register.php';</script>";
+        echo "<script>alert('Veuillez entrer votre email et mot de passe.'); window.location.href = 'http://localhost/web/view/etudiant/register.php';</script>";
         exit();
     }
 }
@@ -449,7 +449,7 @@ if(isset($_POST['afficher'])) {
                         <div class="input-box">
                             <input type="password" class="input-field" placeholder="Mot de passe" name="MDPE" value="<?php echo $user['MDPE'] ??''; ?>">
                         </div>
-                        <a href="http://localhost/web/gestionUser/view/etudiant/forgetPass/forget.php" class="forgot-password">Mot de passe oublié?</a>
+                        <a href="http://localhost/web/view/etudiant/forgetPass/forget.php" class="forgot-password">Mot de passe oublié?</a>
                         <style>
                         
                             /* Style for the options */

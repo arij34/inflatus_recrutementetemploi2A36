@@ -1,6 +1,6 @@
 <?php
 // Inclusion du fichier de configuration et de la classe UserC
-include "C:/xampp/htdocs/web/gestionUser/controller/etudiantC.php";
+include "C:/xampp/htdocs/web/controller/etudiantC.php";
 
 
 $userC = new UserC();
@@ -200,7 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php if (!empty($success_message)) : ?>
                 <div class="success" style=" color:green;">
                 <?php echo $success_message; ?>
-                    <a href ="http://localhost/web/gestionUser/view/etudiant/register.php" style=" color:green;"> se connecter  </a>
+                    <a href ="http://localhost/web/view/etudiant/register.php" style=" color:green;"> se connecter  </a>
                 </div>
             <?php endif; ?> 
             <button type="submit" class="send-btn">Modifier</button>

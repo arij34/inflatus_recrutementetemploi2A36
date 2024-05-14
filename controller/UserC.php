@@ -1,6 +1,6 @@
 <?php
-include 'C:/xampp/htdocs/web/gestionUser/config.php';
-include 'C:/xampp/htdocs/web/gestionUser/model/User.php';
+include 'C:/xampp/htdocs/web/config.php';
+include 'C:/xampp/htdocs/web/model/User.php';
 
 
 class UserC
