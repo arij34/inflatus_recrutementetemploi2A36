@@ -115,9 +115,9 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Acceuil</a></li>
-              <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
               <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
-              <li class="scroll-to-section"><a href="#services">Entretien</a></li>
+              <li class="scroll-to-section"><a href="#yomna">Entretien</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
               <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
               <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active">Profile</a></li> 
@@ -168,70 +168,182 @@ https://templatemo.com/tm-562-space-dynamic
       </div>
     </div>
   </div>
-   <!--
-  <div id="about" class="about-us section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <img src="assets/images/about-left-image.png" alt="person graphic">
+  <div id="services" class="our-services section">
+      <div class="container">
+        <!--       domaine     -->
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+                <center><div class="main-blue-button">
+                </div></center>
+                <div class="section-heading text-center wow bounceIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                 <h2><span style="color: #03a4ed;"> Voici les différents </span> domaines <span style="color:#fe3f40;">de nos offres!!!</span> </h2>
+                  &nbsp;&nbsp;
+                </div>
           </div>
         </div>
-        <div class="col-lg-8 align-self-center">
-          <div class="services">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <a href="#">
+              <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                <div class="hidden-content text-center">
+                    <h4><span class="orange-text">Développement mobile</span></h4>
+                </div>
+                <style>
+                    .orange-text {
+                        color: #fe3f40;
+                    }
+                </style>
+                
+                <div class="showed-content text-center">
+                    <img src="./assets/images/développement mobile.png" alt="Description de l'image">
+                </div>
+            </div>
+            
+            </a>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <a href="#">
+              <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+                <div class="hidden-content text-center">
+                    <h4>Développement web</h4>
+                </div>
+                
+                <div class="showed-content">
+                    <img src="./assets/images/développement web.png" alt="Description de l'image">
+                </div>
+            </div>
+            
+            </a>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <a href="#">
+              <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div class="hidden-content text-center">
+                    <h4><span class="orange-text"> Sécurité </span></h4>
+            
+                    <style>
+                        .orange-text {
+                            color: #fe3f40;
+                        }
+                    </style>
+                </div>
+            
+                <div class="showed-content text-center">
+                    <img src="./assets/images/securité de l'informatique.png" alt="Description de l'image">
+                </div>
+            </div>
+            
+            </a>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <a href="#">
+              <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+                <div class="hidden-content text-center">
+                    <h4>Science de l'informatique</h4>
+                </div>
+                <div class="showed-content">
+                    <img src="./assets/images/science de l'informatique.png" alt="Description de l'image">
+                </div>
+            </div>
+            
+            </a>
+          </div>
+          <!--       domaine  fin   -->
+               <!--       offre     -->
+        <div class="row">
+          <div class="col-lg-12">
             <div class="row">
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                  <div class="icon">
-                    <img src="assets/images/service-icon-01.png" alt="reporting">
-                  </div>
-                  <div class="right-text">
-                    <h4>Data Analysis</h4>
-                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                  </div>
+              <div class="col-lg-6 align-self-center">
+                <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <h2> <em> <span style="color: #03a4ed;"> Voila </span></em>nos <span style="color:#fe3f40;">offres!!!</span> </h2>
+                &nbsp;&nbsp;
+                  <p>Découvrez nos offres d'emploi et de stage et bonne chance dans vos recherches !</p>
+                  <form id="search" action="#" method="GET">
+                  &nbsp;&nbsp;
+                  &nbsp;&nbsp;
+                  <fieldset>
+                    <div style="display: flex; justify-content: center;">
+                      <div class="main-blue-button" style="margin-right: 10px;">
+                      <a href="../offre_test/ListeOffres_front.php?idEtudiant=<?php echo $idEtudiant; ?>">Voir tous les Offres</a>
+                      </div>
+                   </div>
+                  </fieldset>
+  
+                  </form>
                 </div>
               </div>
               <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
-                  <div class="icon">
-                    <img src="assets/images/service-icon-02.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>Data Reporting</h4>
-                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
-                  <div class="icon">
-                    <img src="assets/images/service-icon-03.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>Web Analytics</h4>
-                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
-                  <div class="icon">
-                    <img src="assets/images/service-icon-04.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>SEO Suggestions</h4>
-                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                  </div>
+                <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <img src="./assets/images/Job hunt-cuate.png" alt="team meeting">
                 </div>
               </div>
             </div>
           </div>
         </div>
+          <!--       offre  fin    -->
+      <!--       demande    -->
+  
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+            <div class="col-lg-6">
+                <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <img src="./assets/images/Online Review-pana.png" alt="team meeting">
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                  <h2> <em> <span style="color: #03a4ed;"> Voila </span></em>nos <span style="color:#fe3f40;">demandes!!!</span> </h2>
+                  &nbsp;&nbsp;
+                  <p>Pour ajouter votre demande et consulter la liste des offres pour plus d'informations, n'hésitez pas à ajouter votre demande dès maintenant.</p>
+                  <form id="search" action="#" method="GET">
+                    
+                  <fieldset>
+                  &nbsp;&nbsp;
+                  &nbsp;&nbsp;
+    <div style="display: flex; justify-content: center;">
+      <div class="main-orange-button" style="margin-right: 20px;">
+        <a href="http://localhost/web/view/offre_test/profilEtudiantD.php?idEtudiant=<?php echo $idEtudiant; ?>">Voir tous les demandes</a>
+      </div>
+      <div class="main-orange-button">
+        <a href="../offre_test/ajoutDemande.php">Ajouter une demande</a>
       </div>
     </div>
+  </fieldset>
+  
+                  <style>
+             .main-orange-button {
+              background-color: #fe3f40;
+              color: white; /* Couleur du texte en blanc */
+              padding: 10px 20px;
+              border-radius: 25px;
+              display: inline-block;
+              text-decoration: none;
+              font-weight: bold;
+          }
+          
+          .main-orange-button a {
+              color: white; /* Couleur du texte en blanc pour les liens */
+          }
+        </style>
+                  </form>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        
+          
+        
+    </div>
+    </div>
+    
+    </div>
+    <!--       demande fin    -->
+      
   </div>
-
-  <div id="services" class="our-services section">
+                                                       <!--       scroll mta3i fin        -->
+  <div id="yomna" class="our-portfolio section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
@@ -241,13 +353,13 @@ https://templatemo.com/tm-562-space-dynamic
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
           <div class="section-heading">
-            <h2>Grow your website with our <em>SEO</em> service &amp; <span>Project</span> Ideas</h2>
-            <p>Space Dynamic HTML5 template is free to use for your website projects. However, you are not permitted to redistribute the template ZIP file on any CSS template collection websites. Please contact us for more information. Thank you for your kind cooperation.</p>
+            <h2>Améliorez Votre Processus de Recrutement avec <em>KHADAMNI</em> Notre Service de <br><span>Gestion d'Entretien</span></br> </h2>
+            <p>Trouver les bons talents pour votre entreprise peut être un défi. Nous simplifions ce processus pour vous en offrant une plateforme de gestion d'entretien efficace et personnalisée. Notre service vous permet de filtrer les candidats en fonction de leur domaine informatique et de les évaluer à travers des tests en ligne, assurant ainsi que seuls les meilleurs talents parviennent à l'étape de l'entretien.</p>
           </div>
           <div class="row">
             <div class="col-lg-12">
               <div class="first-bar progress-skill-bar">
-                <h4>Website Analysis</h4>
+                <h4>1. Tests en Ligne Personnalisés </h4>
                 <span>84%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
@@ -255,7 +367,7 @@ https://templatemo.com/tm-562-space-dynamic
             </div>
             <div class="col-lg-12">
               <div class="second-bar progress-skill-bar">
-                <h4>SEO Reports</h4>
+                <h4>2. Filtrage Automatisé</h4>
                 <span>88%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
@@ -263,17 +375,121 @@ https://templatemo.com/tm-562-space-dynamic
             </div>
             <div class="col-lg-12">
               <div class="third-bar progress-skill-bar">
-                <h4>Page Optimizations</h4>
+                <h4>3. Entretiens en Ligne ou Présentiels </h4>
                 <span>94%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
+                <div class="input-box">
+                  <button type="submit" class="input-submit" id="submit-btn">
+                    <a href="register.php" style="color: white;">passer le test maintenant!</a>
+                      <i class="bx bx-right-arrow-alt"></i>
+                  </button>
+              </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div-->
+  
+    <style>
+    .input-box {
+      position: relative;
+      color: white;
+  
+  }
+  .input-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 50%;
+      height: 50px;
+      padding: 0 15px;
+      margin: 5px 0;
+      color: #fff;
+      background: #03a4ed;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: .3s;
+  }
+  .input-submit:hover {
+    gap: 15px;
+    background-color: #fe3f40;
+  }
+  </style>
+  
+
+  <style>
+
+.our-portfolio .progress-skill-bar {
+  margin-bottom: 30px;
+  position: relative;
+  width: 100%;
+
+}
+
+.our-portfolio .progress-skill-bar span {
+  position: absolute;
+  top: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #03a4ed;
+}
+
+.our-portfolio .first-bar span {
+  left: 69%;
+}
+
+.our-portfolio .second-bar span {
+  left: 81%;
+}
+
+.our-portfolio .third-bar span {
+  left: 88%;
+}
+
+.our-portfolio .progress-skill-bar h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 14px;
+}
+
+.our-portfolio .progress-skill-bar .full-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #f7eff1;
+  position: relative;
+  z-index: 1;
+}
+
+.our-portfolio .progress-skill-bar .filled-bar {
+  background: rgb(255,77,30);
+  background: linear-gradient(105deg, rgba(255,77,30,1) 0%, rgba(255,44,109,1) 100%);
+  height: 6px;
+  border-radius: 3px;
+  margin-bottom: -6px;
+  position: relative;
+  z-index: 2;
+}
+
+.our-portfolio .first-bar .filled-bar {
+  width: 71%;
+}
+
+.our-portfolio .second-bar .filled-bar {
+  width: 83%;
+}
+
+.our-portfolio .third-bar .filled-bar {
+  width: 90%;
+}
+  </style>
+
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">

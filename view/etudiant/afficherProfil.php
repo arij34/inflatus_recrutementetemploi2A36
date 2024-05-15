@@ -199,12 +199,12 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php" class="active">Acceuil</a></li>
-              <li class="scroll-to-section"><a href="#services">Entreprise</a></li>
               <li class="scroll-to-section"><a href="../evenement/profilEtud.php?idEtudiant=<?php echo $idEtudiant; ?>">Evenement</a></li>
-              <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
-              <li class="scroll-to-section"><a href="#portfolio">Entretien</a></li>
+              <li class="scroll-to-section"><a href="../offre_test/profilEtudiantD.php?idEtudiant=<?php echo $idEtudiant; ?>">Offres&demandes</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
               <li class="scroll-to-section" style="color:black;"><a href="#services">Reclamation</a></li> 
+              <li class="scroll-to-section" style="color:black;"><a href="#services"></a></li> 
+
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>

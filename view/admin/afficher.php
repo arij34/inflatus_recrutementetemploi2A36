@@ -46,7 +46,7 @@ if ($users) {
     </div>
     <div id="main-wrapper">   
         <div class="corner-container">
-                  <img src="dashboard/images/logoooooo.png" >
+                  <img src="dashboard/images/logoooooo.png">
                   <style>
                     .corner-container {
                         position: fixed; /* Position fixe pour que le logo reste fixe lors du défilement */
@@ -216,7 +216,28 @@ if ($users) {
                                 </a>
                             </li>
                         </ul>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-graph menu-icon"></i> <span class="nav-text">statestique</span>
+                        </a>
+                        <ul aria-expanded="false" >
+                            <li>                
+                                <a href="../offre_test/back end/chart-flotOffres.php">
+                                    <i class="icon-graph menu-icon"></i> offre
+                                </a>
+                            </li>
+                        </ul>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-graph menu-icon"></i> <span class="nav-text">statestique</span>
+                        </a>
+                        <ul aria-expanded="false" >
+                            <li>                
+                                <a href="../offre_test/back end/chart-flot.php">
+                                    <i class="icon-graph menu-icon"></i>demande
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li class="nav-label">Gestion Utilisateurs</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -264,6 +285,16 @@ if ($users) {
                         <ul aria-expanded="false">
                             <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableaux</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-label">Gestion offre&demande</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">offre&demande</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../offre_test/back end/table-basicOffre.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                        
                     </li>
                 </ul>
             </div>
