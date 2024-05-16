@@ -197,12 +197,29 @@ include "C:/xampp/htdocs/web/controller/etudiantC.php";
                         </a>
                         <ul aria-expanded="false" >
                             <li>                
-                                <a href="statestique.php">
+                                <a href="http://localhost/web/view/etudiant/statestique.php">
                                     <i class="icon-graph menu-icon"></i> Etudiant
                                 </a>
                             </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-flotOffres.php">
+                                    <i class="icon-graph menu-icon"></i> offre
+                                </a>
+                            </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-flot.php">
+                                    <i class="icon-graph menu-icon"></i>demande
+                                </a>
+                            </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-morris.php">
+                                    <i class="icon-graph menu-icon"></i>Entretien
+                                </a>
+                            </li>
                         </ul>
+                       
                     </li>
+
                     <li class="nav-label">Gestion Utilisateurs</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -230,6 +247,51 @@ include "C:/xampp/htdocs/web/controller/etudiantC.php";
                             <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
                         </ul>
                     </li>
+                    <li class="nav-label">Gestion Reclamation</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Reclamation</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../reclam_blog/listerecruteur.php" aria-expanded="false">Tableau Reclamation</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="../reclam_blog/listereponse.php" aria-expanded="false">Tableau reponse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion Blog</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Blog</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/reclam_blog/ListePostss.php" aria-expanded="false">Tableau commentaire</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/reclam_blog/ListePosts.php" aria-expanded="false">Tableau Post</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion offre&demande</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">offre&demande</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../offre_test/back end/table-basicOffre.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                        
+                    </li>
+                    <li class="nav-label">Gestion Entretien</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Entretien</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../offre_test/back end/table-basic.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                        
+                    </li>
+
                 </ul>
             </div>
         </div>

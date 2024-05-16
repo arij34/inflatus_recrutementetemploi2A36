@@ -1,48 +1,47 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    include 'C:/xampp/htdocs/web/controller/UserC.php';
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-include 'C:/xampp/htdocs/web/controller/UserC.php';
+    $userC = new UserC();
 
-$userC = new UserC();
-
-$error = "";
-$success_message = "";
-$user = null;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["idR"]) && !empty($_POST["idR"])) {
-        $idR = $_POST["idR"];
-        $user = $userC->getUserById($idR);
-        if (!$user) {
-            $error = "Aucun utilisateur trouvé pour l'identifiant fourni.";
+    $error = "";
+    $success_message = "";
+    $user = null;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["idR"]) && !empty($_POST["idR"])) {
+            $idR = $_POST["idR"];
+            $user = $userC->getUserById($idR);
+            if (!$user) {
+                $error = "Aucun utilisateur trouvé pour l'identifiant fourni.";
+            }
         }
-    }
 
-    if (isset($_POST["modifier"]) && $user) {
-    
-        $nomR=$_POST['nomR'] ?? '';
-        $prenomR = $_POST['prenomR'] ?? '';
-        $telephoneR = $_POST['telephoneR'] ?? '';
-        $dateR = $_POST['dateR'] ?? '';
-        $emailR =$_POST['emailR'] ?? '';
-        $MDPR = $_POST['MDPR'] ?? '';
+        if (isset($_POST["modifier"]) && $user) {
+        
+            $nomR=$_POST['nomR'] ?? '';
+            $prenomR = $_POST['prenomR'] ?? '';
+            $telephoneR = $_POST['telephoneR'] ?? '';
+            $dateR = $_POST['dateR'] ?? '';
+            $emailR =$_POST['emailR'] ?? '';
+            $MDPR = $_POST['MDPR'] ?? '';
 
-        // Vérification des champs requis
-        if (empty($nomR) || empty($prenomR) || empty($telephoneR) || empty($dateR) || empty($emailR) || empty($MDPR)) {
-            $error = "Tous les champs doivent être remplis";
-        } else {
-            $result = $userC->updateUser($idR, $nomR, $prenomR, $telephoneR, $dateR, $emailR, $MDPR);
-            if ($result) {
-                // Affichage du message de succès
-                $success_message = "Modifications enregistrées avec succès.";
-                header("Location: afficher.php");
-                
+            // Vérification des champs requis
+            if (empty($nomR) || empty($prenomR) || empty($telephoneR) || empty($dateR) || empty($emailR) || empty($MDPR)) {
+                $error = "Tous les champs doivent être remplis";
             } else {
-                $error = "Erreur lors de la mise à jour de l'utilisateur.";
+                $result = $userC->updateUser($idR, $nomR, $prenomR, $telephoneR, $dateR, $emailR, $MDPR);
+                if ($result) {
+                    // Affichage du message de succès
+                    $success_message = "Modifications enregistrées avec succès.";
+                    header("Location: afficher.php");
+                    
+                } else {
+                    $error = "Erreur lors de la mise à jour de l'utilisateur.";
+                }
             }
         }
     }
-}
 ?>
 
 <!DOCTYPE html>

@@ -23,6 +23,11 @@ include 'C:/xampp/htdocs/web/controller/categorieevnC.php';
 $categorieevnC = new CategorieevnC();
 $list = $categorieevnC->listcategorieevns();
 $counts = $categorieevnC->countEvenementsParCategorie(); // Appel de la méthode pour compter les événements par catégorie
+include 'C:/xampp/htdocs/web/controller/PostC.php'; // Include your PostC class file
+// Create an instance of the Post controller
+$postC = new PostC();
+// Get the top 3 posts
+$topPosts = $postC->getTopPosts(); // Assuming you have a function named getTop3Posts()
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,12 +119,13 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Acceuil</a></li>
+              
               <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
               <li class="scroll-to-section"><a href="#yomna">Entretien</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
               <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/reclam_blog/bot.php" class="active">Chatbot</a></li> 
               <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active">Profile</a></li> 
               <li style ="margin-top:0.8%;">
                 <div>
@@ -379,12 +385,6 @@ https://templatemo.com/tm-562-space-dynamic
                 <span>94%</span>
                 <div class="filled-bar"></div>
                 <div class="full-bar"></div>
-                <div class="input-box">
-                  <button type="submit" class="input-submit" id="submit-btn">
-                    <a href="register.php" style="color: white;">passer le test maintenant!</a>
-                      <i class="bx bx-right-arrow-alt"></i>
-                  </button>
-              </div>
               </div>
             </div>
           </div>
@@ -528,83 +528,67 @@ https://templatemo.com/tm-562-space-dynamic
         </div>
     </div>
 </div>
-
-
-<div id="blog" class="our-blog section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
-          <div class="section-heading">
-            <h2>Check Out What Is <em>Trending</em> In Our Latest <span>News</span></h2>
-          </div>
-        </div>
-        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
-          <div class="top-dec">
-            <img src="assets/images/blog-dec.png" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-          <div class="left-image">
-            <a href="#"><img src="assets/images/big-blog-thumb.jpg" alt="Workspace Desktop"></a>
-            <div class="info">
-              <div class="inner-content">
-                <ul>
-                  <li><i class="fa fa-calendar"></i> 24 Mar 2021</li>
-                  <li><i class="fa fa-users"></i> TemplateMo</li>
-                  <li><i class="fa fa-folder"></i> Branding</li>
-                </ul>
-                <a href="#"><h4>SEO Agency &amp; Digital Marketing</h4></a>
-                <p>Lorem ipsum dolor sit amet, consectetur and sed doer ket eismod tempor incididunt ut labore et dolore magna...</p>
-                <div class="main-blue-button">
-                  <a href="../reclam_blog/formulaire.php">Ecrire votre blog</a>
-                  <a href="../reclam_blog/blog.php">voire tous nos blog</a>
-                </div>
+  <div id="blog" class="our-blog section">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+                  <div class="section-heading">
+                      <h2>Découvrez ce qui est <em>Tendance</em> dans nos dernières <span>Actualités</span></h2>
+                  </div>
               </div>
-            </div>
+              <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+                  <div class="top-dec">
+                      <img src="assets/images/blog-dec.png" alt="">
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-          <div class="right-list">
-            <ul>
-              <li>
-                <div class="left-content align-self-center">
-                  <span><i class="fa fa-calendar"></i> 18 Mar 2021</span>
-                  <a href="#"><h4>New Websites &amp; Backlinks</h4></a>
-                  <p>Lorem ipsum dolor sit amsecteturii and sed doer ket eismod...</p>
-                </div>
-                <div class="right-image">
-                  <a href="#"><img src="assets/images/blog-thumb-01.jpg" alt=""></a>
-                </div>
-              </li>
-              <li>
-                <div class="left-content align-self-center">
-                  <span><i class="fa fa-calendar"></i> 14 Mar 2021</span>
-                  <a href="#"><h4>SEO Analysis &amp; Content Ideas</h4></a>
-                  <p>Lorem ipsum dolor sit amsecteturii and sed doer ket eismod...</p>
-                </div>
-                <div class="right-image">
-                  <a href="#"><img src="assets/images/blog-thumb-01.jpg" alt=""></a>
-                </div>
-              </li>
-              <li>
-                <div class="left-content align-self-center">
-                  <span><i class="fa fa-calendar"></i> 06 Mar 2021</span>
-                  <a href="#"><h4>SEO Tips &amp; Digital Marketing</h4></a>
-                  <p>Lorem ipsum dolor sit amsecteturii and sed doer ket eismod...</p>
-                </div>
-                <div class="right-image">
-                  <a href="#"><img src="assets/images/blog-thumb-01.jpg" alt=""></a>
-                </div>
-              </li>
-            </ul>
+          <div class="row">
+              <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+                  <div class="left-image">
+                      <a href="#"><img src="assets/images/big-blog-thumb.jpg" alt="Espace de travail sur le bureau"></a>
+                            <div class="info">
+                              <div class="inner-content">
+                                <ul>
+                                  <li><i class="fa fa-calendar"></i> 14/03/2001</li>
+                                  <li><i class="fa fa-users"></i> Khadamni</li>
+                                  <li><i class="fa fa-folder"></i> Marque</li>
+                                </ul>
+                                  <a href="#"><h4>BLOG </h4></a>
+                                  <p>Notre blog est votre destination de choix pour un contenu engageant et stimulant sur une large gamme de sujets. Que vous recherchiez les dernières tendances technologiques, des conseils pour le développement personnel ou des histoires inspirantes, vous trouverez tout ici.</p>
+                                  <div class="main-blue-button">
+                                      <a href="../reclam_blog/formulaire.php">Ecrire votre Blog </a>
+                                      <a href="../reclam_blog/Blog.php">Tous nos Blog</a>
+                                  </div>
+                              </div>
+                            </div>
+                  </div>
+              </div>
+                        
+                  <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+                    <div class="right-list">
+                      <ul>
+                          <?php foreach($topPosts as $post): ?>
+                              <li>
+                                  <a href="post_details.php?id=<?php echo $post['ID_Post']; ?>">
+                                      <div class="left-content align-self-center">
+                                          <span><i class="fa fa-calendar"></i> <?php echo $post['Date_Publication']; ?></span>
+                                          <h4><?php echo $post['Titre']; ?></h4>
+                                          <p><?php echo substr($post['Contenu'], 0, 100); ?>...</p> <!-- Limiting content to 100 characters -->
+                                      </div>
+                                      <div class="right-image">
+                                          <img src="../reclam_blog/Images/<?php echo $post['Image']; ?>" alt="">
+                                      </div>
+                                  </a>
+                              </li>
+                          <?php endforeach; ?>
+                      </ul>
+                    </div>
+                  </div>
           </div>
-        </div>
       </div>
-    </div>
   </div>
-
+  <br>
+  <br>
   <div id="contact" class="contact-us section">
     <div class="container">
       <div class="row">

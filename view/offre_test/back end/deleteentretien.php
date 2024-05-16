@@ -1,7 +1,7 @@
 <?php
 
-require_once 'C:\xampp\htdocs\integfy\controller\testC.php';
-require_once 'C:\xampp\htdocs\integfy\controller\entretienC.php';
+require_once 'C:\xampp\htdocs\web\controller\testC.php';
+require_once 'C:\xampp\htdocs\web\controller\entretienC.php';
 
 $TestC2 = new TestC2();
 

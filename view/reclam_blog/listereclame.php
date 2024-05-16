@@ -196,14 +196,15 @@ function filterBadWords($text) {
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                        <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php" class="active">Acceuil</a></li>
-                        <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
                         <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
-                        <li class="scroll-to-section"><a href="#services">Entretien</a></li>
-                        <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
-                        <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
-                        <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active">Profile</a></li> 
-                        <li style ="margin-top:0.8%;">
+                            <li class="scroll-to-section"><a href="#yomna">Entretien</a></li>
+                            <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
+                            <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
+                            <li class="scroll-to-section"><a href="#contact" class="active">Reclamation</a></li> 
+                            <li class="scroll-to-section"><a href="http://localhost/web/view/reclam_blog/bot.php" >Chatbot</a></li> 
+                            <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active">Profile</a></li> 
+                            <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active"></a></li> 
+
                         </ul> 
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -275,7 +276,15 @@ function filterBadWords($text) {
             <p>Aucune réclamation trouvée pour cet étudiant.</p>
         <?php } ?>
     </div>
-
+    <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p>© Copyright 2024 Khadamni. All Rights Reserved.           
+        </div>
+      </div>
+    </div>
+  </footer>
     <!-- Scripts JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

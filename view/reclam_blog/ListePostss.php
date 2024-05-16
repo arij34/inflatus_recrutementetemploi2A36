@@ -1,6 +1,6 @@
 <?php
-include '../contrller/PostC.php';
-include '../contrller/CommentC.php';
+include 'C:/xampp/htdocs/web/controller/PostC.php';
+include 'C:/xampp/htdocs/web/controller/CommentC.php';
 $PostC=new PostC();
 $liste=$PostC->listPosts();
 $commentC = new CommentC();
@@ -14,19 +14,18 @@ $listeComments = $commentC->listComments();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Khadamni</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="assetsback/image/png" sizes="16x16" href="assetsback/images/favicon.png">
+    <title>KHADAMNI -dashboard/</title>
+    <!-- Pignose Calender -->
+    <link href="../admin/dashboard//plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="../admin/dashboard//plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="../admin/dashboard//plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
-    <link href="assetsback/css/style.css" rel="stylesheet">
+    <link href="../admin/dashboard//css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
-
-    <!--*******************
-        Preloader start
-    ********************-->
     <div id="preloader">
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
@@ -34,38 +33,25 @@ $listeComments = $commentC->listComments();
             </svg>
         </div>
     </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-  
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
     <div id="main-wrapper">
+      <div class="corner-container">
+                  <img src="../admin/dashboard//images/logoooooo.png" >
+                  <style>
+                    .corner-container {
+                        position: fixed; /* Position fixe pour que le logo reste fixe lors du défilement */
+                        top: 0; /* Distance depuis le haut */
+                        left: 70px; /* Distance depuis la gauche */
+                        z-index: 9999; /* Assure que le logo est au-dessus de tout le contenu */
+                    }
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-        <div class="nav-header">
-            <div class="brand-logo">
-                <a href="index.html">
-                    <b class="logo-abbr"><img src="assetsback/images/logo.png" alt=""> </b>
-                    <span class="logo-compact"><img src=".assetsback/images/logo-compact.png" alt=""></span>
-                    <span class="brand-title">
-                        <img src="assetsback/images/logo-text.png" alt="">
-                    </span>
-                </a>
-            </div>
-        </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
+                    .corner-container img {
+                        width: 90px; /* Largeur minimale du logo */
+                        top: 0; /* Distance depuis le haut */
 
-        <!--**********************************
-            Header start
-        ***********************************-->
+                        height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
+                    }
+                  </style>
+        </div> 
         <div class="header">    
             <div class="header-content clearfix">
                 
@@ -79,7 +65,7 @@ $listeComments = $commentC->listComments();
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
                         </div>
-                        <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
+                        <input type="search" class="form-control" placeholder="Search ../admin/dashboard/" aria-label="Search ../admin/dashboard/">
                         <div class="drop-down   d-md-none">
 							<form action="#">
 								<input type="text" class="form-control" placeholder="Search">
@@ -102,7 +88,7 @@ $listeComments = $commentC->listComments();
                                     <ul>
                                         <li class="notification-unread">
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="assetsback/images/avatar/1.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="images/avatar/1.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Saiful Islam</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -110,36 +96,8 @@ $listeComments = $commentC->listComments();
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="notification-unread">
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="assetsback/images/avatar/2.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Adam Smith</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Can you do me a favour?</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="assetsback/images/avatar/3.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Barak Obama</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="assetsback/images/avatar/4.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Hilari Clinton</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hello</div>
-                                                </div>
-                                            </a>
-                                        </li>
+                                    
+
                                     </ul>
                                     
                                 </div>
@@ -165,71 +123,30 @@ $listeComments = $commentC->listComments();
                                                 </div>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Event Started</h6>
-                                                    <span class="notification-text">One hour ago</span> 
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Event Ended Successfully</h6>
-                                                    <span class="notification-text">One hour ago</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Events to Join</h6>
-                                                    <span class="notification-text">After two days</span> 
-                                                </div>
-                                            </a>
-                                        </li>
                                     </ul>
                                     
-                                </div>
-                            </div>
-                        </li>
-                        <li class="icons dropdown d-none d-md-flex">
-                            <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-                                <span>English</span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
-                            </a>
-                            <div class="drop-down dropdown-language animated fadeIn  dropdown-menu">
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li><a href="javascript:void()">English</a></li>
-                                        <li><a href="javascript:void()">Dutch</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </li>
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                                 <span class="activity active"></span>
-                                <img src="images/user/1.png" height="40" width="40" alt="">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" height="40" width="40" alt="">
                             </div>
-                            <div class="drop-down dropdown-profile   dropdown-menu">
+                            <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="http://localhost/web/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li>
-                                            <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill badge-primary">3</div></a>
+                                            <a href="javascript:void()">
+                                                <i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill gradient-1">3</div>
+                                            </a>
                                         </li>
                                         
                                         <hr class="my-2">
-                                        <li>
-                                            <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                        </li>
-                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="http://localhost/web/final/back/viewProfil/aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -238,13 +155,6 @@ $listeComments = $commentC->listComments();
                 </div>
             </div>
         </div>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
         <div class="nk-sidebar">           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
@@ -254,242 +164,153 @@ $listeComments = $commentC->listComments();
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./index.html">Home 1</a></li>
+                            <li><a href="http://localhost/web/view/admin/afficher.php">Acceuil</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
-                    <li class="mega-menu mega-menu-sm">
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./layout-blank.html">Blank</a></li>
-                            <li><a href="./layout-one-column.html">One Column</a></li>
-                            <li><a href="./layout-two-column.html">Two column</a></li>
-                            <li><a href="./layout-compact-nav.html">Compact Nav</a></li>
-                            <li><a href="./layout-vertical.html">Vertical</a></li>
-                            <li><a href="./layout-horizontal.html">Horizontal</a></li>
-                            <li><a href="./layout-boxed.html">Boxed</a></li>
-                            <li><a href="./layout-wide.html">Wide</a></li>
-                            
-                            
-                            <li><a href="./layout-fixed-header.html">Fixed Header</a></li>
-                            <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Apps</li>
+                    <li class="nav-label">Statestique</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-envelope menu-icon"></i> <span class="nav-text">Email</span>
+                            <i class="icon-graph menu-icon"></i> <span class="nav-text">statestique</span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./email-inbox.html">Inbox</a></li>
-                            <li><a href="./email-read.html">Read</a></li>
-                            <li><a href="./email-compose.html">Compose</a></li>
+                        <ul aria-expanded="false" >
+                            <li>                
+                                <a href="http://localhost/web/view/etudiant/statestique.php">
+                                    <i class="icon-graph menu-icon"></i> Etudiant
+                                </a>
+                            </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-flotOffres.php">
+                                    <i class="icon-graph menu-icon"></i> offre
+                                </a>
+                            </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-flot.php">
+                                    <i class="icon-graph menu-icon"></i>demande
+                                </a>
+                            </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-morris.php">
+                                    <i class="icon-graph menu-icon"></i>Entretien
+                                </a>
+                            </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Profile</a></li>
-                            <li><a href="./app-calender.html">Calender</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Flot</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">UI Components</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-grid menu-icon"></i><span class="nav-text">UI Components</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.html">Accordion</a></li>
-                            <li><a href="./ui-alert.html">Alert</a></li>
-                            <li><a href="./ui-badge.html">Badge</a></li>
-                            <li><a href="./ui-button.html">Button</a></li>
-                            <li><a href="./ui-button-group.html">Button Group</a></li>
-                            <li><a href="./ui-cards.html">Cards</a></li>
-                            <li><a href="./ui-carousel.html">Carousel</a></li>
-                            <li><a href="./ui-dropdown.html">Dropdown</a></li>
-                            <li><a href="./ui-list-group.html">List Group</a></li>
-                            <li><a href="./ui-media-object.html">Media Object</a></li>
-                            <li><a href="./ui-modal.html">Modal</a></li>
-                            <li><a href="./ui-pagination.html">Pagination</a></li>
-                            <li><a href="./ui-popover.html">Popover</a></li>
-                            <li><a href="./ui-progressbar.html">Progressbar</a></li>
-                            <li><a href="./ui-tab.html">Tab</a></li>
-                            <li><a href="./ui-typography.html">Typography</a></li>
-                        <!-- </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-layers menu-icon"></i><span class="nav-text">Components</span>
-                        </a>
-                        <ul aria-expanded="false"> -->
-                            <li><a href="./uc-nestedable.html">Nestedable</a></li>
-                            <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
-                            <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
-                            <li><a href="./uc-toastr.html">Toastr</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="widgets.html" aria-expanded="false">
-                            <i class="icon-badge menu-icon"></i><span class="nav-text">Widget</span>
-                        </a>
-                    </li>
-                    <li class="nav-label">Forms</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-basic.html">Basic Form</a></li>
-                            <li><a href="./form-validation.html">Form Validation</a></li>
-                            <li><a href="./form-step.html">Step Form</a></li>
-                            <li><a href="./form-editor.html">Editor</a></li>
-                            <li><a href="./form-picker.html">Picker</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Tables</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-menu menu-icon"></i><span class="nav-text">Tables</span>
-                            </ul>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./table-basic.html" aria-expanded="false">Gestion De Blog</a></li>
-                            
-                        </ul>
-                            
-                        </ul>
+                       
                     </li>
 
+                    <li class="nav-label">Gestion Utilisateurs</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Utilisateurs</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion Evenement</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListEvenement.php" aria-expanded="false">Tableau Evenement</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListCategorieevn.php" aria-expanded="false">Tableau Categorie</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion Reclamation</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Reclamation</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../reclam_blog/listerecruteur.php" aria-expanded="false">Tableau Reclamation</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="../reclam_blog/listereponse.php" aria-expanded="false">Tableau reponse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion Blog</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Blog</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/reclam_blog/ListePostss.php" aria-expanded="false">Tableau commentaire</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/reclam_blog/ListePosts.php" aria-expanded="false">Tableau Post</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion offre&demande</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">offre&demande</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../offre_test/back end/table-basicOffre.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                        
+                    </li>
+                    <li class="nav-label">Gestion Entretien</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Entretien</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../offre_test/back end/table-basic.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                        
+                    </li>
+
+                </ul>
             </div>
         </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-
-        <!--**********************************
-            Content body start
-        ***********************************-->
-    
-
 
         <div class="content-body">
-    <div class="row page-titles mx-0">
-        <div class="col-lg-6">
-            <div class="card" style="width: 1230px;">
-                <div class="card-body">
-                    <h4 class="card-title">Table Blag </h4>
-                    <div class="Table Offres">
-                        <table class="table header-border">
-
-<br>
-                        <form method="GET" action="ListePostss.php">
-    <!-- First form for sorting by age -->
-    <input type="hidden" name="sorting_type" value="age">
-    <label for="tri">Trier commentaires:</label>
-    <select  style="margin-left: 10px;" name="tri" id="tri">
-        <option value="asc">Ascendant</option>
-        <option value="desc">Descendant</option>
-    </select>
-    
-    <button  style="margin-left: 10px;" type="submit">Trier</button>
-    
-</form>
-
-                            <thead>
-                                <tr>
-                                    <th>ID Post</th>
-                                    <th>Titre</th>
-                                    <th>Contenu</th>
-                                    <th>Auteur</th>
-                                    <th>Date de publication</th>
-                                    <th>Tags</th>
-                                    <th>Likes</th>
-                                    <th>Dislikes</th>
-                                    <th>Commentaires</th>
-                                    <th>Image</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach($liste as $post): ?>
-                                    <tr>
-                                        <td><?= $post['ID_Post']; ?></td>
-                                        <td><?= $post['Titre']; ?></td>
-                                        <td><?= $post['Contenu']; ?></td>
-                                        <td><?= $post['Auteur']; ?></td>
-                                        <td><?= $post['Date_Publication']; ?></td>
-                                        <td><?= $post['Tags']; ?></td>
-                                        <td><?= $post['Likes']; ?></td>
-                                        <td><?= $post['Dislikes']; ?></td>
-                                        <td><?= $post['Commentaires']; ?></td>
-                                        <td><img src="../Images/<?= $post['Image']; ?>" alt="Image du Post" width="100%"></td>
-                                        <td><a href="UpdatePost.php?ID_Post=<?= $post['ID_Post']; ?>" class="lien2">Update</a></td>
-                                        <td><a href="DeletePost.php?id=<?= $post['ID_Post']; ?>" class="lien2">Delete</a></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <a href="AddPost.php" class="lien2">Add</a> <!-- Add link outside the table -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row page-titles mx-0">
-        <div class="col-lg-6">
-            <div class="card" style="width: 1230px;">
-                <div class="card-body">
-                    <h4 class="card-title">Liste des Commentaires</h4>
-                    <div class="Table Offres">
-                        <div class="Table Offres smaller-table-container"> 
-                        <table class="table header-border">
-                            <thead>
-                                <tr>
-                                    <th>ID Commentaire</th>
-                                    <th>ID Post</th>
-                                    <th>Contenu</th>
-                                    <th>Auteur</th>
-                                    <th>Date de publication</th>
-                                    <th>Likes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach($listeComments as $comment): ?>
-                                    <tr>
-                                        <td><?= $comment['ID_Comment']; ?></td>
-                                        <td><?= $comment['ID_Post']; ?></td>
-                                        <td><?= $comment['Contenu']; ?></td>
-                                        <td><?= $comment['Pseudo']; ?></td>
-                                        <td><?= $comment['Date_Publication']; ?></td>
-                                        <td><?= $comment['Likes']; ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+            <div class="row page-titles mx-0">
+                <div class="col-lg-6">
+                    <div class="card" style="width: 1230px;">
+                        <div class="card-body">
+                            <h4 class="card-title">Liste des Commentaires</h4>
+                            <div class="Table Offres">
+                                <div class="Table Offres smaller-table-container"> 
+                                <table class="table header-border">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Commentaire</th>
+                                            <th>ID Post</th>
+                                            <th>Contenu</th>
+                                            <th>Auteur</th>
+                                            <th>Date de publication</th>
+                                            <th>Likes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($listeComments as $comment): ?>
+                                            <tr>
+                                                <td><?= $comment['ID_Comment']; ?></td>
+                                                <td><?= $comment['ID_Post']; ?></td>
+                                                <td><?= $comment['Contenu']; ?></td>
+                                                <td><?= $comment['Pseudo']; ?></td>
+                                                <td><?= $comment['Date_Publication']; ?></td>
+                                                <td><?= $comment['Likes']; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </div>
 </div>
 

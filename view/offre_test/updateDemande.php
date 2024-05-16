@@ -1,6 +1,6 @@
 <?php
-include '../controller/DemandeC.php';
-require '../vendor/autoload.php';
+include 'C:/xampp/htdocs/web/controller/DemandeC.php';
+require '../offre_test/vendor/autoload.php';
 
 $error = "";
 $success_message = "";
@@ -50,7 +50,7 @@ if (
             $_POST["status_d"]
         );
         $demandeC->updateDemande($demande, $_POST["id_d"]);
-        header('http://localhost/integfy/view/back%20end/table-basicOffre.php');
+        header('http://localhost/web/view/back%20end/table-basicOffre.php');
     } else {
         $error = "Missing information";
     }
@@ -132,7 +132,7 @@ if (
 
 <body>
     <div class="container">
-        <button><a href="http://localhost/integfy/view/back%20end/table-basicOffre.php">Retour à la liste</a></button>
+        <button><a href="back end/table-basicOffre.php">Retour à la liste</a></button>
         
 
         <div id="error">
@@ -172,10 +172,10 @@ if (
                     </tr>
                     <tr>
                         <td><label for="cv_d">cv_d:</label></td>
-                        <td><input type="text" name="cv_d" id="cv_d" value="<?php echo $demande['cv_d']; ?>" maxlength="255"></td>
+                        <td><input type="file" name="cv_d" id="cv_d" value="<?php echo $demande['cv_d']; ?>" maxlength="255"></td>
                     
                         <td><label for="lettre_motivation">lettre_motivation:</label></td>
-                        <td><input type="text" name="lettre_motivation" id="lettre_motivation" value="<?php echo $demande['lettre_motivation']; ?>" maxlength="255"></td>
+                        <td><input type="file" name="lettre_motivation" id="lettre_motivation" value="<?php echo $demande['lettre_motivation']; ?>" maxlength="255"></td>
                     </tr>
                     <tr>
                         <td><label for="id_o">id_o:</label></td>

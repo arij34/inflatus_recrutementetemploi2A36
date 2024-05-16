@@ -1,5 +1,5 @@
 <html>
-    <head><link rel="stylesheet" href="../CSS/StyleAdd.css"/></head>
+    <head><link rel="stylesheet" href="CSS/StyleAdd.css"/></head>
     <script>
 function validerForm() {
     var titre = document.getElementById("Titre").value;
@@ -41,7 +41,7 @@ function validerForm() {
     return true;
 }
 </script>
-<form action="../View/AddPost.php" method="post" enctype="multipart/form-data" onsubmit="return validerForm()">
+<form action="AddPost.php" method="post" enctype="multipart/form-data" onsubmit="return validerForm()">
 <table>
     <tr>
         <td><label for="Titre">Titre : </label></td>
@@ -71,7 +71,7 @@ function validerForm() {
 </form>
 </html>
 <?php
-include "../contrller/PostC.php";
+include 'C:/xampp/htdocs/web/controller/PostC.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Titre = $_POST['Titre'];
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Image = $_FILES['Image'];
 
     if ($Image['error'] === UPLOAD_ERR_OK) {
-        $target_path = "../Images/";
+        $target_path = "Images/";
 
         $target_file = $target_path . basename($Image['name']);
 
@@ -98,6 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Erreur lors du téléchargement du fichier.";
     }
-    header('location:ListePostss.php');
+    header('location:Blog.php');
 }
 ?>

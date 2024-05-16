@@ -1,5 +1,5 @@
 <?php
-include 'C:\xampp\htdocs\web\view\front end\connexion.php';
+include 'C:\xampp\htdocs\web\view\offre_test\front end\connexion.php';
 include 'C:\xampp\htdocs\web\model\entretien.php';
 require_once 'C:\xampp\htdocs\web\controller\testC.php';
 

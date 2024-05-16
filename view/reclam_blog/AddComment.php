@@ -1,6 +1,6 @@
 <?php
-include_once '../contrller/CommentC.php';
-include_once '../contrller/PostC.php';
+include 'C:/xampp/htdocs/web/controller/PostC.php';
+include 'C:/xampp/htdocs/web/controller/CommentC.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ID_Post = isset($_POST['ID_Post']) ? $_POST['ID_Post'] : null;

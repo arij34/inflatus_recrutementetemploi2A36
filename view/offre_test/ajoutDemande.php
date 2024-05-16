@@ -631,16 +631,11 @@ body {
         </div>
                 </div>
                 <div class="form-inputs">
-                    <div class="input-box">
-                        <select class="input-field" name="status_d">
-                            <option value="" disabled selected hidden> Status</option>
-                            <option value="envoyee">envoyée</option>
-                            <option value="en_attente">en attente</option>
-                            <option value="acceptee">acceptée</option>
-                            <option value="refusee">refusée</option>
-                        </select> 
+                        <div class="input-box">
+                            <input type="text" class="input-field" name="status_d" value="envoyee" readonly>
+                        </div>
                     </div>
-                </div>              
+         
                 <div class="form-inputs">    
                     <div class="input-box">
                         <button type="submit" name="envoyer" class="input-submit">

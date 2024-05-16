@@ -1,6 +1,6 @@
 <?php
-include '../contrller/CommentC.php';
-include '../contrller/PostC.php';
+include 'C:/xampp/htdocs/web/controller/PostC.php';
+include 'C:/xampp/htdocs/web/controller/CommentC.php';
 
 $commentID = $_GET['id'];
 

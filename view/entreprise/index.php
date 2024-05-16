@@ -107,12 +107,12 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Acceuil</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
               <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
               <li class="scroll-to-section"><a href="#yomna">Entretien</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
               <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/reclam_blog/bot.php" class="active">Chatbot</a></li> 
               <li class="scroll-to-section"><a href="http://localhost/web/view/entreprise/afficherProfil.php" class="active">Profile</a></li> 
               <li style ="margin-top:0.8%;">
               <div>

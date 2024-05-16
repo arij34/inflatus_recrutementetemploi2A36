@@ -1,6 +1,6 @@
 <?php
-include_once '../contrller/PostC.php';
-include_once '../contrller/CommentC.php';
+include 'C:/xampp/htdocs/web/controller/PostC.php';
+include_once 'C:/xampp/htdocs/web/controller/CommentC.php';
 
 if(isset($_GET['id'])) {
     $postID = $_GET['id'];
@@ -15,12 +15,12 @@ if(isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $postDetails['Titre']; ?></title>
-    <link rel="stylesheet" href="../view/cssgb/post.css">
+    <link rel="stylesheet" href="cssgb/post.css">
 </head>
 <body>
 <button onclick="redirectToBlog()" class="back-btn">Retour</button>
     <div class="container">
-        <img src="../Images/<?= $postDetails['Image']; ?>" class="post-image">
+        <img src="Images/<?= $postDetails['Image']; ?>" class="post-image">
         <h1 class="post-title"><?= $postDetails['Titre']; ?></h1>
         <p class="post-content"><?= $postDetails['Contenu']; ?></p>
         <div class="post-info">

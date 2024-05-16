@@ -586,17 +586,11 @@ body {
                     <input type="text" class="input-field" placeholder="contact"  name="contact">
                 </div>
             </div>
-            <div class="form-inputs">
-                <div class="input-box">
-                    <select class="input-field" name="status_o" >
-                        <option value="" disabled selected hidden>status_o</option>
-                        <option value="Ouverte">Ouverte</option>
-                        <option value="Fermée">Fermée</option>
-                        <option value="En cours">En cours</option>
-                        <!-- Add more options as needed -->
-                    </select>
-                </div>
-            </div>
+                <div class="form-inputs">
+                        <div class="input-box">
+                            <input type="text" class="input-field" name="status_o" value="ouverte" readonly>
+                        </div>
+                    </div>
             <div class="form-inputs">    
                 <div class="input-box">
                     <button type="submit" name="envoyer" class="input-submit">

@@ -1,6 +1,6 @@
 <?php
 // connecting to database using PDO
-$dsn = 'mysql:host=localhost;dbname=kaouther';
+$dsn = 'mysql:host=localhost;dbname=khadamni';
 $username = 'root';
 $password = '';
 

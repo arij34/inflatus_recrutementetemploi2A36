@@ -25,17 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $error = "Erreur lors de la mise à jour de la demande.";
             }
         }
-    } elseif (isset($_POST["supprimer"])) {
-        $id_d = $_POST['id_d'] ?? '';
-        $result = $demandeC->deleteDemande($id_d);
-        if ($result) {
-            $success_message = "Demande supprimée avec succès.";
-            // Redirection uniquement en cas de succès de la suppression
-            header("Location: profilEtudiantD.php?idEtudiant=$idEtudiant");
-            exit();
-        } else {
-            $error = "Erreur lors de la suppression de la demande.";
-        }
     }
 }
 ?>
@@ -230,9 +219,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card">
                         <div class="card-body">
                             <div class="mt-3">
-                    <?php
+                            <?php
                     // Afficher toutes les demandes de l'étudiant
                     foreach ($demandes as $demande) {
+                        // Récupérer le domaine informatique
+                        $domaine_informatique_test = $demandeC->getNomDomaine($demande['id_o']);
                     ?>
                         <form method="POST" action="" enctype="multipart/form-data">
                             <input type="hidden" name="id_d" value="<?php echo $demande['id_d']; ?>">
@@ -274,16 +265,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
                                     <button class="btn btn-primary px-4" type="submit" name="modifier">Modifier</button>
-                                    <button class="btn btn-danger px-4" type="submit" name="supprimer">Supprimer</button>
+                                    <button id="testButton" class="btn btn-primary px-4" type="button" name="test">Test</button>
                                 </div>
                             </div>
-                           
-                            
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    var testButton = document.getElementById("testButton");
+                                    testButton.addEventListener("click", function(event) {
+                                        // Prevent the default button behavior
+                                        event.preventDefault();
+                                        // Get the value of status_d
+                                        var status_d = document.querySelector("input[name='status_d']").value.trim();
+                                        // Check if status_d is "acceptee"
+                                        if (status_d === "acceptee") {
+                                            // Redirect the user to another page
+                                            // Utilisez PHP pour encoder l'URL
+                                            var domaine_informatique_test = "<?php echo urlencode($domaine_informatique_test); ?>";
+                                            window.location.href = "../offre_test/front end/register.php?domaine=" + domaine_informatique_test;
+                                        } else {
+                                            // Show an alert
+                                            alert("Status is not 'acceptee'.");
+                                        }
+                                    });
+                                });
+                            </script>
+
                         </form>
                         <hr>
                     <?php
                     }
                     ?>
+
 
                     <?php
                     // Afficher les messages de succès ou d'erreur
@@ -314,6 +326,9 @@ function afficherListeParticipations() {
     listeParticipations.style.display = "block";
 }
 </script>
+
+
+
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 

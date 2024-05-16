@@ -92,7 +92,7 @@ if (isset($_POST['id_dom'])) {
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-              <li class="scroll-to-section"><a href="http://localhost/web/view/entreprise/index.php" >Acceuil</a></li>
+              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php" >Acceuil</a></li>
               <li class="scroll-to-section"><a href="#services" class="active">Offres&demandes</a></li>
               <li class="scroll-to-section"><a href="#yomna">Entretien</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
@@ -121,7 +121,7 @@ if (isset($_POST['id_dom'])) {
   
     <div class="input-box" style="display: inline-block; margin-right: 20px;">
     <select name="id_dom" class="input-field select-field" required>
-    <option value="" disabled selected hidden>id_dom</option>
+    <option value="" disabled selected hidden></option>
     <?php foreach ($liste as $domaine) : ?>
         <option value="<?= $domaine['id_dom'] ?>"><?= $domaine['id_dom'] ?></option>
     <?php endforeach; ?>
@@ -191,10 +191,6 @@ if (isset($_POST['id_dom'])) {
                                 </div>
 
                                     &nbsp;&nbsp;
-
-                                    <div >
-                                    <a href="./front end/register.php?id_dom=<?= $offre['id_dom'] ?>" class="main-blue-button test-link">Test</a>
-                                    </div>
                                 </div>
                                 &nbsp;&nbsp;
                             </div>

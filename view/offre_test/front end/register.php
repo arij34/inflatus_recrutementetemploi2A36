@@ -1,9 +1,10 @@
 <?php
-require_once 'C:\xampp\htdocs\integfy\controller\testC.php';
-require_once 'C:\xampp\htdocs\integfy\controller\entretienC.php';
+require_once 'C:\xampp\htdocs\web\controller\testC.php';
+require_once 'C:\xampp\htdocs\web\controller\entretienC.php';
 $TestC = new TestC();
-
+$user=null;
 $error = "";
+
 
 if (
     isset($_POST["email_test"]) &&
@@ -29,21 +30,21 @@ if (
 
         echo '<script>alert("Utilisateur ajouté avec succès.");</script>';
         // Redirect to the quiz.html page
-        if ($_POST['domaine_informatique_test'] == 'web') {
+        if ($_POST['domaine_informatique_test'] == 'Développement web') {
             // Redirect to quiz.php
-            header("Location: http://localhost/integfy/view/front%20end/quiz.php");
+            header("Location: http://localhost/web/view/offre_test/view/front%20end/quiz.php");
             exit;
-        } elseif ($_POST['domaine_informatique_test'] == 'mobile') {
+        } elseif ($_POST['domaine_informatique_test'] == 'Développement mobile') {
             // Redirect to quiz2.php
-            header("Location: http://localhost/integfy/view/front%20end/quiz2.php");
+            header("Location: http://localhost/web/view/offre_test/front%20end/quiz2.php");
             exit;
-        }  elseif ($_POST['domaine_informatique_test'] == 'data') {
+        }  elseif ($_POST['domaine_informatique_test'] == 'Science informatique') {
             // Redirect to quiz2.php
-            header("Location: http://localhost/integfy/view/front%20end/quiz3.php");
+            header("Location: http://localhost/web/view/offre_test/front%20end/quiz3.php");
             exit;
-        }  elseif ($_POST['domaine_informatique_test'] == 'security') {
+        }  elseif ($_POST['domaine_informatique_test'] == 'Securité informatique') {
             // Redirect to quiz2.php
-            header("Location: http://localhost/integfy/view/front%20end/quiz4.php");
+            header("Location: http://localhost/web/view/offre_test/front%20end/quiz4.php");
             exit;
         } else {
             // Do nothing if the condition doesn't match
@@ -116,6 +117,7 @@ if (
 }
 ?>
 
+
 <html>
 <html lang="en">
 <head>
@@ -185,13 +187,15 @@ if (
                 <!-- ***** Logo End ***** -->
                 <!-- ***** Menu Start ***** -->
                 <ul class="nav">
-                  <li class="scroll-to-section"><a href="index.php">Acceuil</a></li>
-                  <li class="scroll-to-section"><a href="#about"></a></li>
+                <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php">Acceuil</a></li>
                   <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
-                  <li class="scroll-to-section"><a href="#portfolio" class="active">Entretien</a></li>
-                  <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
-                  <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
-                  <li class="scroll-to-section"><div class="main-red-button"><a href="C:\Users\21628\OneDrive\Desktop\projet_web\loginn\loginn\Untitled-1.html">Se connecter</a></div></li> 
+                <li class="scroll-to-section"><a href="#yomna" class="active">Entretien</a></li>
+                <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
+                <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
+                <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
+                <li class="scroll-to-section"><a href="http://localhost/web/view/reclam_blog/bot.php">Chatbot</a></li> 
+                <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php">Profile</a></li> 
+                <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active"></a></li> 
                 </ul>        
                 <a class='menu-trigger'>
                     <span>Menu</span>
@@ -523,18 +527,24 @@ body {
                             <span style="color:red" id="name_error"></span>
                         </div>
                     </div>
-                    <div class="form-inputs">
-                        <div class="input-box">
-                            <select class="input-field" id="domaine" name="domaine_informatique_test" style="width: 100%;">
-                                <option value="" disabled selected hidden> Domaine informatique</option>
-                                <option value="web">Développement Web</option>
-                                <option value="mobile">Développement Mobile</option>
-                                <option value="data">Science des Données</option>
-                                <option value="security">Sécurité Informatique</option>
-                            </select>
-                            <div id="domaine-error" class="error-message"></div>
+                    <?php
+                        if(isset($_GET['domaine_informatique_test'])) {
+                            $domaine_informatique_test= $_GET['domaine_informatique_test'];
+                            // Utilisez $id_o comme nécessaire dans votre page ajoutDemande.php
+                        } else {
+                            // Gérer le cas où id_o n'est pas défini dans l'URL
+                            $domaine_informatique_test = ''; // Initialisez la variable avec une valeur par défaut
+                        }
+                        ?>
+
+                        <div class="form-inputs">
+                            <div class="input-box">
+                                <input type="text" class="input-field" id="domaine_informatique_test" name="domaine_informatique_test"  value="<?= $domaine_informatique_test ?>" style="width: 100%;">
+                                <div id="domaine-error" class="error-message"></div>
+                            </div>
                         </div>
-                    </div>
+
+
                     <div class="form-inputs">
                         <input type="date" class="input-field" id="date" placeholder="Date de test" name="date_test" style="width: 100%;">
                         <span style="color:red" id="date_error" ></span>
@@ -606,6 +616,21 @@ body {
             date_error.innerHTML = "La date doit être aujourd'hui";
         } else {
             date_error.innerHTML = "";
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Récupérer le champ domaine_informatique_test
+        const domaineInput = document.getElementById('domaine_informatique_test');
+
+        // Récupérer la valeur de domaine_informatique_test depuis l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const domaine_informatique_test = urlParams.get('domaine_informatique_test');
+
+        // Définir la valeur du champ domaine_informatique_test
+        if (domaine_informatique_test) {
+            domaineInput.value = domaine_informatique_test;
         }
     });
 </script>

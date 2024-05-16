@@ -198,7 +198,7 @@ ini_set('display_errors', 1);
             <ul class="nav">
               <li class="scroll-to-section"><a href="http://localhost/web/view/entreprise/index.php" class="active">Acceuil</a></li>
               <li class="scroll-to-section"><a href="../evenement/profilentreprise.php?idE=<?php echo $idE; ?>">Evenement</a></li>
-              <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
+              <li class="scroll-to-section"><a href="../offre_test/profilEntrepriseO.php?idE=<?php echo $idE; ?>">Offres&demandes</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Entretien</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
               <li class="scroll-to-section"><a href="#contact">Reclamation</a></li>

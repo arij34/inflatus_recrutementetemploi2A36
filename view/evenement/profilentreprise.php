@@ -231,7 +231,7 @@ $list = $evenementC->getEvenementsByEntrepriseId($idE);
                                                         <td><?php echo $Evenement['dateEVN']; ?></td>
                                                         <td><?php echo $Evenement['idCategorieEVN']; ?></td>
                                                         <td>
-                                                            <form method="POST" action="updateEvenement.php">
+                                                            <form method="POST" action="update_front.php">
                                                                 <input type="hidden" value="<?php echo $Evenement['idEvenement']; ?>" name="idEvenement">
                                                                 <div class="d-flex justify-content-start">
                                                                     <button type="submit" class="btn btn-primary" style="font-weight: bold; font-size: 18px;" name="update">modifier</button>

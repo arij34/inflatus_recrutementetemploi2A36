@@ -175,7 +175,7 @@
             <a href="index.php" class="logo">
               <h4>
                 <div class="corner-container">
-                  <img src="Home/templatemo_562_space_dynamic/assets/images/logo.png" >
+                  <img src="assets/images/logo.png" >
                   <style>
                     .corner-container {
                         position: fixed; /* Position fixe pour que le logo reste fixe lors du défilement */
@@ -198,12 +198,15 @@
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php" class="active">Acceuil</a></li>
-              <li class="scroll-to-section"><a href="../evenement/profilEtud.php?idEtudiant=<?php echo $idEtudiant; ?>">Evenement</a></li>
-              <li class="scroll-to-section"><a href="../offre_test/profilEtudiantD.php?idEtudiant=<?php echo $idEtudiant; ?>">Offres&demandes</a></li>
+              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php">Acceuil</a></li>
+              <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
+              <li class="scroll-to-section"><a href="#yomna">Entretien</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
-              <li class="scroll-to-section" style="color:black;"><a href="#services">Reclamation</a></li> 
-              <li class="scroll-to-section" style="color:black;"><a href="#services"></a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/reclam_blog/listereclame.php">Reclamation</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/reclam_blog/bot.php">Chatbot</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active">Profile</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active"></a></li> 
 
             </ul>        
             <a class='menu-trigger'>

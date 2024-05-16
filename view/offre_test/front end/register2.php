@@ -1,6 +1,6 @@
 <?php
-require_once 'C:\xampp\htdocs\integfy\controller\testC.php';
-require_once 'C:\xampp\htdocs\integfy\controller\entretienC.php';
+require_once 'C:\xampp\htdocs\web\controller\testC.php';
+require_once 'C:\xampp\htdocs\web\controller\entretienC.php';
 
 $TestC = new TestC();
 $TestC2 = new TestC2();
@@ -147,13 +147,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- ***** Logo End ***** -->
                 <!-- ***** Menu Start ***** -->
                 <ul class="nav">
-                  <li class="scroll-to-section"><a href="index.php">Acceuil</a></li>
-                  <li class="scroll-to-section"><a href="#about"></a></li>
+                  <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php">Acceuil</a></li>
                   <li class="scroll-to-section"><a href="#services">Offres&demandes</a></li>
-                  <li class="scroll-to-section"><a href="#portfolio" class="active">Entretien</a></li>
-                  <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
-                  <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
-                  <li class="scroll-to-section"><div class="main-red-button"><a href="C:\Users\21628\OneDrive\Desktop\projet_web\loginn\loginn\Untitled-1.html">Se connecter</a></div></li> 
+              <li class="scroll-to-section"><a href="#yomna"  class="active">Entretien</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
+              <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
+              <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/reclam_blog/bot.php">Chatbot</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active">Profile</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active"></a></li> 
+
                 </ul>        
                 <a class='menu-trigger'>
                     <span>Menu</span>

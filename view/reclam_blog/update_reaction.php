@@ -1,5 +1,5 @@
 <?php
-include_once '../Controller/PostC.php';
+include 'C:/xampp/htdocs/web/controller/PostC.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ID_Post']) && isset($_POST['action'])) {
     $postID = $_POST['ID_Post'];

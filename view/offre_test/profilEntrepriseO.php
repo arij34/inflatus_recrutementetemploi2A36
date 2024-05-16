@@ -14,21 +14,30 @@ $success_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["modifier"])) {
-        $id_o = $_POST['id_o'] ?? '';
-        $type = $_POST["type"] ?? '';
-        $date_limite = $_POST["date_limite"] ?? '';
-        if (empty($id_o) || (empty($type) && empty($date_limite))) {
+    
+        $id_o=$_POST['id_o'] ?? '';
+        $titre = $_POST['titre'] ?? '';
+        $date_limite = $_POST['date_limite'] ?? '';
+        $status_o = $_POST['status_o'] ?? '';
+        
+
+        // Vérification des champs requis
+        if (empty($id_o) || empty($titre) || empty($date_limite) ||  empty($status_o) ) {
             $error = "Tous les champs doivent être remplis";
         } else {
-            $result = $offreC->updateOffre($id_o, $type, $date_limite);
+            $result = $offreC->updateOffre($id_o, $titre, $date_limite, $status_o);
             if ($result) {
+                $_SESSION['titre'] = $titre;
+                $_SESSION['date_limite'] = $date_limite;
+                $_SESSION['status_o'] = $status_o;
+                
+                // Affichage du message de succès
                 $success_message = "Modifications enregistrées avec succès.";
             } else {
-                $error = "Erreur lors de la mise à jour de la demande.";
+                // Affichage du message d'erreur
+                $error = "Aucune modification effectuée ou erreur lors de la mise à jour de l'offre.";
             }
         }
-    } elseif (isset($_POST["supprimer"])) {
-        // Le reste du code reste inchangé
     }
 }
 ?>
@@ -161,14 +170,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/index.php" >Acceuil</a></li>
-              <li class="scroll-to-section"><a href="#services"class="active">Offres&offres</a></li>
+              <li class="scroll-to-section"><a href="http://localhost/web/view/entreprise/index.php" >Acceuil</a></li>
+              <li class="scroll-to-section"><a href="#services"class="active">Offres&Demandes</a></li>
               <li class="scroll-to-section"><a href="#yomna">Entretien</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Evènement</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
               <li class="scroll-to-section"><a href="#contact">Reclamation</a></li> 
-              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active">Profile</a></li> 
-              <li class="scroll-to-section"><a href="http://localhost/web/view/etudiant/afficherProfil.php" class="active"></a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/entreprise/afficherProfil.php" class="active">Profile</a></li> 
+              <li class="scroll-to-section"><a href="http://localhost/web/view/entreprise/afficherProfil.php" class="active"></a></li> 
 
             </ul>        
             <a class='menu-trigger'>

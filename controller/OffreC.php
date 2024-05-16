@@ -83,9 +83,6 @@ class OffreC
       }
   }
   
-  
-    
-
     function deleteOffre($id_o)
     {
         $sql = "DELETE FROM offre WHERE id_o = :id_o";
@@ -130,30 +127,37 @@ class OffreC
     }
     
 
-    function updateOffre($id_o, $type, $date_limite)
-    {
-        try {
-            $db = config::getConnexion();
-            $query = $db->prepare(
-                'UPDATE offre SET 
-                type_o = :type_o, 
-                date_limite = :date_limite 
-                WHERE id_o = :id_o'
-            );
-    
-            $query->execute([
-                'id_o' => $id_o,
-                'type_o' => $type,
-                'date_limite' => $date_limite
-            ]);
-    
-            return $query->rowCount() > 0; // Retourne true si au moins une ligne a été mise à jour
-        } catch (PDOException $e) {
-            // Gérer les erreurs ici
-            echo 'Error: ' . $e->getMessage();
-            return false; // Retourne false en cas d'erreur
+    function updateOffre($id_o, $titre, $date_limite, $status_o)
+{
+    try {
+        $db = config::getConnexion();
+        $query = $db->prepare(
+            'UPDATE offre SET 
+            titre = :titre, 
+            date_limite = :date_limite,
+            status_o = :status_o
+            WHERE id_o = :id_o'
+        );
+
+        $query->execute([
+            'id_o' => $id_o,
+            'titre' => $titre,
+            'date_limite' => $date_limite,
+            'status_o' => $status_o
+        ]);
+
+        if ($query->rowCount() > 0) {
+            return true; // Retourne true si au moins une ligne a été mise à jour
+        } else {
+            return false; // Retourne false si aucune ligne n'a été mise à jour
         }
+    } catch (PDOException $e) {
+        // Vous pouvez choisir de gérer l'erreur différemment ici
+        // Par exemple, en lançant une exception ou en retournant un message d'erreur
+        die('Error: ' . $e->getMessage());
     }
+}
+
 
 
     function showOffre($id_o)

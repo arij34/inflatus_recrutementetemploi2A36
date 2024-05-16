@@ -1,6 +1,6 @@
 <?php
-include '../Controller/PostC.php';
-include '../Controller/CommentC.php';
+include 'C:/xampp/htdocs/web/controller/PostC.php';
+include 'C:/xampp/htdocs/web/controller/CommentC.php';
 $PostC=new PostC();
 $liste=$PostC->listPosts();
 $commentC = new CommentC();
@@ -8,376 +8,371 @@ $listeComments = $commentC->listComments();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Gestion Blog</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
-  </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KHADAMNI-dashboard/</title>
+    <!-- Pignose Calender -->
+    <link href="../admin/dashboard//plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="../admin/dashboard//plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="../admin/dashboard//plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <!-- Custom Stylesheet -->
+    <link href="../admin/dashboard//css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
         </div>
-        <ul class="nav">
-          <li class="nav-item profile">
-            <div class="profile-desc">
-              <div class="profile-pic">
-                <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
-                  <span class="count bg-success"></span>
+    </div>
+    <div id="main-wrapper">
+      <div class="corner-container">
+                  <img src="../admin/dashboard//images/logoooooo.png" >
+                  <style>
+                    .corner-container {
+                        position: fixed; /* Position fixe pour que le logo reste fixe lors du défilement */
+                        top: 0; /* Distance depuis le haut */
+                        left: 70px; /* Distance depuis la gauche */
+                        z-index: 9999; /* Assure que le logo est au-dessus de tout le contenu */
+                    }
+
+                    .corner-container img {
+                        width: 90px; /* Largeur minimale du logo */
+                        top: 0; /* Distance depuis le haut */
+
+                        height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
+                    }
+                  </style>
+        </div> 
+        <div class="header">    
+            <div class="header-content clearfix">
+                
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
                 </div>
-                <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">cheker hassan</h5>
-                  <span>cheker hassan</span>
+                <div class="header-left">
+                    <div class="input-group icons">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                        </div>
+                        <input type="search" class="form-control" placeholder="Search ../admin/dashboard/" aria-label="Search ../admin/dashboard/">
+                        <div class="drop-down   d-md-none">
+							<form action="#">
+								<input type="text" class="form-control" placeholder="Search">
+							</form>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              
-              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
-              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
-                <a href="#" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-settings text-primary"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-onepassword  text-info"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-calendar-today text-success"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
-                  </div>
-                </a>
-              </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-email-outline"></i>
+                                <span class="badge gradient-1 badge-pill badge-primary">3</span>
+                            </a>
+                            <div class="drop-down animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-heading d-flex justify-content-between">
+                                    <span class="">3 New Messages</span>  
+                                    
+                                </div>
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li class="notification-unread">
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="images/avatar/1.jpg" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Saiful Islam</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    
+
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-bell-outline"></i>
+                                <span class="badge badge-pill gradient-2 badge-primary">3</span>
+                            </a>
+                            <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
+                                <div class="dropdown-content-heading d-flex justify-content-between">
+                                    <span class="">2 New Notifications</span>  
+                                    
+                                </div>
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void()">
+                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
+                                                <div class="notification-content">
+                                                    <h6 class="notification-heading">Events near you</h6>
+                                                    <span class="notification-text">Within next 5 days</span> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" height="40" width="40" alt="">
+                            </div>
+                            <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <a href="http://localhost/web/view/admin/profil.php"><i class="icon-user"></i> <span>Profile</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void()">
+                                                <i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill gradient-1">3</div>
+                                            </a>
+                                        </li>
+                                        
+                                        <hr class="my-2">
+                                        <li><a href="http://localhost/web/final/back/viewProfil/aff.php"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </li>
-
-
-
-
-          <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
-          </li>
-
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="tablereclamation.php">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
-              <span class="menu-title">table reclamation</span>
-            </a>
-          </li>
-  
-   
- 
-       
- 
-      
-        </ul>
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_navbar.html -->
-        <nav class="navbar p-0 fixed-top d-flex flex-row">
-          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
-          </div>
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-              <span class="mdi mdi-menu"></span>
-            </button>
-            <ul class="navbar-nav w-100">
-              <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
-              </li>
-            </ul>
-            <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
-                  <h6 class="p-3 mb-0">Projects</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-file-outline text-primary"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Software Development</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-web text-info"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">UI Development</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-layers text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Software Testing</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">See all projects</p>
-                </div>
-              </li>
-              <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" href="#">
-                  <i class="mdi mdi-view-grid"></i>
-                </a>
-              </li>
-              <li class="nav-item dropdown border-left">
-                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                  <i class="mdi mdi-email"></i>
-                  <span class="count bg-success"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                  <h6 class="p-3 mb-0">Messages</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
-                      <p class="text-muted mb-0"> 1 Minutes ago </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face2.jpg" alt="image" class="rounded-circle profile-pic">
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
-                      <p class="text-muted mb-0"> 15 Minutes ago </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face3.jpg" alt="image" class="rounded-circle profile-pic">
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
-                      <p class="text-muted mb-0"> 18 Minutes ago </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">4 new messages</p>
-                </div>
-              </li>
-              <li class="nav-item dropdown border-left">
-                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-bell"></i>
-                  <span class="count bg-danger"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                  <h6 class="p-3 mb-0">Notifications</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-calendar text-success"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Event today</p>
-                      <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-settings text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Settings</p>
-                      <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-link-variant text-warning"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Launch Admin</p>
-                      <p class="text-muted ellipsis mb-0"> New admin wow! </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">See all notifications</p>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                  <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Yassine Ayache</p>
-                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                  </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                  <h6 class="p-3 mb-0">Profile</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-settings text-success"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Settings</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-logout text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">Advanced settings</p>
-                </div>
-              </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-              <span class="mdi mdi-format-line-spacing"></span>
-            </button>
-          </div>
-        </nav>
-        <div class="card">
-        <div class="card-body"><br>
-         </p>
-        <div class="table-responsive">
-            <h2>Liste des Posts</h2>
-        <table class="table">
-         <thead>
-            <tr>
-                <th>ID Post</th>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>Auteur</th>
-                <th>Date de publication</th>
-                <th>Tags</th>
-                <th>Likes</th>
-                <th>Dislikes</th>
-                <th>Commentaires</th>
-                <th>Image</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <?php
-            foreach($liste as $post){
-            ?>
-            <tbody>
-            <tr>
-                <td><?= $post['ID_Post'];?></td>
-                <td><?= $post['Titre'];?></td>
-                <td><?= $post['Contenu'];?></td>
-                <td><?= $post['Auteur'];?></td>
-                <td><?= $post['Date_Publication'];?></td>
-                <td><?= $post['Tags'];?></td>
-                <td><?= $post['Likes'];?></td>
-                <td><?= $post['Dislikes'];?></td>
-                <td><?= $post['Commentaires'];?></td>
-                <td><img src="../Images/<?=$post['Image'];?>" alt="Image du Post" width="100%"></td>
-
-                <td><a href="UpdatePost.php?ID_Post=<?= $post['ID_Post']; ?>" class="lien2">Update</a></td>
-                <td><a href="DeletePost.php?id=<?= $post['ID_Post'];?> " class="lien2">Delete</a></td>
-            </tr>
-            </tbody>
-            <?php }?>
-            <td><a href="AddPost.php" class="lien2">Add</a></td>
-            </table>
-            <h2>Liste des Commentaires</h2>
-        <table class="table">
-         <thead>
-            <tr>
-                <th>ID Commentaire</th>
-                <th>ID Post</th>
-                <th>Contenu</th>
-                <th>Auteur</th>
-                <th>Date de publication</th>
-                <th>Likes</th>
-            </tr>
-            </thead>
-            <?php foreach($listeComments as $comment): ?>
-            <tbody>
-            <tr>
-                <td><?= $comment['ID_Comment']; ?></td>
-                <td><?= $comment['ID_Post']; ?></td>
-                <td><?= $comment['Contenu']; ?></td>
-                <td><?= $comment['Pseudo']; ?></td>
-                <td><?= $comment['Date_Publication']; ?></td>
-                <td><?= $comment['Likes']; ?></td>
-            </tr>
-            </tbody>
-            <?php endforeach; ?>
-        </table>
         </div>
-                  </div>
-                </div>
-              </div>
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label">Dashboard</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/admin/afficher.php">Acceuil</a></li>
+                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-label">Statestique</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-graph menu-icon"></i> <span class="nav-text">statestique</span>
+                        </a>
+                        <ul aria-expanded="false" >
+                            <li>                
+                                <a href="http://localhost/web/view/etudiant/statestique.php">
+                                    <i class="icon-graph menu-icon"></i> Etudiant
+                                </a>
+                            </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-flotOffres.php">
+                                    <i class="icon-graph menu-icon"></i> offre
+                                </a>
+                            </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-flot.php">
+                                    <i class="icon-graph menu-icon"></i>demande
+                                </a>
+                            </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-morris.php">
+                                    <i class="icon-graph menu-icon"></i>Entretien
+                                </a>
+                            </li>
+                        </ul>
+                       
+                    </li>
+
+                    <li class="nav-label">Gestion Utilisateurs</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Utilisateurs</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableau Entreprise</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/etudiant/afficher.php" aria-expanded="false">Tableau Etudiant</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion Evenement</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListEvenement.php" aria-expanded="false">Tableau Evenement</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/ListCategorieevn.php" aria-expanded="false">Tableau Categorie</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/evenement/listeParticipation.php" aria-expanded="false">Tableau Participation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion Reclamation</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Reclamation</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../reclam_blog/listerecruteur.php" aria-expanded="false">Tableau Reclamation</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="../reclam_blog/listereponse.php" aria-expanded="false">Tableau reponse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion Blog</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Blog</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/reclam_blog/ListePostss.php" aria-expanded="false">Tableau commentaire</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/reclam_blog/ListePosts.php" aria-expanded="false">Tableau Post</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Gestion offre&demande</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">offre&demande</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../offre_test/back end/table-basicOffre.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                        
+                    </li>
+                    <li class="nav-label">Gestion Entretien</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Entretien</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../offre_test/back end/table-basic.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                        
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="content-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card" style="width: 1000px; left: 10%; top: 2%">
+                            <div class="card-body" >
+                                <h4 class="card-title">Tableau Post</h4>
+                                <div class="active-member">
+                                    <div class="table-responsive">
+                                    <table class="table table-xs mb-0">
+                                      <form method="GET" action="http://localhost/web/view/reclam_blog/ListePosts.php">
+                                        <!-- First form for sorting by age -->
+                                        <input type="hidden" name="sorting_type" value="age">
+                                        <label for="tri">Trier commentaires:</label>
+                                        <select  style="margin-left: 10px;" name="tri" id="tri">
+                                            <option value="asc">Ascendant</option>
+                                            <option value="desc">Descendant</option>
+                                        </select>
+                                        
+                                        <button  style="margin-left: 10px;" type="submit">Trier</button>
               
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/todolist.js"></script>
-  </body>
+                                      </form>
+                                      <thead>
+                                          <tr>
+                                              <th>ID Post</th>
+                                              <th>Titre</th>
+                                              <th>Contenu</th>
+                                              <th>Auteur</th>
+                                              <th>Date de publication</th>
+                                              <th>Tags</th>
+                                              <th>Likes</th>
+                                              <th>Dislikes</th>
+                                              <th>Commentaires</th>
+                                              <th>Image</th>
+                                              <th>Update</th>
+                                              <th>Delete</th>
+                                          </tr>
+                                          </thead>
+                                          <?php
+                                          foreach($liste as $post){
+                                          ?>
+                                          <tbody>
+                                            <tr>
+                                                <td><?= $post['ID_Post'];?></td>
+                                                <td><?= $post['Titre'];?></td>
+                                                <td><?= $post['Contenu'];?></td>
+                                                <td><?= $post['Auteur'];?></td>
+                                                <td><?= $post['Date_Publication'];?></td>
+                                                <td><?= $post['Tags'];?></td>
+                                                <td><?= $post['Likes'];?></td>
+                                                <td><?= $post['Dislikes'];?></td>
+                                                <td><?= $post['Commentaires'];?></td>
+                                                <td><img src="../Images/<?=$post['Image'];?>" alt="Image du Post" width="100%"></td>
+
+                                                <td><a href="UpdatePost.php?ID_Post=<?= $post['ID_Post']; ?>" class="btn btn-success btn-sm btn-icon"> <i class="fa fa-pencil"></i></a></td>
+                                                <td><a href="DeletePost.php?id=<?= $post['ID_Post'];?> " class="btn btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></a></td>
+                                            </tr>
+                                          </tbody>
+                                          <?php }?>
+                                          </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            <!-- #/ container -->
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; Designed & Developed by KHADEMNI</a> 2024</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../admin/dashboard//plugins/common/common.min.js"></script>
+    <script src="../admin/dashboard//js/custom.min.js"></script>
+    <script src="../admin/dashboard//js/settings.js"></script>
+    <script src="../admin/dashboard//js/gleek.js"></script>
+    <script src="../admin/dashboard//js/styleSwitcher.js"></script>
+
+    <!-- Chartjs -->
+    <script src="../admin/dashboard//plugins/chart.js/Chart.bundle.min.js"></script>
+    <!-- Circle progress -->
+    <script src="../admin/dashboard//plugins/circle-progress/circle-progress.min.js"></script>
+    <!-- Datamap -->
+    <script src="../admin/dashboard//plugins/d3v3/index.js"></script>
+    <script src="../admin/dashboard//plugins/topojson/topojson.min.js"></script>
+    <script src="../admin/dashboard//plugins/datamaps/datamaps.world.min.js"></script>
+    <!-- Morrisjs -->
+    <script src="../admin/dashboard//plugins/raphael/raphael.min.js"></script>
+    <script src="../admin/dashboard//plugins/morris/morris.min.js"></script>
+    <!-- Pignose Calender -->
+    <script src="../admin/dashboard//plugins/moment/moment.min.js"></script>
+    <script src="../admin/dashboard//plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+    <!-- ChartistJS -->
+    <script src="../admin/dashboard//plugins/chartist/js/chartist.min.js"></script>
+    <script src="../admin/dashboard//plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+
+
+
+    <script src="../admin/dashboard/js/dashboard/dashboard-1.js"></script>
+
+</body>
 </html>

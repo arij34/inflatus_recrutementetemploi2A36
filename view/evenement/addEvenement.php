@@ -58,7 +58,7 @@ if (
             $idEntreprise, // Utiliser l'ID de l'entreprise
         );
         $evenementC->addEvenement($evenement);
-        header('Location:profilentreprise.php');
+        header("Location: profilentreprise.php?idE={$_SESSION['idE']}");
         exit(); // Terminer le script après la redirection
     } else {
         $error = "Missing information";

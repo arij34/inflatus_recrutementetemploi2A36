@@ -215,27 +215,23 @@ if ($users) {
                                     <i class="icon-graph menu-icon"></i> Etudiant
                                 </a>
                             </li>
-                        </ul>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i> <span class="nav-text">statestique</span>
-                        </a>
-                        <ul aria-expanded="false" >
                             <li>                
                                 <a href="../offre_test/back end/chart-flotOffres.php">
                                     <i class="icon-graph menu-icon"></i> offre
                                 </a>
                             </li>
-                        </ul>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i> <span class="nav-text">statestique</span>
-                        </a>
-                        <ul aria-expanded="false" >
                             <li>                
                                 <a href="../offre_test/back end/chart-flot.php">
                                     <i class="icon-graph menu-icon"></i>demande
                                 </a>
                             </li>
+                            <li>                
+                                <a href="../offre_test/back end/chart-morris.php">
+                                    <i class="icon-graph menu-icon"></i>Entretien
+                                </a>
+                            </li>
                         </ul>
+                       
                     </li>
 
                     <li class="nav-label">Gestion Utilisateurs</li>
@@ -283,7 +279,10 @@ if ($users) {
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Gestion Blog</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="http://localhost/web/view/entreprise/table.php" aria-expanded="false">Tableaux</a></li>
+                            <li><a href="http://localhost/web/view/reclam_blog/ListePostss.php" aria-expanded="false">Tableau commentaire</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="http://localhost/web/view/reclam_blog/ListePosts.php" aria-expanded="false">Tableau Post</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Gestion offre&demande</li>
@@ -296,6 +295,17 @@ if ($users) {
                         </ul>
                         
                     </li>
+                    <li class="nav-label">Gestion Entretien</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Entretien</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../offre_test/back end/table-basic.php" aria-expanded="false">Tableaux</a></li>
+                        </ul>
+                        
+                    </li>
+
                 </ul>
             </div>
         </div>
